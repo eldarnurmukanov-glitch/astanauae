@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  MARSA AL SAADIYAT — Astana Real Estate landing page (with images)
+  Deploy at: astanauae.com/marsasaadiyat
+  Upload TOGETHER, keeping the structure:
+    /marsasaadiyat/index.html
+    /marsasaadiyat/marsa_images/renders/*.jpg
+    /marsasaadiyat/marsa_images/og_image_1200x630.jpg
+
+  REPLACE BEFORE PUBLISHING:
+  1. "971000000000"        -> your WhatsApp number (digits only, no +)
+  2. "info@astanauae.com"  -> confirm agency email
+  3. "ADREC Licence No. ______" -> your brokerage licence number (footer)
+  4. Form opens WhatsApp with a prefilled message. To pipe leads into a CRM instead,
+     wire submitLead() to your endpoint (Formspree, Bitrix24, HubSpot).
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marsa Al Saadiyat — Off-Plan Waterfront Residences | Astana Real Estate, Abu Dhabi</title>
+<meta name="description" content="Marsa Al Saadiyat by Aldar — the final masterplan on Saadiyat Island. 8 km waterfront, Abu Dhabi's largest marina, mansions, villas, apartments and branded residences. Register interest with Astana Real Estate.">
+<meta property="og:title" content="Marsa Al Saadiyat — The Last Chapter on Saadiyat Island">
+<meta property="og:description" content="744 ha, 8 km of waterfront, 18,000+ residences and Abu Dhabi's largest marina. Register interest for the first releases with Astana Real Estate.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://eldarnurmukanov-glitch.github.io/astanauae/marsasaadiyat/">
+<meta property="og:image" content="https://eldarnurmukanov-glitch.github.io/astanauae/marsasaadiyat/marsa_images/og_image_1200x630.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#071a2e;
+    --ink-2:#0a2340;
+    --ink-3:#051222;
+    --teal:#2fd6cf;
+    --teal-soft:#8fe6e2;
+    --paper:#f4f9fa;
+    --mist:#9db4c4;
+    --line:rgba(159,196,210,.18);
+    --maxw:1120px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Montserrat',system-ui,-apple-system,sans-serif;
+    font-size:16px;line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:var(--teal);text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+
+  .display{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:.01em}
+  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--teal)}
+  .lede{color:var(--mist);max-width:58ch}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:50;background:rgba(7,26,46,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
+  .brand{display:flex;flex-direction:column;line-height:1.15}
+  .brand b{font-size:13px;letter-spacing:.24em;font-weight:700;color:var(--paper)}
+  .brand span{font-size:9px;letter-spacing:.3em;color:var(--mist);text-transform:uppercase}
+  .nav-right{display:flex;align-items:center;gap:12px}
+  .lang{display:flex;border:1px solid var(--line);border-radius:3px;overflow:hidden}
+  .lang button{background:none;border:0;color:var(--mist);cursor:pointer;font:600 11px 'Montserrat',sans-serif;letter-spacing:.12em;padding:7px 11px}
+  .lang button.on{background:var(--teal);color:var(--ink)}
+  .btn{display:inline-block;border-radius:3px;cursor:pointer;font:600 12px/1 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:15px 26px;transition:opacity .2s,transform .2s;text-align:center;border:0}
+  .btn:hover{opacity:.88;transform:translateY(-1px)}
+  .btn-solid{background:var(--teal);color:var(--ink)}
+  .btn-ghost{border:1px solid rgba(244,249,250,.45);color:var(--paper)}
+  .btn-nav{padding:11px 16px}
+
+  /* hero — dusk aerial with navy overlay; falls back to gradient if image absent */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      linear-gradient(180deg, rgba(7,26,46,.62) 0%, rgba(7,26,46,.55) 45%, rgba(7,26,46,.9) 100%),
+      url('marsa_images/renders/03_aerial_dusk.jpg') center/cover no-repeat,
+      linear-gradient(170deg, #0a2c47 0%, var(--ink) 58%, #041019 100%);
+  }
+  .hero-in{position:relative;z-index:1;padding:104px 0 84px;text-align:center}
+  .hero h1{font-size:clamp(44px,8.5vw,86px);margin:20px 0 6px;color:#fff;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+  .hero .sub{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(19px,3.4vw,28px);color:var(--teal-soft)}
+  .laurels{display:flex;justify-content:center;flex-wrap:wrap;margin:34px auto 30px;max-width:640px}
+  .laurels span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#c7d8e2;padding:6px 18px;position:relative}
+  .laurels span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);height:16px;width:1px;background:rgba(199,216,226,.35)}
+  .hero .lede{margin:0 auto 36px;color:#d5e2ea}
+  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* stat strip */
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--ink-2)}
+  .stats-in{display:grid;grid-template-columns:repeat(3,1fr)}
+  .stat{padding:30px 12px;text-align:center;border-right:1px solid var(--line)}
+  .stat:nth-child(3n){border-right:0}
+  .stat:nth-child(-n+3){border-bottom:1px solid var(--line)}
+  .stat b{display:block;font:600 clamp(26px,4vw,38px)/1 'Montserrat',sans-serif;color:var(--teal);letter-spacing:.01em}
+  .stat b i{font-style:normal;font-size:.5em;vertical-align:.5em;letter-spacing:.08em}
+  .stat small{display:block;margin-top:9px;font-size:9.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--mist)}
+  @media(min-width:760px){
+    .stats-in{grid-template-columns:repeat(6,1fr)}
+    .stat{border-bottom:0 !important}
+    .stat:nth-child(3n){border-right:1px solid var(--line)}
+    .stat:last-child{border-right:0}
+  }
+
+  section{padding:84px 0}
+  .sec-head{max-width:680px;margin-bottom:46px}
+  .sec-head h2{font-size:clamp(28px,4.6vw,42px);margin:14px 0 16px;color:#fff}
+
+  .band-img{border:1px solid var(--line);margin-bottom:46px}
+  .band-img img{width:100%;aspect-ratio:16/7;object-fit:cover}
+
+  /* highlight cards with photos */
+  .grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+  .grid>div{background:var(--ink)}
+  .card-img{aspect-ratio:16/10;overflow:hidden;background:var(--ink-2)}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+  .grid>div:hover .card-img img{transform:scale(1.04)}
+  .card-body{padding:26px 24px 30px}
+  .card-body h3{font:600 13px/1.5 'Montserrat',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:12px}
+  .card-body p{font-size:14.5px;color:var(--mist)}
+  @media(min-width:700px){.g3{grid-template-columns:repeat(3,1fr)}}
+
+  /* residences */
+  .res{background:var(--ink-2)}
+  .res-row{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
+  @media(min-width:700px){.res-row{grid-template-columns:repeat(4,1fr)}}
+  .res-row>div{background:var(--ink-2);padding:34px 24px}
+  .res-row .display{font-size:21px;color:#fff;margin-bottom:10px}
+  .res-row p{font-size:13.5px;color:var(--mist)}
+
+  /* why */
+  .why-item{display:grid;grid-template-columns:1fr;gap:6px;padding:26px 0;border-bottom:1px solid var(--line)}
+  .why-item:first-of-type{border-top:1px solid var(--line)}
+  .why-item h3{font:600 14px 'Montserrat',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:#fff}
+  .why-item p{color:var(--mist);font-size:15px;max-width:70ch}
+  @media(min-width:820px){.why-item{grid-template-columns:280px 1fr;gap:30px}}
+
+  /* gallery */
+  .gallery{display:grid;gap:14px;grid-template-columns:1fr}
+  @media(min-width:640px){.gallery{grid-template-columns:1fr 1fr}}
+  .gallery figure{border:1px solid var(--line);overflow:hidden;margin:0}
+  .gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .5s}
+  .gallery figure:hover img{transform:scale(1.03)}
+
+  /* astana */
+  .about{background:var(--ink-2)}
+  .about .lede{max-width:72ch}
+  .about-points{display:grid;gap:26px;margin-top:38px}
+  @media(min-width:760px){.about-points{grid-template-columns:repeat(3,1fr)}}
+  .about-points h3{font:600 12.5px 'Montserrat',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+  .about-points p{font-size:14px;color:var(--mist)}
+
+  /* enquiry — water texture backdrop */
+  .enquiry{
+    background:
+      linear-gradient(180deg, rgba(7,26,46,.88), rgba(7,26,46,.94)),
+      url('marsa_images/renders/01_water_texture.jpg') center/cover no-repeat,
+      var(--ink);
+  }
+  .form-card{border:1px solid var(--line);background:rgba(10,35,64,.92);padding:40px 30px;max-width:640px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--mist);margin-bottom:8px}
+  .field input,.field select{width:100%;background:var(--ink);border:1px solid var(--line);border-radius:3px;color:var(--paper);font:400 15px 'Montserrat',sans-serif;padding:13px 14px;outline:none}
+  .field input:focus,.field select:focus{border-color:var(--teal)}
+  .form-note{font-size:12.5px;color:var(--mist);margin-top:14px}
+  .form-ok{display:none;margin-top:14px;color:var(--teal);font-size:14px}
+
+  footer{background:var(--ink-3);border-top:1px solid var(--line);padding:46px 0 90px}
+  footer .brand{margin-bottom:18px}
+  .fine{font-size:11.5px;line-height:1.8;color:#5f7789;max-width:88ch}
+  .fine a{color:#7fa0b2}
+
+  .wa{position:fixed;right:18px;bottom:18px;z-index:60;width:54px;height:54px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+  .wa svg{width:28px;height:28px;fill:#fff}
+
+  :focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto}
+    .btn:hover{transform:none}
+    .card-img img,.gallery img{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <b>ASTANA REAL ESTATE</b>
+      <span data-i18n="brandTag">Abu Dhabi · Aldar partner agency</span>
+    </div>
+    <div class="nav-right">
+      <div class="lang" role="group" aria-label="Language">
+        <button id="lang-en" class="on" onclick="setLang('en')">EN</button>
+        <button id="lang-ru" onclick="setLang('ru')">RU</button>
+      </div>
+      <a class="btn btn-solid btn-nav" href="#enquire" data-i18n="navCta">Enquire</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-in">
+    <div class="eyebrow" data-i18n="heroEyebrow">Saadiyat Island · Abu Dhabi · A development by Aldar</div>
+    <h1 class="display">Marsa Al Saadiyat</h1>
+    <div class="sub" data-i18n="heroSub">The last chapter on Saadiyat Island</div>
+    <div class="laurels">
+      <span data-i18n="l1">Unrivalled views</span>
+      <span data-i18n="l2">Pristine coastline</span>
+      <span data-i18n="l3">Waterfront homes</span>
+    </div>
+    <p class="lede" data-i18n="heroLede">A 744-hectare coastal district along 8 km of shoreline — anchored by Abu Dhabi's largest marina, a Frank Gehry-designed cultural venue and the capital's museum district. Off-plan mansions, villas, waterfront apartments and branded residences.</p>
+    <div class="hero-cta">
+      <a class="btn btn-solid" href="#enquire" data-i18n="heroCta1">Request brochure &amp; prices</a>
+      <a class="btn btn-ghost" href="https://wa.me/971000000000?text=Hello%2C%20I%27m%20interested%20in%20Marsa%20Al%20Saadiyat" data-i18n="heroCta2">WhatsApp us</a>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="wrap stats-in">
+    <div class="stat"><b>744<i data-i18n="uHa">HA</i></b><small data-i18n="s1">Total site area</small></div>
+    <div class="stat"><b>8<i data-i18n="uKm">KM</i></b><small data-i18n="s2">Waterfront</small></div>
+    <div class="stat"><b>18,000+</b><small data-i18n="s3">Residences</small></div>
+    <div class="stat"><b>350+</b><small data-i18n="s4">Marina berths</small></div>
+    <div class="stat"><b>129<i data-i18n="uHa2">HA</i></b><small data-i18n="s5">Green open space</small></div>
+    <div class="stat"><b>3.8<i data-i18n="uMsqm">M M²</i></b><small data-i18n="s6">Total GFA</small></div>
+  </div>
+</div>
+
+<!-- OVERVIEW -->
+<section id="district">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="ovEyebrow">The district</div>
+      <h2 class="display" data-i18n="ovTitle">Saadiyat's final large-scale release</h2>
+      <p class="lede" data-i18n="ovBody">Marsa Al Saadiyat is Aldar's closing masterplan on Saadiyat Island: a coastal destination built around a 177,000 m² marina, a 1 km dining promenade and 5.6 km of beachfront — minutes from Louvre Abu Dhabi, the Guggenheim, Zayed National Museum and NYU Abu Dhabi.</p>
+    </div>
+    <div class="band-img"><img src="marsa_images/renders/02_aerial_day.jpg" alt="Marsa Al Saadiyat masterplan aerial" onerror="this.parentElement.style.display='none'"></div>
+    <div class="grid g3">
+      <div>
+        <div class="card-img"><img src="marsa_images/renders/05_marina.jpg" alt="Marina" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="card-body"><h3 data-i18n="h1t">Largest marina in Abu Dhabi</h3><p data-i18n="h1b">177,000 m² with over 350 berths, from sailing boats to superyachts, lined with waterfront restaurants and a yacht club.</p></div>
+      </div>
+      <div>
+        <div class="card-img"><img src="marsa_images/renders/06_dar_al_funoon.jpg" alt="Dar Al Funoon" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="card-body"><h3 data-i18n="h2t">Dar Al Funoon</h3><p data-i18n="h2b">A 6,000+ seat Frank Gehry-designed venue for musicals, live productions and international performances.</p></div>
+      </div>
+      <div>
+        <div class="card-img"><img src="marsa_images/renders/07_promenade_beach.jpg" alt="Waterfront promenade" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="card-body"><h3 data-i18n="h3t">Promenade &amp; beach</h3><p data-i18n="h3b">A 1 km waterfront promenade with restaurants and leisure, a beach club and 5.6 km of beachfront.</p></div>
+      </div>
+      <div>
+        <div class="card-img"><img src="marsa_images/renders/08_education_cycling.jpg" alt="Schools" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="card-body"><h3 data-i18n="h4t">Education &amp; care</h3><p data-i18n="h4b">3 schools, 6 nurseries and 2 clinics within the district; Cranleigh and NYU Abu Dhabi close by on Saadiyat.</p></div>
+      </div>
+      <div>
+        <div class="card-img"><img src="marsa_images/renders/14_district_map.jpg" alt="District map" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="card-body"><h3 data-i18n="h5t">Connected living</h3><p data-i18n="h5b">46 km of cycling tracks, 140 km of walking trails and a future Etihad Rail station linking Abu Dhabi and beyond.</p></div>
+      </div>
+      <div>
+        <div class="card-img"><img src="marsa_images/renders/12_sunset_park.jpg" alt="Parks" loading="lazy" onerror="this.style.display='none'"></div>
+        <div class="card-body"><h3 data-i18n="h6t">Green by design</h3><p data-i18n="h6b">A 73,800 m² central park and 129 ha of open space, with neighbourhood parks and landscaped corridors.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESIDENCES -->
+<section class="res" id="residences">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="resEyebrow">Residences</div>
+      <h2 class="display" data-i18n="resTitle">From private mansions to branded residences</h2>
+    </div>
+    <div class="band-img"><img src="marsa_images/renders/09_villas_aerial.jpg" alt="Villa communities" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+    <div class="res-row">
+      <div><div class="display" data-i18n="r1t">Private mansions</div><p data-i18n="r1b">Ultra-prime waterfront plots for end users seeking legacy assets.</p></div>
+      <div><div class="display" data-i18n="r2t">Luxury villas</div><p data-i18n="r2b">Family homes within green corridors, parks and community facilities.</p></div>
+      <div><div class="display" data-i18n="r3t">Waterfront apartments</div><p data-i18n="r3b">Marina and promenade addresses — the core rental and resale product.</p></div>
+      <div><div class="display" data-i18n="r4t">Branded residences</div><p data-i18n="r4b">Hotel-branded living with services, at the top of the price ladder.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section id="why">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="whyEyebrow">The investment case</div>
+      <h2 class="display" data-i18n="whyTitle">Why we are allocating clients here</h2>
+    </div>
+    <div class="why-item"><h3 data-i18n="w1t">Scarcity</h3><p data-i18n="w1b">This is positioned as the final large-scale masterplan on Saadiyat Island. When the island is built out, waterfront supply here does not repeat.</p></div>
+    <div class="why-item"><h3 data-i18n="w2t">Cultural anchor</h3><p data-i18n="w2b">Louvre Abu Dhabi is open; Guggenheim, Zayed National Museum and the Natural History Museum are transforming the island into a global cultural destination — a durable driver of end-user and rental demand.</p></div>
+    <div class="why-item"><h3 data-i18n="w3t">Real infrastructure</h3><p data-i18n="w3b">Marina, schools, clinics, retail and a future rail link mean genuine residents — not a purely speculative district.</p></div>
+    <div class="why-item"><h3 data-i18n="w4t">Developer &amp; access</h3><p data-i18n="w4b">Aldar is Abu Dhabi's listed master developer. Through our Aldar partnership, Astana Real Estate registers clients for launch allocations and shares unit types, prices and payment terms as they are released.</p></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="gEyebrow">Gallery</div>
+      <h2 class="display" data-i18n="gTitle">Life at Marsa Al Saadiyat</h2>
+    </div>
+    <div class="gallery">
+      <figure><img src="marsa_images/renders/13_wellness_club_night.jpg" alt="Waterfront wellness club" loading="lazy" onerror="this.parentElement.style.display='none'"></figure>
+      <figure><img src="marsa_images/renders/04_lifestyle_dining.jpg" alt="Poolside dining" loading="lazy" onerror="this.parentElement.style.display='none'"></figure>
+      <figure><img src="marsa_images/renders/10_community_park.jpg" alt="Community park" loading="lazy" onerror="this.parentElement.style.display='none'"></figure>
+      <figure><img src="marsa_images/renders/11_gazelles_biodiversity.jpg" alt="Saadiyat biodiversity" loading="lazy" onerror="this.parentElement.style.display='none'"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ASTANA -->
+<section class="about" id="astana">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Astana Real Estate</div>
+      <h2 class="display" data-i18n="abTitle">Your broker in Abu Dhabi</h2>
+      <p class="lede" data-i18n="abBody">Astana Real Estate LLC SPC is an Abu Dhabi-based brokerage advising private investors from Kazakhstan, the CIS and beyond. We work in Russian, Kazakh and English, and structure off-plan and portfolio acquisitions across Aldar and other tier-1 UAE developers.</p>
+    </div>
+    <div class="about-points">
+      <div><h3 data-i18n="ab1t">Launch access</h3><p data-i18n="ab1b">Direct developer partnerships, including Aldar — allocations at launch, not after.</p></div>
+      <div><h3 data-i18n="ab2t">Deal structuring</h3><p data-i18n="ab2b">POA for overseas buyers, ownership structuring, payments and handover — handled end to end.</p></div>
+      <div><h3 data-i18n="ab3t">Your language</h3><p data-i18n="ab3b">Full advisory in Russian, Kazakh and English — from first call to title deed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY -->
+<section class="enquiry" id="enquire">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow" data-i18n="enEyebrow">Register interest</div>
+      <h2 class="display" data-i18n="enTitle">Get the brochure and launch prices</h2>
+      <p class="lede" data-i18n="enBody">Leave your details — we will send the Marsa Al Saadiyat materials and contact you with unit types, prices and payment plans as Aldar releases them.</p>
+    </div>
+    <div class="form-card">
+      <div class="field"><label for="f-name" data-i18n="fName">Name</label><input id="f-name" type="text" autocomplete="name"></div>
+      <div class="field"><label for="f-phone" data-i18n="fPhone">Phone / WhatsApp</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="+971 / +7 ..."></div>
+      <div class="field"><label for="f-email" data-i18n="fEmail">Email (optional)</label><input id="f-email" type="email" autocomplete="email"></div>
+      <div class="field">
+        <label for="f-int" data-i18n="fInt">I'm interested in</label>
+        <select id="f-int">
+          <option data-i18n="o1">Waterfront apartment</option>
+          <option data-i18n="o2">Villa</option>
+          <option data-i18n="o3">Private mansion</option>
+          <option data-i18n="o4">Branded residence</option>
+          <option data-i18n="o5">Not sure yet — advise me</option>
+        </select>
+      </div>
+      <button class="btn btn-solid" style="width:100%" onclick="submitLead()" data-i18n="fBtn">Send via WhatsApp</button>
+      <div class="form-ok" id="form-ok" data-i18n="fOk">Opening WhatsApp — if it didn't open, write to us directly.</div>
+      <p class="form-note"><span data-i18n="fAlt">Prefer email?</span> <a href="mailto:info@astanauae.com?subject=Marsa%20Al%20Saadiyat%20enquiry">info@astanauae.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="brand">
+      <b>ASTANA REAL ESTATE</b>
+      <span data-i18n="brandTag2">Abu Dhabi · Aldar partner agency</span>
+    </div>
+    <p class="fine" data-i18n="fine1">Astana Real Estate LLC SPC — licensed real estate brokerage, Abu Dhabi, UAE. ADREC Licence No. ______. Marsa Al Saadiyat is a development by Aldar Properties PJSC; Astana Real Estate is an independent brokerage and is not the developer.</p>
+    <p class="fine" data-i18n="fine2">Project information, figures and imagery are based on developer marketing materials, are indicative only and subject to change by the developer. Renders are computer-generated. This page is not an offer; availability, prices and payment plans are confirmed at booking.</p>
+    <p class="fine">© <span id="yr"></span> Astana Real Estate LLC SPC · <a href="mailto:info@astanauae.com">info@astanauae.com</a> · <a href="https://wa.me/971000000000">WhatsApp</a> · <a href="marsa_images/renders/factsheet_full_01.jpg" target="_blank" data-i18n="ftFact">Factsheet</a></p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/971000000000?text=Hello%2C%20I%27m%20interested%20in%20Marsa%20Al%20Saadiyat" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.3c1.9 1 4 1.6 6.2 1.6h.5c6.6 0 12-5.3 12-11.9C30 8.3 24.6 3 16 3zm7 16.9c-.3.8-1.7 1.6-2.4 1.7-.6.1-1.4.2-2.3-.1-.5-.2-1.2-.4-2.1-.8-3.7-1.6-6.1-5.3-6.3-5.5-.2-.2-1.5-2-1.5-3.8s1-2.7 1.3-3.1c.3-.4.7-.5 1-.5h.7c.2 0 .5-.1.8.6.3.8 1.1 2.7 1.2 2.9.1.2.2.4 0 .7-.1.3-.2.4-.4.7l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.2.8-.1.2-.2 1-1.1 1.2-1.5.3-.4.5-.3.9-.2.4.1 2.2 1 2.6 1.2.4.2.6.3.7.5.1.1.1.8-.1 1.3z"/></svg>
+</a>
+
+<script>
+const I18N = {
+  en: {
+    brandTag:"Abu Dhabi · Aldar partner agency", brandTag2:"Abu Dhabi · Aldar partner agency",
+    navCta:"Enquire",
+    heroEyebrow:"Saadiyat Island · Abu Dhabi · A development by Aldar",
+    heroSub:"The last chapter on Saadiyat Island",
+    l1:"Unrivalled views", l2:"Pristine coastline", l3:"Waterfront homes",
+    heroLede:"A 744-hectare coastal district along 8 km of shoreline — anchored by Abu Dhabi's largest marina, a Frank Gehry-designed cultural venue and the capital's museum district. Off-plan mansions, villas, waterfront apartments and branded residences.",
+    heroCta1:"Request brochure & prices", heroCta2:"WhatsApp us",
+    uHa:"HA", uHa2:"HA", uKm:"KM", uMsqm:"M M²",
+    s1:"Total site area", s2:"Waterfront", s3:"Residences", s4:"Marina berths", s5:"Green open space", s6:"Total GFA",
+    ovEyebrow:"The district", ovTitle:"Saadiyat's final large-scale release",
+    ovBody:"Marsa Al Saadiyat is Aldar's closing masterplan on Saadiyat Island: a coastal destination built around a 177,000 m² marina, a 1 km dining promenade and 5.6 km of beachfront — minutes from Louvre Abu Dhabi, the Guggenheim, Zayed National Museum and NYU Abu Dhabi.",
+    h1t:"Largest marina in Abu Dhabi", h1b:"177,000 m² with over 350 berths, from sailing boats to superyachts, lined with waterfront restaurants and a yacht club.",
+    h2t:"Dar Al Funoon", h2b:"A 6,000+ seat Frank Gehry-designed venue for musicals, live productions and international performances.",
+    h3t:"Promenade & beach", h3b:"A 1 km waterfront promenade with restaurants and leisure, a beach club and 5.6 km of beachfront.",
+    h4t:"Education & care", h4b:"3 schools, 6 nurseries and 2 clinics within the district; Cranleigh and NYU Abu Dhabi close by on Saadiyat.",
+    h5t:"Connected living", h5b:"46 km of cycling tracks, 140 km of walking trails and a future Etihad Rail station linking Abu Dhabi and beyond.",
+    h6t:"Green by design", h6b:"A 73,800 m² central park and 129 ha of open space, with neighbourhood parks and landscaped corridors.",
+    resEyebrow:"Residences", resTitle:"From private mansions to branded residences",
+    r1t:"Private mansions", r1b:"Ultra-prime waterfront plots for end users seeking legacy assets.",
+    r2t:"Luxury villas", r2b:"Family homes within green corridors, parks and community facilities.",
+    r3t:"Waterfront apartments", r3b:"Marina and promenade addresses — the core rental and resale product.",
+    r4t:"Branded residences", r4b:"Hotel-branded living with services, at the top of the price ladder.",
+    whyEyebrow:"The investment case", whyTitle:"Why we are allocating clients here",
+    w1t:"Scarcity", w1b:"This is positioned as the final large-scale masterplan on Saadiyat Island. When the island is built out, waterfront supply here does not repeat.",
+    w2t:"Cultural anchor", w2b:"Louvre Abu Dhabi is open; Guggenheim, Zayed National Museum and the Natural History Museum are transforming the island into a global cultural destination — a durable driver of end-user and rental demand.",
+    w3t:"Real infrastructure", w3b:"Marina, schools, clinics, retail and a future rail link mean genuine residents — not a purely speculative district.",
+    w4t:"Developer & access", w4b:"Aldar is Abu Dhabi's listed master developer. Through our Aldar partnership, Astana Real Estate registers clients for launch allocations and shares unit types, prices and payment terms as they are released.",
+    gEyebrow:"Gallery", gTitle:"Life at Marsa Al Saadiyat",
+    abTitle:"Your broker in Abu Dhabi",
+    abBody:"Astana Real Estate LLC SPC is an Abu Dhabi-based brokerage advising private investors from Kazakhstan, the CIS and beyond. We work in Russian, Kazakh and English, and structure off-plan and portfolio acquisitions across Aldar and other tier-1 UAE developers.",
+    ab1t:"Launch access", ab1b:"Direct developer partnerships, including Aldar — allocations at launch, not after.",
+    ab2t:"Deal structuring", ab2b:"POA for overseas buyers, ownership structuring, payments and handover — handled end to end.",
+    ab3t:"Your language", ab3b:"Full advisory in Russian, Kazakh and English — from first call to title deed.",
+    enEyebrow:"Register interest", enTitle:"Get the brochure and launch prices",
+    enBody:"Leave your details — we will send the Marsa Al Saadiyat materials and contact you with unit types, prices and payment plans as Aldar releases them.",
+    fName:"Name", fPhone:"Phone / WhatsApp", fEmail:"Email (optional)", fInt:"I'm interested in",
+    o1:"Waterfront apartment", o2:"Villa", o3:"Private mansion", o4:"Branded residence", o5:"Not sure yet — advise me",
+    fBtn:"Send via WhatsApp", fOk:"Opening WhatsApp — if it didn't open, write to us directly.", fAlt:"Prefer email?",
+    fine1:"Astana Real Estate LLC SPC — licensed real estate brokerage, Abu Dhabi, UAE. ADREC Licence No. ______. Marsa Al Saadiyat is a development by Aldar Properties PJSC; Astana Real Estate is an independent brokerage and is not the developer.",
+    fine2:"Project information, figures and imagery are based on developer marketing materials, are indicative only and subject to change by the developer. Renders are computer-generated. This page is not an offer; availability, prices and payment plans are confirmed at booking.",
+    ftFact:"Factsheet",
+    waMsg:"Hello! Marsa Al Saadiyat enquiry.\nName: {name}\nPhone: {phone}\nEmail: {email}\nInterested in: {int}"
+  },
+  ru: {
+    brandTag:"Абу-Даби · партнёр Aldar", brandTag2:"Абу-Даби · партнёр Aldar",
+    navCta:"Заявка",
+    heroEyebrow:"Остров Саадият · Абу-Даби · Девелопер Aldar",
+    heroSub:"Финальная глава острова Саадият",
+    l1:"Панорамные виды", l2:"Первозданное побережье", l3:"Дома у воды",
+    heroLede:"Прибрежный район на 744 га вдоль 8 км береговой линии — с крупнейшей мариной Абу-Даби, культурным центром по проекту Фрэнка Гери и музейным кварталом столицы. Off-plan: особняки, виллы, апартаменты у воды и брендированные резиденции.",
+    heroCta1:"Получить брошюру и цены", heroCta2:"Написать в WhatsApp",
+    uHa:"ГА", uHa2:"ГА", uKm:"КМ", uMsqm:"МЛН М²",
+    s1:"Площадь района", s2:"Береговая линия", s3:"Резиденций", s4:"Причалов в марине", s5:"Зелёные зоны", s6:"Общая GFA",
+    ovEyebrow:"Район", ovTitle:"Последний крупный релиз Саадията",
+    ovBody:"Marsa Al Saadiyat — завершающий мастер-план Aldar на острове Саадият: прибрежный район вокруг марины 177 000 м², променада 1 км и 5,6 км пляжей — в нескольких минутах от Лувра Абу-Даби, Гуггенхайма, Национального музея Зайеда и NYU Abu Dhabi.",
+    h1t:"Крупнейшая марина Абу-Даби", h1b:"177 000 м², более 350 причалов — от парусных яхт до суперяхт, рестораны на набережной и яхт-клуб.",
+    h2t:"Dar Al Funoon", h2b:"Зал на 6 000+ мест по проекту Фрэнка Гери — мюзиклы, шоу и международные постановки.",
+    h3t:"Променад и пляжи", h3b:"Променад 1 км с ресторанами и досугом, пляжный клуб и 5,6 км пляжей.",
+    h4t:"Образование и медицина", h4b:"3 школы, 6 детских садов и 2 клиники в районе; рядом Cranleigh и NYU Abu Dhabi.",
+    h5t:"Транспорт и мобильность", h5b:"46 км велодорожек, 140 км пешеходных маршрутов и будущая станция Etihad Rail.",
+    h6t:"Зелёный по замыслу", h6b:"Центральный парк 73 800 м² и 129 га открытых пространств, парки и зелёные коридоры.",
+    resEyebrow:"Резиденции", resTitle:"От особняков до брендированных резиденций",
+    r1t:"Особняки", r1b:"Ультра-премиальные участки у воды — семейные активы на поколения.",
+    r2t:"Виллы", r2b:"Семейные дома среди зелёных коридоров, парков и инфраструктуры.",
+    r3t:"Апартаменты у воды", r3b:"Адреса у марины и променада — базовый продукт для аренды и перепродажи.",
+    r4t:"Брендированные резиденции", r4b:"Отельный сервис и управление — верх ценового диапазона.",
+    whyEyebrow:"Инвестиционная логика", whyTitle:"Почему мы заводим сюда клиентов",
+    w1t:"Дефицит", w1b:"Проект позиционируется как последний крупный мастер-план на Саадияте. Когда остров будет застроен, предложение у воды здесь не повторится.",
+    w2t:"Культурный якорь", w2b:"Лувр Абу-Даби уже открыт; Гуггенхайм, Национальный музей Зайеда и Музей естественной истории превращают остров в мировое культурное направление — устойчивый драйвер спроса на проживание и аренду.",
+    w3t:"Реальная инфраструктура", w3b:"Марина, школы, клиники, ритейл и будущая железная дорога — район для жизни, а не чисто спекулятивный продукт.",
+    w4t:"Девелопер и доступ", w4b:"Aldar — публичный мастер-девелопер Абу-Даби. Через партнёрство с Aldar мы регистрируем клиентов на первые релизы и передаём типы юнитов, цены и планы оплаты по мере их выхода.",
+    gEyebrow:"Галерея", gTitle:"Жизнь в Marsa Al Saadiyat",
+    abTitle:"Ваш брокер в Абу-Даби",
+    abBody:"Astana Real Estate LLC SPC — брокеридж в Абу-Даби, консультирующий частных инвесторов из Казахстана, СНГ и других стран. Работаем на русском, казахском и английском; структурируем off-plan и портфельные сделки с Aldar и другими девелоперами первого эшелона ОАЭ.",
+    ab1t:"Доступ к запускам", ab1b:"Прямые партнёрства с девелоперами, включая Aldar — аллокации на старте продаж.",
+    ab2t:"Структурирование сделки", ab2b:"Доверенности для покупателей за рубежом, структура владения, платежи и передача — под ключ.",
+    ab3t:"На вашем языке", ab3b:"Полное сопровождение на русском, казахском и английском — от первого звонка до title deed.",
+    enEyebrow:"Оставить заявку", enTitle:"Получить брошюру и стартовые цены",
+    enBody:"Оставьте контакты — вышлем материалы Marsa Al Saadiyat и свяжемся с типами юнитов, ценами и планами оплаты по мере релизов Aldar.",
+    fName:"Имя", fPhone:"Телефон / WhatsApp", fEmail:"Email (необязательно)", fInt:"Меня интересует",
+    o1:"Апартаменты у воды", o2:"Вилла", o3:"Особняк", o4:"Брендированная резиденция", o5:"Пока не решил — посоветуйте",
+    fBtn:"Отправить в WhatsApp", fOk:"Открываем WhatsApp — если не открылся, напишите нам напрямую.", fAlt:"Удобнее по почте?",
+    fine1:"Astana Real Estate LLC SPC — лицензированное брокерское агентство, Абу-Даби, ОАЭ. Лицензия ADREC № ______. Marsa Al Saadiyat — проект девелопера Aldar Properties PJSC; Astana Real Estate — независимое агентство, не девелопер.",
+    fine2:"Информация, цифры и изображения основаны на маркетинговых материалах девелопера, носят справочный характер и могут быть изменены. Визуализации сгенерированы на компьютере. Страница не является офертой; наличие, цены и планы оплаты подтверждаются при бронировании.",
+    ftFact:"Факт-шит",
+    waMsg:"Здравствуйте! Заявка по Marsa Al Saadiyat.\nИмя: {name}\nТелефон: {phone}\nEmail: {email}\nИнтересует: {int}"
+  }
+};
+
+let lang = 'en';
+function setLang(l){
+  lang = l;
+  document.documentElement.lang = l;
+  document.getElementById('lang-en').classList.toggle('on', l==='en');
+  document.getElementById('lang-ru').classList.toggle('on', l==='ru');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(I18N[l][k] !== undefined) el.innerHTML = I18N[l][k];
+  });
+}
+
+const WA_NUMBER = "971000000000"; /* REPLACE: digits only */
+function submitLead(){
+  const name  = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const email = document.getElementById('f-email').value.trim() || "—";
+  const intEl = document.getElementById('f-int');
+  const intr  = intEl.options[intEl.selectedIndex].text;
+  if(!name || !phone){
+    alert(lang==='ru' ? 'Укажите имя и телефон.' : 'Please add your name and phone.');
+    return;
+  }
+  const msg = I18N[lang].waMsg
+    .replace('{name}', name).replace('{phone}', phone)
+    .replace('{email}', email).replace('{int}', intr);
+  document.getElementById('form-ok').style.display = 'block';
+  window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+document.getElementById('yr').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
