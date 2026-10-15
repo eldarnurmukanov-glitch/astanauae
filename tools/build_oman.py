@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
 """Builds oman/index.html — Oman Residential Catalog (Autumn 2026).
 
-Edit DISTRICTS / PROJECTS below, then run:  python3 tools/build_oman.py
+Edit DISTRICTS / PROJECTS below (Russian text in tools/oman_ru.py), then run:
+    python3 tools/build_oman.py      -> oman/index.html (EN) and oman/ru/index.html (RU)
 Images live in oman/img/: p{page}-1..3.jpg per project (page = PDF page number),
 d-{district}.jpg per district banner.
 """
-import html, json, os, urllib.parse
+import html, json, os, re, sys, urllib.parse
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import oman_ru as ru  # noqa: E402
 
 WA = "971507369833"
 SITE = "https://eldarnurmukanov-glitch.github.io/astanauae/oman/"
@@ -167,11 +171,47 @@ PROJECTS = [
      ["pools with sun terraces", "private beach", "gym and spa", "medical wellness centre", "five-star hotel", "concierge", "shops and restaurants"]),
 ]
 
+UI_EN = {
+    "LANG": "en",
+    "TITLE": "Top Residential Developments in Oman — Autumn 2026 Catalog | Astana Real Estate",
+    "META_DESC": "35 residential projects in Muscat, its coastal districts and Salalah: Al Mouj, Sultan Haitham City, Yiti, Muscat Bay, Jebel Sifah and more. Prices from $105,000, payment plans and handover dates in one catalog.",
+    "OG_TITLE": "Top Residential Developments in Oman — Autumn 2026",
+    "OG_DESC": "35 projects in Muscat and Salalah. Prices, payment plans and handover dates — Astana Real Estate, Abu Dhabi.",
+    "BRAND_TAG": "Abu Dhabi · London · Muscat",
+    "EYEBROW": "Autumn 2026 · 35 projects",
+    "H1": "Top residential developments in Oman",
+    "LEDE": "Muscat, its coastal districts and Salalah. Prices, payment plans and handover dates in one catalog — from branded beachfront residences in Al Mouj to villas in the new Sultan Haitham City.",
+    "CTA_BROWSE": "Browse projects",
+    "CTA_PDF": "Download PDF",
+    "COVER_ALT": "Beachfront residential development on the Oman coast",
+    "ST_PROJECTS": "Projects", "ST_AREAS": "Areas", "ST_ENTRY": "Entry price", "ST_HANDOVER": "Handover",
+    "ARIA_TYPE": "Property type", "ARIA_SORT": "Sort",
+    "K_ALL": "All types", "K_APT": "Apartments &amp; studios", "K_VILLA": "Villas &amp; townhouses", "K_OFFICE": "Offices",
+    "S_DISTRICT": "By district", "S_ASC": "Price: low to high", "S_DESC": "Price: high to low",
+    "COUNT_INIT": "35 projects",
+    "COUNT_JS": "n => n + (n===1 ? ' project' : ' projects')",
+    "ALL": "All",
+    "AB_TITLE": "Your broker for the UAE and Oman",
+    "AB_BODY": "Astana Real Estate LLC SPC is an Abu Dhabi brokerage advising private investors from Kazakhstan, the CIS and beyond. We work directly with developers, structure the purchase end to end — POA, ownership, payments, handover — and stay with you from the first call to the title deed. Advisory in Russian, Kazakh and English.",
+    "CT_NAME": "Yeldar Nurmukanov",
+    "CT_ROLE": "Founder, Astana Real Estate",
+    "CT_OFFICE": "Office",
+    "CT_ADDR": "Office 105, Building P-121, Al Nahyan, Abu Dhabi, UAE<br>ADREC Broker No. 20250000737880",
+    "CT_BTN": "Discuss Oman property",
+    "FINE": "Prices, payment plans and handover dates are as published by the developers in autumn 2026 and may change. Astana Real Estate LLC SPC is an independent brokerage and is not the developer of any project in this catalog. Images are developer renders and photos.",
+    "WA_GENERAL": "Hello, I'd like to discuss property in Oman from your Autumn 2026 catalog.",
+    "WA_PROJECT": "Hello, I'm interested in {name} ({loc}, Oman) from your Oman catalog. Please send details.",
+    "ENQUIRE": "Enquire on WhatsApp",
+    "FROM": "from", "FROM_LABEL": "{label} from", "ON_REQUEST": "Price on request",
+    "PHOTO": "Photo",
+}
+
 e = html.escape
 
 
-def usd(n):
-    return f"${n:,.0f}"
+def usd(n, lang):
+    s = f"${n:,.0f}"
+    return s.replace(",", " ") if lang == "ru" else s
 
 
 def wa_link(text):
@@ -190,25 +230,35 @@ def kind(p):
     return " ".join(k)
 
 
-def card(p):
+def localize(p, lang):
+    """Project tuple with display text in the given language (kind() still reads the English type)."""
+    if lang == "en":
+        return p
     page, name, handover, dev, loc, dk, typ, prices, lead, desc, amen = p
+    typ_ru, lead_ru, desc_ru = ru.PROJECTS[page]
+    return (page, name, ru.HANDOVER[handover], dev, loc, dk, typ_ru,
+            [(ru.PRICE_LABEL.get(l, l), v) for l, v in prices], lead_ru, desc_ru, [ru.AMENITIES[a] for a in amen])
+
+
+def card(src, lang, ui, base):
+    page, name, handover, dev, loc, dk, typ, prices, lead, desc, amen = localize(src, lang)
     min_price = min((v for _, v in prices if v), default=0)
     price_html = []
     for label, v in prices:
         if v is None:
-            price_html.append('<span class="price">Price on request</span>')
+            price_html.append(f'<span class="price">{e(ui["ON_REQUEST"])}</span>')
         else:
-            lab = f'<small>{e(label)} from</small>' if label else '<small>from</small>'
-            price_html.append(f'<span class="price">{lab}{usd(v)}</span>')
-    img = f"img/p{page:02d}"
+            lab = ui["FROM_LABEL"].format(label=label) if label else ui["FROM"]
+            price_html.append(f'<span class="price"><small>{e(lab)}</small>{usd(v, lang)}</span>')
+    img = f"{base}img/p{page:02d}"
     thumbs = "".join(
-        f'<button type="button" class="th{" on" if i == 1 else ""}" data-src="{img}-{i}.jpg" aria-label="Photo {i}">'
+        f'<button type="button" class="th{" on" if i == 1 else ""}" data-src="{img}-{i}.jpg" aria-label="{ui["PHOTO"]} {i}">'
         f'<img src="{img}-{i}.jpg" alt="" loading="lazy" width="240" height="196"></button>'
         for i in (1, 2, 3))
     amen_html = "".join(f"<li>{e(a)}</li>" for a in amen)
-    msg = f"Hello, I'm interested in {name} ({loc}, Oman) from your Oman catalog. Please send details."
+    msg = ui["WA_PROJECT"].format(name=name, loc=loc)
     return f'''
-<article class="proj" id="p-{page}" data-district="{dk}" data-price="{min_price}" data-kind="{kind(p)}">
+<article class="proj" id="p-{page}" data-district="{dk}" data-price="{min_price}" data-kind="{kind(src)}">
   <div class="media">
     <div class="main"><img src="{img}-1.jpg" alt="{e(name)}, {e(loc)}" loading="lazy" width="1200" height="698"></div>
     <div class="thumbs">{thumbs}</div>
@@ -221,46 +271,59 @@ def card(p):
     <p class="lead">{e(lead)}</p>
     <p class="desc">{e(desc)}</p>
     <ul class="amen">{amen_html}</ul>
-    <a class="btn btn-solid btn-sm" href="{e(wa_link(msg))}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+    <a class="btn btn-solid btn-sm" href="{e(wa_link(msg))}" target="_blank" rel="noopener">{e(ui["ENQUIRE"])}</a>
   </div>
 </article>'''
 
 
-def build():
+def build(lang):
     root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    ui = UI_EN if lang == "en" else ru.UI
+    base, home, outdir, url = ("", "../", "oman", SITE) if lang == "en" else ("../", "../../", "oman/ru", SITE + "ru/")
+
+    def dname(k, n, eyebrow, tag):
+        return (n, eyebrow, tag) if lang == "en" else ru.DISTRICTS[k]
+
     by_d = {d[0]: [p for p in PROJECTS if p[5] == d[0]] for d in DISTRICTS}
     assert sum(len(v) for v in by_d.values()) == len(PROJECTS) == 35
 
-    filters = '<button type="button" class="on" data-f="all">All <i>35</i></button>' + "".join(
-        f'<button type="button" data-f="{k}">{e(n)} <i>{len(by_d[k])}</i></button>' for k, n, *_ in DISTRICTS)
+    filters = f'<button type="button" class="on" data-f="all">{ui["ALL"]} <i>35</i></button>' + "".join(
+        f'<button type="button" data-f="{k}">{e(dname(k, n, ey, tg)[0])} <i>{len(by_d[k])}</i></button>'
+        for k, n, ey, tg, _ in DISTRICTS)
 
     sections = []
     for k, n, eyebrow, tag, banner in DISTRICTS:
-        cards = "".join(card(p) for p in by_d[k])
+        n, eyebrow, tag = dname(k, n, eyebrow, tag)
+        cards = "".join(card(p, lang, ui, base) for p in by_d[k])
         sections.append(f'''
 <section class="district" id="{k}" data-district="{k}">
-  <div class="banner" style="background-image:url('img/d-{banner}.jpg')">
+  <div class="banner" style="background-image:url('{base}img/d-{banner}.jpg')">
     <div class="wrap"><div class="eyebrow light">{e(eyebrow)}</div><h2 class="display">{e(n)}</h2><p>{e(tag)}</p></div>
   </div>
   <div class="wrap"><div class="list">{cards}</div></div>
 </section>''')
 
     ld = {
-        "@context": "https://schema.org", "@type": "ItemList",
-        "name": "Top residential developments in Oman — Autumn 2026",
-        "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": p[1], "url": f"{SITE}#p-{p[0]}"}
+        "@context": "https://schema.org", "@type": "ItemList", "name": ui["OG_TITLE"],
+        "itemListElement": [{"@type": "ListItem", "position": i + 1, "name": p[1], "url": f"{url}#p-{p[0]}"}
                             for i, p in enumerate(PROJECTS)],
     }
-
-    tpl = open(os.path.join(root, "tools", "oman_template.html"), encoding="utf-8").read()
-    out = (tpl.replace("{{FILTERS}}", filters)
-              .replace("{{SECTIONS}}", "".join(sections))
-              .replace("{{LDJSON}}", json.dumps(ld, ensure_ascii=False))
-              .replace("{{WA_GENERAL}}", e(wa_link("Hello, I'd like to discuss property in Oman from your Autumn 2026 catalog."))))
-    with open(os.path.join(root, "oman", "index.html"), "w", encoding="utf-8") as f:
+    vals = dict(ui)
+    vals.update({
+        "FILTERS": filters, "SECTIONS": "".join(sections), "LDJSON": json.dumps(ld, ensure_ascii=False),
+        "WA_GENERAL": e(wa_link(ui["WA_GENERAL"])), "B": base, "ROOT": home,
+        "URL": url, "URL_EN": SITE, "URL_RU": SITE + "ru/",
+        "HREF_EN": "./" if lang == "en" else "../", "HREF_RU": "ru/" if lang == "en" else "./",
+        "ON_EN": ' class="on"' if lang == "en" else "", "ON_RU": ' class="on"' if lang == "ru" else "",
+    })
+    out = open(os.path.join(root, "tools", "oman_template.html"), encoding="utf-8").read()
+    out = re.sub(r"\{\{(\w+)\}\}", lambda m: vals[m.group(1)], out)
+    os.makedirs(os.path.join(root, outdir), exist_ok=True)
+    with open(os.path.join(root, outdir, "index.html"), "w", encoding="utf-8") as f:
         f.write(out)
-    print("oman/index.html written,", len(PROJECTS), "projects")
+    print(f"{outdir}/index.html written,", len(PROJECTS), "projects")
 
 
 if __name__ == "__main__":
-    build()
+    build("en")
+    build("ru")
