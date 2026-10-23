@@ -221,7 +221,7 @@ def card(p):
     <p class="lead">{e(lead)}</p>
     <p class="desc">{e(desc)}</p>
     <ul class="amen">{amen_html}</ul>
-    <a class="btn btn-solid btn-sm" href="{e(wa_link(msg))}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+    <a class="btn btn-ink btn-sm" href="{e(wa_link(msg))}" target="_blank" rel="noopener">Enquire on WhatsApp</a>
   </div>
 </article>'''
 

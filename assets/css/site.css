@@ -1,0 +1,115 @@
+/* Astana Real Estate — shared base for project pages (matches the homepage). */
+:root{
+  --ink:#11191e; --ink-2:#1a252c; --ivory:#f6f2ea; --stone:#ece5d8; --paper:#fffdf9;
+  --muted:#5e6870; --muted-d:#a8b0b4; --brass:#9a7442; --brass-l:#c8a36a; --cream:#efe3cc;
+  --line:rgba(17,25,30,.14); --line-d:rgba(246,242,234,.18);
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --maxw:1240px; --gut:clamp(16px,4vw,48px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:lining-nums;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.display,.serif{font-family:var(--serif);font-weight:500;letter-spacing:-.005em;line-height:1.08}
+.eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--brass)}
+.eyebrow::before{content:"";flex:none;width:34px;height:1px;background:currentColor;opacity:.7}
+.dark .eyebrow,.eyebrow.light{color:var(--brass-l)}
+.lede{color:var(--muted);max-width:58ch}
+.dark{background:var(--ink);color:var(--ivory)}
+.dark .lede{color:var(--muted-d)}
+:focus-visible{outline:2px solid var(--brass-l);outline-offset:2px}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:54px;padding:0 30px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;text-align:center;transition:background .25s,color .25s,border-color .25s}
+.btn-light{background:var(--ivory);color:var(--ink)}
+.btn-light:hover{background:var(--brass-l)}
+.btn-line{border-color:rgba(246,242,234,.55);color:var(--ivory)}
+.btn-line:hover{border-color:var(--ivory);background:rgba(246,242,234,.08)}
+.btn-ink{background:var(--ink);color:var(--ivory)}
+.btn-ink:hover{background:var(--brass)}
+.btn-outline{border-color:var(--ink);color:var(--ink)}
+.btn-outline:hover{background:var(--ink);color:var(--ivory)}
+.btn-sm{min-height:46px;padding:0 22px;font-size:11px}
+.arrow{display:inline-block;transition:transform .25s}
+a:hover .arrow,button:hover .arrow{transform:translateX(5px)}
+
+/* header: transparent over the hero, solid after scroll */
+header.site{position:fixed;inset:0 0 auto 0;z-index:60;color:var(--ivory);transition:background .35s,color .35s,box-shadow .35s}
+header.site.solid{background:rgba(246,242,234,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+header.site .nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:20px;transition:height .35s}
+header.site.solid .nav{height:68px}
+.brand{display:flex;flex-direction:column;line-height:1}
+.brand b{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:.22em}
+.brand span{font-size:9px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;margin-top:6px;opacity:.75}
+.menu{display:flex;align-items:center;gap:30px;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+.menu a{position:relative;padding:6px 0}
+.menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right .3s}
+.menu a:hover::after{right:0}
+.tools{display:flex;align-items:center;gap:18px}
+.lang{display:flex;gap:2px;font-size:11px;font-weight:600;letter-spacing:.12em}
+.lang button{background:none;border:0;cursor:pointer;padding:6px 7px;opacity:.55;transition:opacity .2s}
+.lang button.on{opacity:1;box-shadow:inset 0 -1px 0 currentColor}
+.lang button:hover{opacity:1}
+.nav-cta{min-height:42px;padding:0 20px;font-size:11px;border:1px solid currentColor}
+.nav-cta:hover{background:var(--brass-l);border-color:var(--brass-l);color:var(--ink)}
+.burger{display:none;background:none;border:0;cursor:pointer;width:42px;height:42px;position:relative}
+.burger i{position:absolute;left:10px;right:10px;height:1.5px;background:currentColor;transition:transform .3s,top .3s}
+.burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:25px}
+body.open .burger i:nth-child(1){top:20px;transform:rotate(45deg)}
+body.open .burger i:nth-child(2){top:20px;transform:rotate(-45deg)}
+
+/* full-bleed photo hero */
+.hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:var(--ivory);background:var(--ink);overflow:hidden}
+.hero>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:drift 22s ease-out both}
+@keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,19,.62) 0%,rgba(10,15,19,.2) 55%,rgba(10,15,19,0) 80%),linear-gradient(180deg,rgba(10,15,19,.6) 0%,rgba(10,15,19,.1) 28%,rgba(10,15,19,.35) 55%,rgba(10,15,19,.92) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;padding-top:140px;padding-bottom:clamp(36px,6vw,64px)}
+.hero h1{font-size:clamp(44px,7vw,100px);margin:24px 0 18px;font-weight:500;text-shadow:0 2px 30px rgba(0,0,0,.25)}
+.hero .eyebrow{color:#e6c995}
+.hero .lede{color:rgba(246,242,234,.84);font-size:clamp(15px,1.4vw,17px)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* footer */
+footer.site{background:#0b1114;color:var(--muted-d);padding:56px 0 40px;font-size:13px}
+footer.site .foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+footer.site .brand{color:var(--ivory)}
+footer.site nav{display:flex;gap:26px;flex-wrap:wrap;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+footer.site nav a:hover{color:var(--ivory)}
+footer.site .fine{margin-top:28px;font-size:12px;line-height:1.75;color:#7d878c;max-width:100ch}
+footer.site .fine:first-of-type{margin-top:40px;padding-top:24px;border-top:1px solid rgba(246,242,234,.1)}
+footer.site .fine+.fine{margin-top:10px}
+footer.site .fine a{color:var(--muted-d)}
+
+/* floating WhatsApp */
+.wa{position:fixed;right:20px;bottom:20px;z-index:70;width:56px;height:56px;border-radius:50%;background:#1f8f5f;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .2s}
+.wa:hover{transform:scale(1.06)}
+.wa svg{width:28px;height:28px;fill:#fff}
+
+/* reveal on scroll (JS adds .in; without JS everything is visible) */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .rv{opacity:1;transform:none;transition:none}
+  .hero>img.bg{animation:none}
+}
+@media (max-width:1020px){
+  .menu{display:none}
+  .burger{display:block}
+  .nav-cta{display:none}
+  body.open header.site{background:var(--ink);color:var(--ivory);box-shadow:none}
+  body.open .menu{display:flex;position:fixed;top:68px;left:0;right:0;bottom:0;flex-direction:column;align-items:flex-start;gap:6px;padding:30px var(--gut);background:var(--ink);color:var(--ivory)}
+  body.open .menu a{font-family:var(--serif);font-size:34px;letter-spacing:0;text-transform:none}
+  body.open{overflow:hidden}
+}
+@media (max-width:600px){
+  header.site .nav{height:68px}
+  .brand b{font-size:21px}
+  .hero-cta .btn{width:100%}
+  .lang button{padding:6px 5px}
+}

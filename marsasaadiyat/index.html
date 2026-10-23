@@ -4,7 +4,7 @@
 <!--
   MARSA AL SAADIYAT — Astana Real Estate landing page (light / sunny theme)
   Live: eldarnurmukanov-glitch.github.io/astanauae/marsasaadiyat/
-  REPLACE: "971507369833" (WhatsApp, digits only) · "info@astanauae.com" · "ADREC Licence No. ______"
+  Styles: ../assets/css/site.css (shared) + page styles below. Texts: I18N object (en / ru).
 -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,193 +17,171 @@
 <meta property="og:image" content="https://eldarnurmukanov-glitch.github.io/astanauae/marsasaadiyat/marsa_images/og_image_1200x630.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta name="theme-color" content="#11191e">
 <style>
-  :root{
-    --paper:#fbf9f4;        /* warm white */
-    --sand:#f2ecdf;         /* light sand */
-    --ink:#0f2c46;          /* navy — text only */
-    --soft:#51677a;         /* muted text */
-    --teal:#0ea8a4;         /* sea accent */
-    --teal-deep:#0b807c;
-    --line:rgba(15,44,70,.14);
-    --maxw:1120px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:'Montserrat',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
-  img{max-width:100%;display:block}
-  a{color:var(--teal-deep);text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  section{padding:clamp(80px,10vw,140px) 0}
+  .sec-head{max-width:760px;margin-bottom:clamp(40px,5vw,64px)}
+  .sec-head h2{font-size:clamp(36px,4.8vw,64px);margin:20px 0 20px}
+  .sec-head .lede{font-size:16px}
 
-  .display{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:.01em}
-  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--teal-deep)}
-  .lede{color:var(--soft);max-width:58ch}
+  /* hero */
+  .hero .sub{font-family:var(--serif);font-style:italic;font-size:clamp(22px,2.6vw,34px);color:var(--cream);margin:-6px 0 22px}
+  .laurels{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(44px,7vw,84px);border-top:1px solid var(--line-d)}
+  .laurels span{padding:18px 20px 0 0;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-d)}
+  .laurels span+span{padding-left:20px;border-left:1px solid var(--line-d)}
 
-  /* nav */
-  header{position:sticky;top:0;z-index:50;background:rgba(251,249,244,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:14px}
-  .brand{display:flex;flex-direction:column;line-height:1.15}
-  .brand b{font-size:13px;letter-spacing:.24em;font-weight:700;color:var(--ink)}
-  .brand span{font-size:9px;letter-spacing:.3em;color:var(--soft);text-transform:uppercase}
-  .nav-right{display:flex;align-items:center;gap:12px}
-  .lang{display:flex;border:1px solid var(--line);border-radius:3px;overflow:hidden;background:#fff}
-  .lang button{background:none;border:0;color:var(--soft);cursor:pointer;font:600 11px 'Montserrat',sans-serif;letter-spacing:.12em;padding:7px 11px}
-  .lang button.on{background:var(--teal);color:#fff}
-  .btn{display:inline-block;border-radius:3px;cursor:pointer;font:600 12px/1 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:15px 26px;transition:opacity .2s,transform .2s;text-align:center;border:0}
-  .btn:hover{opacity:.88;transform:translateY(-1px)}
-  .btn-solid{background:var(--teal);color:#fff}
-  .btn-ghost{border:1px solid var(--ink);color:var(--ink);background:transparent}
-  .btn-nav{padding:11px 16px}
+  /* stats */
+  .stats{background:var(--ink);color:var(--ivory);border-top:1px solid var(--line-d)}
+  .stats-in{display:grid;grid-template-columns:repeat(6,1fr)}
+  .stat{padding:34px 18px 38px 0}
+  .stat+.stat{padding-left:22px;border-left:1px solid var(--line-d)}
+  .stat b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(32px,3.4vw,46px);line-height:1}
+  .stat b i{font-style:normal;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;margin-left:5px;color:var(--brass-l);vertical-align:.9em}
+  .stat small{display:block;margin-top:10px;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-d)}
 
-  /* hero — light, airy, then a bright full-width aerial */
-  .hero{background:var(--paper)}
-  .hero-in{padding:84px 0 60px;text-align:center}
-  .hero h1{font-size:clamp(44px,8.5vw,86px);margin:20px 0 6px;color:var(--ink)}
-  .hero .sub{font-family:'Playfair Display',serif;font-style:italic;font-weight:500;font-size:clamp(19px,3.4vw,28px);color:var(--teal-deep)}
-  .laurels{display:flex;justify-content:center;flex-wrap:wrap;margin:32px auto 28px;max-width:640px}
-  .laurels span{font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--soft);padding:6px 18px;position:relative}
-  .laurels span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);height:16px;width:1px;background:var(--line)}
-  .hero .lede{margin:0 auto 34px}
-  .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-  .hero-photo img{width:100%;height:clamp(300px,52vw,560px);object-fit:cover}
+  /* highlights */
+  #district{background:var(--paper)}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(36px,4vw,56px) clamp(20px,2.4vw,32px)}
+  .card-img{aspect-ratio:4/3;overflow:hidden;background:var(--stone)}
+  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .grid>div:hover .card-img img{transform:scale(1.045)}
+  .card-body{padding-top:22px;border-top:0}
+  .card-body h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.2vw,30px);line-height:1.15;margin-bottom:10px}
+  .card-body p{font-size:14.5px;color:var(--muted)}
 
-  /* stat strip on sand */
-  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--sand)}
-  .stats-in{display:grid;grid-template-columns:repeat(3,1fr)}
-  .stat{padding:30px 12px;text-align:center;border-right:1px solid var(--line)}
-  .stat:nth-child(3n){border-right:0}
-  .stat:nth-child(-n+3){border-bottom:1px solid var(--line)}
-  .stat b{display:block;font:600 clamp(26px,4vw,38px)/1 'Montserrat',sans-serif;color:var(--teal-deep);letter-spacing:.01em}
-  .stat b i{font-style:normal;font-size:.5em;vertical-align:.5em;letter-spacing:.08em}
-  .stat small{display:block;margin-top:9px;font-size:9.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--soft)}
-  @media(min-width:760px){
-    .stats-in{grid-template-columns:repeat(6,1fr)}
-    .stat{border-bottom:0 !important}
-    .stat:nth-child(3n){border-right:1px solid var(--line)}
-    .stat:last-child{border-right:0}
-  }
-
-  section{padding:84px 0}
-  .sec-head{max-width:680px;margin-bottom:46px}
-  .sec-head h2{font-size:clamp(28px,4.6vw,42px);margin:14px 0 16px;color:var(--ink)}
-
-  .band-img{border:1px solid var(--line);margin-bottom:46px;background:#fff}
+  /* residences */
+  .res{background:var(--stone)}
+  .band-img{margin-bottom:clamp(40px,5vw,64px);overflow:hidden}
   .band-img img{width:100%;aspect-ratio:16/7;object-fit:cover}
+  .res-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+  .res-row>div{padding:30px 26px 6px 0;counter-increment:r}
+  .res-row>div+div{padding-left:26px;border-left:1px solid var(--line)}
+  .res-row>div::before{content:"0" counter(r);display:block;font-family:var(--serif);font-size:15px;color:var(--brass);margin-bottom:12px}
+  .res-row{counter-reset:r}
+  .res-row .display{font-size:clamp(24px,2.2vw,30px);line-height:1.15;margin-bottom:12px}
+  .res-row p{font-size:14.5px;color:var(--muted)}
 
-  /* highlight cards — white on paper */
-  .grid{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
-  .grid>div{background:#fff}
-  .card-img{aspect-ratio:16/10;overflow:hidden;background:var(--sand)}
-  .card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-  .grid>div:hover .card-img img{transform:scale(1.04)}
-  .card-body{padding:26px 24px 30px}
-  .card-body h3{font:600 13px/1.5 'Montserrat',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:12px}
-  .card-body p{font-size:14.5px;color:var(--soft)}
-  @media(min-width:700px){.g3{grid-template-columns:repeat(3,1fr)}}
-
-  /* residences on sand */
-  .res{background:var(--sand)}
-  .res-row{display:grid;gap:1px;background:var(--line);border:1px solid var(--line)}
-  @media(min-width:700px){.res-row{grid-template-columns:repeat(4,1fr)}}
-  .res-row>div{background:#fff;padding:34px 24px}
-  .res-row .display{font-size:21px;color:var(--ink);margin-bottom:10px}
-  .res-row p{font-size:13.5px;color:var(--soft)}
-
-  /* why */
-  .why-item{display:grid;grid-template-columns:1fr;gap:6px;padding:26px 0;border-bottom:1px solid var(--line)}
-  .why-item:first-of-type{border-top:1px solid var(--line)}
-  .why-item h3{font:600 14px 'Montserrat',sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
-  .why-item p{color:var(--soft);font-size:15px;max-width:70ch}
-  @media(min-width:820px){.why-item{grid-template-columns:280px 1fr;gap:30px}}
+  /* investment case (dark) */
+  #why .wrap{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(40px,7vw,110px)}
+  #why .sec-head{margin:0}
+  .why-list{counter-reset:w}
+  .why-item{display:grid;grid-template-columns:70px 1fr;padding:28px 0;border-top:1px solid var(--line-d)}
+  .why-item:last-child{border-bottom:1px solid var(--line-d)}
+  .why-item::before{counter-increment:w;content:"0" counter(w);grid-row:span 2;font-family:var(--serif);font-size:20px;color:var(--brass-l);line-height:1.4}
+  .why-item h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.3vw,30px);line-height:1.2}
+  .why-item p{color:var(--muted-d);font-size:14.5px;margin-top:6px;max-width:58ch}
 
   /* gallery */
-  .gallery{display:grid;gap:14px;grid-template-columns:1fr}
-  @media(min-width:640px){.gallery{grid-template-columns:1fr 1fr}.gallery .wide{grid-column:1/-1}}
-  .gallery figure{border:1px solid var(--line);overflow:hidden;margin:0;background:#fff}
-  .gallery img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .5s}
-  .gallery .wide img{aspect-ratio:16/7}
-  .gallery figure:hover img{transform:scale(1.03)}
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,22px)}
+  .gallery .wide{grid-column:1/-1}
+  .gallery figure{overflow:hidden;margin:0;background:var(--stone)}
+  .gallery img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .gallery .wide img{aspect-ratio:21/9}
+  .gallery figure:hover img{transform:scale(1.035)}
 
-  /* astana on sand */
-  .about{background:var(--sand)}
-  .about .lede{max-width:72ch}
-  .about-points{display:grid;gap:26px;margin-top:38px}
-  @media(min-width:760px){.about-points{grid-template-columns:repeat(3,1fr)}}
-  .about-points h3{font:600 12.5px 'Montserrat',sans-serif;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:8px}
-  .about-points p{font-size:14px;color:var(--soft)}
+  /* about */
+  .about{background:var(--paper)}
+  .about-points{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+  .about-points>div{padding:30px 26px 0 0}
+  .about-points>div+div{padding-left:26px;border-left:1px solid var(--line)}
+  .about-points h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.2vw,28px);margin-bottom:10px}
+  .about-points p{font-size:14.5px;color:var(--muted)}
+  .about .more{margin-top:40px}
+  .about .more a{display:inline-flex;gap:10px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid currentColor}
 
-  /* enquiry — light aqua wash over water texture */
-  .enquiry{
-    background:
-      linear-gradient(180deg, rgba(251,249,244,.9), rgba(251,249,244,.86)),
-      url('marsa_images/renders/01_water_texture.jpg') center/cover no-repeat,
-      var(--paper);
-  }
-  .form-card{border:1px solid var(--line);background:#fff;padding:40px 30px;max-width:640px;box-shadow:0 14px 40px rgba(15,44,70,.08)}
+  /* enquiry (dark, photo) */
+  .enquiry{position:relative;overflow:hidden;background:var(--ink);color:var(--ivory)}
+  .enquiry>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22}
+  .enquiry::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 30%,rgba(17,25,30,.75))}
+  .enquiry .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px);align-items:start}
+  .enquiry .sec-head{margin:0}
+  .enquiry .sec-head h2 em{font-style:italic;color:var(--cream)}
+  .enquiry .lede{color:var(--muted-d)}
+  .form-card{background:var(--ivory);color:var(--ink);padding:clamp(26px,3.6vw,48px)}
   .field{margin-bottom:18px}
-  .field label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--soft);margin-bottom:8px}
-  .field input,.field select{width:100%;background:#fff;border:1px solid var(--line);border-radius:3px;color:var(--ink);font:400 15px 'Montserrat',sans-serif;padding:13px 14px;outline:none}
-  .field input:focus,.field select:focus{border-color:var(--teal)}
-  .form-note{font-size:12.5px;color:var(--soft);margin-top:14px}
-  .form-ok{display:none;margin-top:14px;color:var(--teal-deep);font-size:14px}
+  .field label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .field input,.field select{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(17,25,30,.3);padding:10px 0;font-size:15.5px;border-radius:0;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+  .field select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2311191e' fill='none'/%3E%3C/svg%3E") no-repeat right 4px center;padding-right:24px;cursor:pointer}
+  .field input:focus,.field select:focus{border-color:var(--brass)}
+  .btn-solid{background:var(--ink);color:var(--ivory);width:100%;margin-top:10px}
+  .btn-solid:hover{background:var(--brass)}
+  .form-note{font-size:12.5px;color:var(--muted);margin-top:14px}
+  .form-note a{color:var(--brass);border-bottom:1px solid currentColor}
+  .form-ok{display:none;margin-top:14px;color:var(--brass);font-size:14px}
 
-  /* footer — the one navy element */
-  footer{background:#0c2740;border-top:1px solid var(--line);padding:46px 0 90px}
-  footer .brand b{color:#f4f9fa}
-  footer .brand span{color:#8fa6b6}
-  footer .brand{margin-bottom:18px}
-  .fine{font-size:11.5px;line-height:1.8;color:#7e97a8;max-width:88ch}
-  .fine a{color:#9fc0cf}
-
-  .wa{position:fixed;right:18px;bottom:18px;z-index:60;width:54px;height:54px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(15,44,70,.3)}
-  .wa svg{width:28px;height:28px;fill:#fff}
-
-  :focus-visible{outline:2px solid var(--teal);outline-offset:2px}
-  @media (prefers-reduced-motion: reduce){
-    html{scroll-behavior:auto}
-    .btn:hover{transform:none}
-    .card-img img,.gallery img{transition:none}
+  @media (max-width:1020px){
+    .stats-in{grid-template-columns:repeat(3,1fr)}
+    .stat:nth-child(4){padding-left:0;border-left:0}
+    .stat:nth-child(n+4){border-top:1px solid var(--line-d)}
+    .grid{grid-template-columns:1fr 1fr}
+    .res-row{grid-template-columns:1fr 1fr}
+    .res-row>div:nth-child(3){padding-left:0;border-left:0}
+    .res-row>div:nth-child(n+3){border-top:1px solid var(--line);margin-top:20px}
+  }
+  @media (max-width:860px){
+    #why .wrap,.enquiry .wrap{grid-template-columns:1fr}
+    .about-points{grid-template-columns:1fr}
+    .about-points>div,.about-points>div+div{padding:24px 0;border-left:0;border-bottom:1px solid var(--line)}
+  }
+  @media (max-width:600px){
+    .laurels{grid-template-columns:1fr}
+    .laurels span,.laurels span+span{padding:12px 0;border-left:0;border-bottom:1px solid var(--line-d)}
+    .stats-in{grid-template-columns:1fr 1fr}
+    .stat,.stat+.stat{padding:22px 0 24px;border-left:0}
+    .stat:nth-child(even){padding-left:18px;border-left:1px solid var(--line-d)}
+    .stat:nth-child(n+3){border-top:1px solid var(--line-d)}
+    .grid,.gallery{grid-template-columns:1fr}
+    .res-row{grid-template-columns:1fr}
+    .res-row>div,.res-row>div+div{padding:24px 0 10px;border-left:0;margin-top:0}
+    .res-row>div+div{border-top:1px solid var(--line)}
+    .why-item{grid-template-columns:48px 1fr}
+    .gallery .wide img{aspect-ratio:4/3}
   }
 </style>
 </head>
 <body>
 
-<header>
+<header class="site">
   <div class="wrap nav">
-    <div class="brand">
-      <b>ASTANA REAL ESTATE</b>
-      <span data-i18n="brandTag">Abu Dhabi · Aldar partner agency</span>
-    </div>
-    <div class="nav-right">
+    <a class="brand" href="../" aria-label="Astana Real Estate — home"><b>ASTANA</b><span>Real Estate · Abu Dhabi</span></a>
+    <nav class="menu" id="menu">
+      <a href="#district" data-i18n="nav1">District</a>
+      <a href="#residences" data-i18n="nav2">Residences</a>
+      <a href="#why" data-i18n="nav3">Investment case</a>
+      <a href="#gallery" data-i18n="nav4">Gallery</a>
+      <a href="../" data-i18n="nav5">All projects</a>
+    </nav>
+    <div class="tools">
       <div class="lang" role="group" aria-label="Language">
-        <button id="lang-en" class="on" onclick="setLang('en')">EN</button>
-        <button id="lang-ru" onclick="setLang('ru')">RU</button>
+        <button id="lang-en" class="on" onclick="setLang('en')">EN</button><button id="lang-ru" onclick="setLang('ru')">RU</button>
       </div>
-      <a class="btn btn-solid btn-nav" href="#enquire" data-i18n="navCta">Enquire</a>
+      <a class="btn nav-cta" href="#enquire" data-i18n="navCta">Enquire</a>
+      <button class="burger" aria-label="Menu" aria-controls="menu" aria-expanded="false"><i></i><i></i></button>
     </div>
   </div>
 </header>
 
 <!-- HERO -->
-<div class="hero">
+<section class="hero">
+  <img class="bg" src="marsa_images/renders/02_aerial_day.jpg" alt="Marsa Al Saadiyat — Saadiyat Island aerial" fetchpriority="high">
   <div class="wrap hero-in">
     <div class="eyebrow" data-i18n="heroEyebrow">Saadiyat Island · Abu Dhabi · A development by Aldar</div>
     <h1 class="display">Marsa Al Saadiyat</h1>
     <div class="sub" data-i18n="heroSub">The last chapter on Saadiyat Island</div>
+    <p class="lede" data-i18n="heroLede">A 744-hectare coastal district along 8 km of shoreline — anchored by Abu Dhabi's largest marina, a Frank Gehry-designed cultural venue and the capital's museum district. Off-plan mansions, villas, waterfront apartments and branded residences.</p>
+    <div class="hero-cta">
+      <a class="btn btn-light" href="#enquire"><span data-i18n="heroCta1">Request brochure &amp; prices</span> <span class="arrow">→</span></a>
+      <a class="btn btn-line" href="https://wa.me/971507369833?text=Hello%2C%20I%27m%20interested%20in%20Marsa%20Al%20Saadiyat" target="_blank" rel="noopener" data-i18n="heroCta2">WhatsApp us</a>
+    </div>
     <div class="laurels">
       <span data-i18n="l1">Unrivalled views</span>
       <span data-i18n="l2">Pristine coastline</span>
       <span data-i18n="l3">Waterfront homes</span>
     </div>
-    <p class="lede" data-i18n="heroLede">A 744-hectare coastal district along 8 km of shoreline — anchored by Abu Dhabi's largest marina, a Frank Gehry-designed cultural venue and the capital's museum district. Off-plan mansions, villas, waterfront apartments and branded residences.</p>
-    <div class="hero-cta">
-      <a class="btn btn-solid" href="#enquire" data-i18n="heroCta1">Request brochure &amp; prices</a>
-      <a class="btn btn-ghost" href="https://wa.me/971507369833?text=Hello%2C%20I%27m%20interested%20in%20Marsa%20Al%20Saadiyat" data-i18n="heroCta2">WhatsApp us</a>
-    </div>
   </div>
-  <div class="hero-photo"><img src="marsa_images/renders/02_aerial_day.jpg" alt="Marsa Al Saadiyat — Saadiyat Island aerial" onerror="this.parentElement.style.display='none'"></div>
-</div>
+</section>
 
 <!-- STATS -->
 <div class="stats">
@@ -220,12 +198,12 @@
 <!-- OVERVIEW -->
 <section id="district">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="rv sec-head">
       <div class="eyebrow" data-i18n="ovEyebrow">The district</div>
       <h2 class="display" data-i18n="ovTitle">Saadiyat's final large-scale release</h2>
       <p class="lede" data-i18n="ovBody">Marsa Al Saadiyat is Aldar's closing masterplan on Saadiyat Island: a coastal destination built around a 177,000 m² marina, a 1 km dining promenade and 5.6 km of beachfront — minutes from Louvre Abu Dhabi, the Guggenheim, Zayed National Museum and NYU Abu Dhabi.</p>
     </div>
-    <div class="grid g3">
+    <div class="rv grid g3">
       <div>
         <div class="card-img"><img src="marsa_images/renders/05_marina.jpg" alt="Marina" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="card-body"><h3 data-i18n="h1t">Largest marina in Abu Dhabi</h3><p data-i18n="h1b">177,000 m² with over 350 berths, from sailing boats to superyachts, lined with waterfront restaurants and a yacht club.</p></div>
@@ -257,12 +235,12 @@
 <!-- RESIDENCES -->
 <section class="res" id="residences">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="rv sec-head">
       <div class="eyebrow" data-i18n="resEyebrow">Residences</div>
       <h2 class="display" data-i18n="resTitle">From private mansions to branded residences</h2>
     </div>
-    <div class="band-img"><img src="marsa_images/renders/09_villas_aerial.jpg" alt="Villa communities" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
-    <div class="res-row">
+    <div class="rv band-img"><img src="marsa_images/renders/09_villas_aerial.jpg" alt="Villa communities" loading="lazy" onerror="this.parentElement.style.display='none'"></div>
+    <div class="rv res-row">
       <div><div class="display" data-i18n="r1t">Private mansions</div><p data-i18n="r1b">Ultra-prime waterfront plots for end users seeking legacy assets.</p></div>
       <div><div class="display" data-i18n="r2t">Luxury villas</div><p data-i18n="r2b">Family homes within green corridors, parks and community facilities.</p></div>
       <div><div class="display" data-i18n="r3t">Waterfront apartments</div><p data-i18n="r3b">Marina and promenade addresses — the core rental and resale product.</p></div>
@@ -272,27 +250,29 @@
 </section>
 
 <!-- WHY -->
-<section id="why">
+<section class="dark" id="why">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="rv sec-head">
       <div class="eyebrow" data-i18n="whyEyebrow">The investment case</div>
       <h2 class="display" data-i18n="whyTitle">Why we are allocating clients here</h2>
     </div>
+    <div class="why-list rv">
     <div class="why-item"><h3 data-i18n="w1t">Scarcity</h3><p data-i18n="w1b">This is positioned as the final large-scale masterplan on Saadiyat Island. When the island is built out, waterfront supply here does not repeat.</p></div>
     <div class="why-item"><h3 data-i18n="w2t">Cultural anchor</h3><p data-i18n="w2b">Louvre Abu Dhabi is open; Guggenheim, Zayed National Museum and the Natural History Museum are transforming the island into a global cultural destination — a durable driver of end-user and rental demand.</p></div>
     <div class="why-item"><h3 data-i18n="w3t">Real infrastructure</h3><p data-i18n="w3b">Marina, schools, clinics, retail and a future rail link mean genuine residents — not a purely speculative district.</p></div>
     <div class="why-item"><h3 data-i18n="w4t">Developer &amp; access</h3><p data-i18n="w4b">Aldar is Abu Dhabi's listed master developer. Through our Aldar partnership, Astana Real Estate registers clients for launch allocations and shares unit types, prices and payment terms as they are released.</p></div>
+    </div>
   </div>
 </section>
 
 <!-- GALLERY -->
 <section id="gallery">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="rv sec-head">
       <div class="eyebrow" data-i18n="gEyebrow">Gallery</div>
       <h2 class="display" data-i18n="gTitle">Life at Marsa Al Saadiyat</h2>
     </div>
-    <div class="gallery">
+    <div class="rv gallery">
       <figure><img src="marsa_images/renders/04_lifestyle_dining.jpg" alt="Poolside dining" loading="lazy" onerror="this.parentElement.style.display='none'"></figure>
       <figure><img src="marsa_images/renders/10_community_park.jpg" alt="Community park" loading="lazy" onerror="this.parentElement.style.display='none'"></figure>
       <figure><img src="marsa_images/renders/13_wellness_club_night.jpg" alt="Waterfront wellness club" loading="lazy" onerror="this.parentElement.style.display='none'"></figure>
@@ -305,28 +285,30 @@
 <!-- ASTANA -->
 <section class="about" id="astana">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="rv sec-head">
       <div class="eyebrow">Astana Real Estate</div>
       <h2 class="display" data-i18n="abTitle">Your broker in Abu Dhabi</h2>
       <p class="lede" data-i18n="abBody">Astana Real Estate LLC SPC is an Abu Dhabi-based brokerage advising private investors from Kazakhstan, the CIS and beyond. We work in Russian, Kazakh and English, and structure off-plan and portfolio acquisitions across Aldar and other tier-1 UAE developers.</p>
     </div>
-    <div class="about-points">
+    <div class="rv about-points">
       <div><h3 data-i18n="ab1t">Launch access</h3><p data-i18n="ab1b">Direct developer partnerships, including Aldar — allocations at launch, not after.</p></div>
       <div><h3 data-i18n="ab2t">Deal structuring</h3><p data-i18n="ab2b">POA for overseas buyers, ownership structuring, payments and handover — handled end to end.</p></div>
       <div><h3 data-i18n="ab3t">Your language</h3><p data-i18n="ab3b">Full advisory in Russian, Kazakh and English — from first call to title deed.</p></div>
     </div>
+    <p class="more"><a href="../"><span data-i18n="abMore">About Astana Real Estate</span> <span class="arrow">→</span></a></p>
   </div>
 </section>
 
 <!-- ENQUIRY -->
 <section class="enquiry" id="enquire">
+  <img src="marsa_images/renders/05_marina.jpg" alt="" loading="lazy">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="rv sec-head">
       <div class="eyebrow" data-i18n="enEyebrow">Register interest</div>
       <h2 class="display" data-i18n="enTitle">Get the brochure and launch prices</h2>
       <p class="lede" data-i18n="enBody">Leave your details — we will send the Marsa Al Saadiyat materials and contact you with unit types, prices and payment plans as Aldar releases them.</p>
     </div>
-    <div class="form-card">
+    <div class="rv form-card">
       <div class="field"><label for="f-name" data-i18n="fName">Name</label><input id="f-name" type="text" autocomplete="name"></div>
       <div class="field"><label for="f-phone" data-i18n="fPhone">Phone / WhatsApp</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="+971 / +7 ..."></div>
       <div class="field"><label for="f-email" data-i18n="fEmail">Email (optional)</label><input id="f-email" type="email" autocomplete="email"></div>
@@ -347,19 +329,24 @@
   </div>
 </section>
 
-<footer>
+<footer class="site">
   <div class="wrap">
-    <div class="brand">
-      <b>ASTANA REAL ESTATE</b>
-      <span data-i18n="brandTag2">Abu Dhabi · Aldar partner agency</span>
+    <div class="foot">
+      <a class="brand" href="../"><b>ASTANA</b><span>Real Estate · Abu Dhabi</span></a>
+      <nav>
+        <a href="../" data-i18n="ftHome">Home</a>
+        <a href="../oman/" data-i18n="ftOman">Oman catalogue</a>
+        <a href="marsa_images/renders/factsheet_full_01.jpg" target="_blank" data-i18n="ftFact">Factsheet</a>
+        <a href="https://wa.me/971507369833" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
     </div>
-    <p class="fine" data-i18n="fine1">Astana Real Estate LLC SPC — licensed real estate brokerage, Abu Dhabi, UAE. ADREC Licence No. ______. Marsa Al Saadiyat is a development by Aldar Properties PJSC; Astana Real Estate is an independent brokerage and is not the developer.</p>
+    <p class="fine" data-i18n="fine1">Astana Real Estate LLC SPC — licensed real estate brokerage, Abu Dhabi, UAE. ADREC Broker No. 20250000737880. Marsa Al Saadiyat is a development by Aldar Properties PJSC; Astana Real Estate is an independent brokerage and is not the developer.</p>
     <p class="fine" data-i18n="fine2">Project information, figures and imagery are based on developer marketing materials, are indicative only and subject to change by the developer. Renders are computer-generated. This page is not an offer; availability, prices and payment plans are confirmed at booking.</p>
-    <p class="fine">© <span id="yr"></span> Astana Real Estate LLC SPC · <a href="mailto:info@astanauae.com">info@astanauae.com</a> · <a href="https://wa.me/971507369833">WhatsApp</a> · <a href="marsa_images/renders/factsheet_full_01.jpg" target="_blank" data-i18n="ftFact">Factsheet</a></p>
+    <p class="fine">© <span id="yr">2026</span> Astana Real Estate LLC SPC · Office 105, Building P-121, Al Nahyan, Abu Dhabi · <a href="mailto:info@astanauae.com">info@astanauae.com</a></p>
   </div>
 </footer>
 
-<a class="wa" href="https://wa.me/971507369833?text=Hello%2C%20I%27m%20interested%20in%20Marsa%20Al%20Saadiyat" aria-label="WhatsApp">
+<a class="wa" href="https://wa.me/971507369833?text=Hello%2C%20I%27m%20interested%20in%20Marsa%20Al%20Saadiyat" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.3c1.9 1 4 1.6 6.2 1.6h.5c6.6 0 12-5.3 12-11.9C30 8.3 24.6 3 16 3zm7 16.9c-.3.8-1.7 1.6-2.4 1.7-.6.1-1.4.2-2.3-.1-.5-.2-1.2-.4-2.1-.8-3.7-1.6-6.1-5.3-6.3-5.5-.2-.2-1.5-2-1.5-3.8s1-2.7 1.3-3.1c.3-.4.7-.5 1-.5h.7c.2 0 .5-.1.8.6.3.8 1.1 2.7 1.2 2.9.1.2.2.4 0 .7-.1.3-.2.4-.4.7l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.2.8-.1.2-.2 1-1.1 1.2-1.5.3-.4.5-.3.9-.2.4.1 2.2 1 2.6 1.2.4.2.6.3.7.5.1.1.1.8-.1 1.3z"/></svg>
 </a>
 
@@ -372,7 +359,9 @@ const I18N = {
     heroSub:"The last chapter on Saadiyat Island",
     l1:"Unrivalled views", l2:"Pristine coastline", l3:"Waterfront homes",
     heroLede:"A 744-hectare coastal district along 8 km of shoreline — anchored by Abu Dhabi's largest marina, a Frank Gehry-designed cultural venue and the capital's museum district. Off-plan mansions, villas, waterfront apartments and branded residences.",
-    heroCta1:"Request brochure & prices", heroCta2:"WhatsApp us",
+    nav1:"District", nav2:"Residences", nav3:"Investment case", nav4:"Gallery", nav5:"All projects",
+    abMore:"About Astana Real Estate", ftHome:"Home", ftOman:"Oman catalogue",
+    heroCta1:"Request brochure &amp; prices", heroCta2:"WhatsApp us",
     uHa:"HA", uHa2:"HA", uKm:"KM", uMsqm:"M M²",
     s1:"Total site area", s2:"Waterfront", s3:"Residences", s4:"Marina berths", s5:"Green open space", s6:"Total GFA",
     ovEyebrow:"The district", ovTitle:"Saadiyat's final large-scale release",
@@ -404,7 +393,7 @@ const I18N = {
     fName:"Name", fPhone:"Phone / WhatsApp", fEmail:"Email (optional)", fInt:"I'm interested in",
     o1:"Waterfront apartment", o2:"Villa", o3:"Private mansion", o4:"Branded residence", o5:"Not sure yet — advise me",
     fBtn:"Send via WhatsApp", fOk:"Opening WhatsApp — if it didn't open, write to us directly.", fAlt:"Prefer email?",
-    fine1:"Astana Real Estate LLC SPC — licensed real estate brokerage, Abu Dhabi, UAE. ADREC Licence No. ______. Marsa Al Saadiyat is a development by Aldar Properties PJSC; Astana Real Estate is an independent brokerage and is not the developer.",
+    fine1:"Astana Real Estate LLC SPC — licensed real estate brokerage, Abu Dhabi, UAE. ADREC Broker No. 20250000737880. Marsa Al Saadiyat is a development by Aldar Properties PJSC; Astana Real Estate is an independent brokerage and is not the developer.",
     fine2:"Project information, figures and imagery are based on developer marketing materials, are indicative only and subject to change by the developer. Renders are computer-generated. This page is not an offer; availability, prices and payment plans are confirmed at booking.",
     ftFact:"Factsheet",
     waMsg:"Hello! Marsa Al Saadiyat enquiry.\nName: {name}\nPhone: {phone}\nEmail: {email}\nInterested in: {int}"
@@ -416,6 +405,8 @@ const I18N = {
     heroSub:"Финальная глава острова Саадият",
     l1:"Панорамные виды", l2:"Первозданное побережье", l3:"Дома у воды",
     heroLede:"Прибрежный район на 744 га вдоль 8 км береговой линии — с крупнейшей мариной Абу-Даби, культурным центром по проекту Фрэнка Гери и музейным кварталом столицы. Off-plan: особняки, виллы, апартаменты у воды и брендированные резиденции.",
+    nav1:"Район", nav2:"Резиденции", nav3:"Почему здесь", nav4:"Галерея", nav5:"Все проекты",
+    abMore:"Об Astana Real Estate", ftHome:"Главная", ftOman:"Каталог Омана",
     heroCta1:"Получить брошюру и цены", heroCta2:"Написать в WhatsApp",
     uHa:"ГА", uHa2:"ГА", uKm:"КМ", uMsqm:"МЛН М²",
     s1:"Площадь района", s2:"Береговая линия", s3:"Резиденций", s4:"Причалов в марине", s5:"Зелёные зоны", s6:"Общая GFA",
@@ -448,7 +439,7 @@ const I18N = {
     fName:"Имя", fPhone:"Телефон / WhatsApp", fEmail:"Email (необязательно)", fInt:"Меня интересует",
     o1:"Апартаменты у воды", o2:"Вилла", o3:"Особняк", o4:"Брендированная резиденция", o5:"Пока не решил — посоветуйте",
     fBtn:"Отправить в WhatsApp", fOk:"Открываем WhatsApp — если не открылся, напишите нам напрямую.", fAlt:"Удобнее по почте?",
-    fine1:"Astana Real Estate LLC SPC — лицензированное брокерское агентство, Абу-Даби, ОАЭ. Лицензия ADREC № ______. Marsa Al Saadiyat — проект девелопера Aldar Properties PJSC; Astana Real Estate — независимое агентство, не девелопер.",
+    fine1:"Astana Real Estate LLC SPC — лицензированное брокерское агентство, Абу-Даби, ОАЭ. ADREC Broker № 20250000737880. Marsa Al Saadiyat — проект девелопера Aldar Properties PJSC; Astana Real Estate — независимое агентство, не девелопер.",
     fine2:"Информация, цифры и изображения основаны на маркетинговых материалах девелопера, носят справочный характер и могут быть изменены. Визуализации сгенерированы на компьютере. Страница не является офертой; наличие, цены и планы оплаты подтверждаются при бронировании.",
     ftFact:"Факт-шит",
     waMsg:"Здравствуйте! Заявка по Marsa Al Saadiyat.\nИмя: {name}\nТелефон: {phone}\nEmail: {email}\nИнтересует: {int}"
@@ -457,7 +448,9 @@ const I18N = {
 
 let lang = 'en';
 function setLang(l){
+  if(!I18N[l]) l = 'en';
   lang = l;
+  try { localStorage.setItem('ar-lang', l); } catch(e) {}
   document.documentElement.lang = l;
   document.getElementById('lang-en').classList.toggle('on', l==='en');
   document.getElementById('lang-ru').classList.toggle('on', l==='ru');
@@ -467,6 +460,14 @@ function setLang(l){
   });
 }
 
+function setLangNoSave(l){
+  document.getElementById('lang-en').classList.toggle('on', l==='en');
+  document.getElementById('lang-ru').classList.toggle('on', l==='ru');
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k = el.getAttribute('data-i18n');
+    if(I18N[l][k] !== undefined) el.innerHTML = I18N[l][k];
+  });
+}
 const WA_NUMBER = "971507369833"; /* REPLACE: digits only */
 function submitLead(){
   const name  = document.getElementById('f-name').value.trim();
@@ -485,7 +486,13 @@ function submitLead(){
   window.open('https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg), '_blank');
 }
 
-document.getElementById('yr').textContent = new Date().getFullYear();
+(function(){
+  let l = new URLSearchParams(location.search).get('lang');
+  if (!l) { try { l = localStorage.getItem('ar-lang'); } catch(e) {} }
+  if (!l) { const n = (navigator.language || 'en').toLowerCase(); l = (n.startsWith('ru') || n.startsWith('kk')) ? 'ru' : 'en'; }
+  if (l === 'kk') { lang = 'ru'; document.documentElement.lang = 'ru'; setLangNoSave('ru'); } else if (l !== 'en') setLang(l);
+})();
 </script>
+<script src="../assets/js/site.js"></script>
 </body>
 </html>

@@ -16,153 +16,134 @@
 <meta property="og:image" content="https://eldarnurmukanov-glitch.github.io/astanauae/oman/img/cover.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<meta name="theme-color" content="#11191e">
 <script type="application/ld+json">{{LDJSON}}</script>
 <style>
-  :root{
-    --paper:#fbf9f4; --sand:#f2ecdf; --ink:#0f2c46; --soft:#51677a;
-    --teal:#0ea8a4; --teal-deep:#0b807c; --mint:#dff1ee; --line:rgba(15,44,70,.14); --maxw:1180px;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-padding-top:170px}
-  body{background:var(--paper);color:var(--ink);font-family:'Montserrat',system-ui,-apple-system,sans-serif;font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
-  img{max-width:100%;height:auto;display:block}
-  a{color:var(--teal-deep);text-decoration:none}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-  .display{font-family:'Playfair Display',Georgia,serif;font-weight:500;line-height:1.12;letter-spacing:.01em}
-  .eyebrow{font-size:11px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--teal-deep)}
-  .eyebrow.light{color:#9fe6df}
-  .lede{color:var(--soft);max-width:56ch}
+  html{scroll-padding-top:190px}
+  .hero h1{max-width:14ch}
+  .hero .lede{max-width:60ch}
 
-  .btn{display:inline-block;border-radius:3px;cursor:pointer;font:600 12px/1 'Montserrat',sans-serif;letter-spacing:.14em;text-transform:uppercase;padding:15px 24px;transition:opacity .2s,transform .2s;text-align:center;border:0}
-  .btn:hover{opacity:.88;transform:translateY(-1px)}
-  .btn-solid{background:var(--teal);color:#fff}
-  .btn-ghost{border:1px solid var(--ink);color:var(--ink);background:transparent}
-  .btn-sm{padding:12px 18px;font-size:11px}
-
-  /* nav */
-  header{position:sticky;top:0;z-index:50;background:rgba(251,249,244,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;height:62px;gap:14px}
-  .brand{display:flex;flex-direction:column;line-height:1.15;color:var(--ink)}
-  .brand b{font-size:13px;letter-spacing:.24em;font-weight:700}
-  .brand span{font-size:9px;letter-spacing:.3em;color:var(--soft);text-transform:uppercase}
-  .nav .btn{padding:11px 14px}
-
-  /* hero */
-  .hero{display:grid;gap:34px;padding-top:56px;padding-bottom:52px;align-items:center}
-  .hero h1{font-size:clamp(38px,6.4vw,66px);margin:16px 0 18px}
-  .hero .lede{margin-bottom:28px;font-size:16.5px}
-  .hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-  .hero-photo{border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(15,44,70,.12)}
-  .hero-photo img{width:100%;aspect-ratio:4/3;object-fit:cover}
-  @media(min-width:900px){.hero{grid-template-columns:1fr 1.05fr;gap:56px;padding-top:76px;padding-bottom:70px}}
-
-  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--sand)}
-  .stats-in{display:grid;grid-template-columns:repeat(2,1fr)}
-  .stat{padding:24px 10px;text-align:center;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .stat:nth-child(2n){border-right:0}
-  .stat:nth-child(n+3){border-bottom:0}
-  .stat b{display:block;font:600 clamp(24px,3.6vw,34px)/1 'Montserrat',sans-serif;color:var(--teal-deep)}
-  .stat small{display:block;margin-top:9px;font-size:9.5px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--soft)}
-  @media(min-width:760px){.stats-in{grid-template-columns:repeat(4,1fr)}.stat{border-bottom:0}.stat:nth-child(2n){border-right:1px solid var(--line)}.stat:last-child{border-right:0}}
+  /* stats */
+  .stats{background:var(--ink);color:var(--ivory);border-top:1px solid var(--line-d)}
+  .stats-in{display:grid;grid-template-columns:repeat(4,1fr)}
+  .stat{padding:30px 18px 34px 0}
+  .stat+.stat{padding-left:22px;border-left:1px solid var(--line-d)}
+  .stat b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(32px,3.4vw,46px);line-height:1}
+  .stat small{display:block;margin-top:10px;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-d)}
 
   /* filter bar */
-  .filters{position:sticky;top:62px;z-index:40;background:rgba(251,249,244,.97);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .filters-in{display:flex;flex-direction:column;gap:10px;padding-top:12px;padding-bottom:12px}
+  .filters{position:sticky;top:68px;z-index:40;background:rgba(246,242,234,.97);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .filters-in{display:flex;flex-direction:column;gap:12px;padding-top:14px;padding-bottom:14px}
   .chips-row{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
   .chips-row::-webkit-scrollbar{display:none}
-  .chips-row button{flex:none;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:999px;padding:8px 14px;font:500 12.5px 'Montserrat',sans-serif;cursor:pointer;white-space:nowrap}
-  .chips-row button i{font-style:normal;color:var(--soft);font-size:11px;margin-left:3px}
-  .chips-row button.on{background:var(--ink);border-color:var(--ink);color:#fff}
-  .chips-row button.on i{color:#cfe3ef}
+  .chips-row button{flex:none;border:1px solid var(--line);background:transparent;color:var(--ink);padding:8px 14px;font-size:12px;font-weight:500;letter-spacing:.04em;cursor:pointer;white-space:nowrap;transition:border-color .2s,background .2s}
+  .chips-row button:hover{border-color:var(--ink)}
+  .chips-row button i{font-style:normal;color:var(--brass);font-size:11px;margin-left:4px}
+  .chips-row button.on{background:var(--ink);border-color:var(--ink);color:var(--ivory)}
+  .chips-row button.on i{color:var(--brass-l)}
   .selects{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  .selects select{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:3px;padding:8px 10px;font:500 12.5px 'Montserrat',sans-serif}
-  .selects select{flex:1;min-width:0}
-  .selects .count{font-size:12px;color:var(--soft);margin-left:auto}
+  .selects select{flex:1;min-width:0;border:0;border-bottom:1px solid rgba(17,25,30,.3);background:transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2311191e' fill='none'/%3E%3C/svg%3E") no-repeat right 2px center;padding:6px 22px 6px 0;font-size:12.5px;font-weight:500;border-radius:0;-webkit-appearance:none;appearance:none;cursor:pointer}
+  .selects .count{font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-left:auto}
   @media(max-width:599px){.selects{flex-wrap:nowrap}.selects .count{display:none}}
-  @media(min-width:600px){.selects select{flex:none}}
+  @media(min-width:600px){.selects select{flex:none;min-width:180px}}
   @media(min-width:900px){.chips-row{flex-wrap:wrap;overflow:visible}}
 
   /* district banners */
-  .district{padding-bottom:30px}
-  .banner{background-size:cover;background-position:center;position:relative;color:#fff;margin-bottom:34px}
-  .banner::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,30,48,.78),rgba(10,30,48,.25) 70%,rgba(10,30,48,.1))}
-  .banner .wrap{position:relative;padding-top:clamp(60px,10vw,120px);padding-bottom:clamp(30px,5vw,48px)}
-  .banner h2{font-size:clamp(32px,5.4vw,54px);margin:8px 0 6px}
-  .banner p{max-width:56ch;font-size:15px;opacity:.94}
+  .district{padding-bottom:40px}
+  .banner{background-size:cover;background-position:center;position:relative;color:var(--ivory);margin-bottom:clamp(30px,4vw,48px);background-color:var(--ink)}
+  .banner::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,15,19,.82),rgba(10,15,19,.35) 65%,rgba(10,15,19,.15))}
+  .banner .wrap{position:relative;padding-top:clamp(70px,11vw,140px);padding-bottom:clamp(30px,5vw,52px)}
+  .banner h2{font-size:clamp(36px,5.4vw,64px);margin:14px 0 8px}
+  .banner p{max-width:58ch;font-size:15px;color:rgba(246,242,234,.85)}
 
   /* project cards */
-  .list{display:grid;gap:26px}
-  .proj{display:grid;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 8px 26px rgba(15,44,70,.05)}
-  .media{display:flex;flex-direction:column;gap:6px;padding:6px;background:#fff}
-  .main{border-radius:8px;overflow:hidden;background:var(--sand)}
-  .main img{width:100%;aspect-ratio:1200/698;object-fit:cover}
-  .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
-  .th{border:0;padding:0;background:var(--sand);border-radius:6px;overflow:hidden;cursor:pointer;opacity:.62;outline:2px solid transparent;outline-offset:-2px;transition:opacity .2s}
-  .th img{width:100%;aspect-ratio:16/10;object-fit:cover}
+  .list{display:grid;gap:clamp(24px,3vw,36px)}
+  .proj{display:grid;background:var(--paper);border:1px solid var(--line)}
+  .media{display:flex;flex-direction:column;gap:8px;padding:8px}
+  .main{overflow:hidden;background:var(--stone)}
+  .main img{width:100%;height:auto;aspect-ratio:1200/698;object-fit:cover}
+  .thumbs{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .th{border:0;padding:0;background:var(--stone);overflow:hidden;cursor:pointer;opacity:.55;outline:1px solid transparent;outline-offset:-1px;transition:opacity .2s}
+  .th img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover}
   .th.on,.th:hover{opacity:1}
-  .th.on{outline-color:var(--teal)}
-  .body{padding:22px 22px 26px}
-  .chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
-  .chips span{background:var(--sand);border-radius:999px;padding:4px 11px;font-size:12px;color:var(--ink)}
-  .chips .loc{background:var(--mint);color:var(--teal-deep)}
-  .proj h3{font-size:clamp(24px,3vw,30px);margin-bottom:6px}
-  .type{font-size:13.5px;color:var(--soft)}
-  .prices{display:flex;flex-wrap:wrap;gap:4px 22px;margin:2px 0 12px}
-  .price{font:700 clamp(22px,2.6vw,27px)/1.25 'Montserrat',sans-serif;color:var(--ink)}
-  .price small{display:block;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--soft)}
-  .lead{font-weight:600;font-size:14.5px;line-height:1.55;margin-bottom:10px}
-  .desc{font-size:14px;color:var(--soft);margin-bottom:14px}
-  .amen{list-style:none;display:flex;flex-wrap:wrap;gap:4px 14px;font-size:13px;color:var(--soft);margin-bottom:20px}
-  .amen li::before{content:"●";color:var(--teal);font-size:9px;margin-right:6px;vertical-align:2px}
+  .th.on{outline:2px solid var(--brass);outline-offset:-2px}
+  .body{padding:24px 24px 28px}
+  .chips{display:flex;flex-wrap:wrap;gap:6px 16px;margin-bottom:14px;font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+  .chips span+span::before{content:"·";margin-right:16px;color:var(--line)}
+  .chips .loc{color:var(--brass)}
+  .proj h3{font-size:clamp(30px,3.2vw,42px);margin-bottom:6px}
+  .type{font-size:13.5px;color:var(--muted);margin-bottom:14px}
+  .prices{display:flex;flex-wrap:wrap;gap:6px 30px;margin:0 0 16px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .price{font-family:var(--serif);font-weight:500;font-size:clamp(26px,2.6vw,32px);line-height:1.2;color:var(--ink)}
+  .price small{display:block;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .lead{font-weight:600;font-size:14.5px;line-height:1.6;margin-bottom:10px}
+  .desc{font-size:14px;color:var(--muted);margin-bottom:16px}
+  .amen{list-style:none;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13px;color:var(--muted);margin-bottom:22px}
+  .amen li::before{content:"";display:inline-block;width:5px;height:5px;background:var(--brass);transform:rotate(45deg);margin-right:8px;vertical-align:2px}
   @media(min-width:900px){
     .proj{grid-template-columns:1.12fr 1fr}
-    .media{padding:8px}
-    .body{padding:28px 30px 30px;display:flex;flex-direction:column}
+    .media{padding:10px}
+    .body{padding:32px 34px 34px;display:flex;flex-direction:column}
     .body .btn{align-self:flex-start;margin-top:auto}
   }
-  #flat{padding:34px 0 30px}
+  #flat{padding:40px 0 30px}
   .hidden{display:none !important}
 
-  section.plain{padding:76px 0}
-  .about{background:var(--sand)}
-  .about-grid{display:grid;gap:34px}
-  .about h2{font-size:clamp(28px,4.4vw,40px);margin:12px 0 16px}
-  .contact-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:28px 26px;font-size:14.5px}
-  .contact-card b{display:block;font-size:16px}
-  .contact-card .role{color:var(--soft);font-size:13px;margin-bottom:14px}
-  .contact-card div{margin-bottom:4px}
-  .contact-card .muted{color:var(--soft);font-size:13px;margin-top:12px}
-  .contact-card .btn{margin-top:18px}
+  /* about + contact */
+  section.plain{padding:clamp(80px,10vw,130px) 0}
+  .about{background:var(--stone)}
+  .about-grid{display:grid;gap:clamp(40px,6vw,90px)}
+  .about h2{font-size:clamp(36px,4.6vw,60px);margin:20px 0 22px}
+  .about .more{display:inline-flex;gap:10px;margin-top:30px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid currentColor}
+  .contact-card{background:var(--ink);color:var(--ivory);padding:clamp(28px,3.4vw,44px);font-size:14.5px}
+  .contact-card b{display:block;font-family:var(--serif);font-weight:500;font-size:32px;line-height:1.1}
+  .contact-card .role{color:var(--brass-l);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin:8px 0 20px}
+  .contact-card div{margin-bottom:6px;color:var(--muted-d)}
+  .contact-card a{color:var(--ivory);border-bottom:1px solid var(--line-d)}
+  .contact-card .muted{color:#7d878c;font-size:12.5px;margin-top:16px}
+  .contact-card a.btn{margin-top:24px;border:0;color:var(--ink)}
+  .contact-card a.btn:hover{background:var(--brass-l)}
   @media(min-width:860px){.about-grid{grid-template-columns:1.3fr 1fr;align-items:start}}
-
-  footer{padding:34px 0 44px;font-size:12px;color:var(--soft);border-top:1px solid var(--line)}
-  footer p+p{margin-top:8px}
-  .wa-float{position:fixed;right:16px;bottom:16px;z-index:60;width:54px;height:54px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.18)}
-  .wa-float svg{width:28px;height:28px;fill:#fff}
+  @media(max-width:760px){
+    .stats-in{grid-template-columns:1fr 1fr}
+    .stat,.stat+.stat{padding:22px 0 24px;border-left:0}
+    .stat:nth-child(even){padding-left:18px;border-left:1px solid var(--line-d)}
+    .stat:nth-child(n+3){border-top:1px solid var(--line-d)}
+  }
 </style>
 </head>
 <body>
 
-<header>
+<header class="site">
   <div class="wrap nav">
-    <a class="brand" href="../"><b>ASTANA REAL ESTATE</b><span>Abu Dhabi · London · Muscat</span></a>
-    <a class="btn btn-solid" href="{{WA_GENERAL}}" target="_blank" rel="noopener">WhatsApp</a>
+    <a class="brand" href="../" aria-label="Astana Real Estate — home"><b>ASTANA</b><span>Real Estate · Abu Dhabi</span></a>
+    <nav class="menu" id="menu">
+      <a href="#catalog">Catalogue</a>
+      <a href="../oman/oman-catalog.pdf" download>PDF</a>
+      <a href="#contact">Contact</a>
+      <a href="../">All projects</a>
+    </nav>
+    <div class="tools">
+      <a class="btn nav-cta" href="{{WA_GENERAL}}" target="_blank" rel="noopener">WhatsApp</a>
+      <button class="burger" aria-label="Menu" aria-controls="menu" aria-expanded="false"><i></i><i></i></button>
+    </div>
   </div>
 </header>
 
-<div class="wrap hero">
-  <div>
-    <div class="eyebrow">Autumn 2026 · 35 projects</div>
+<section class="hero">
+  <img class="bg" src="img/cover.jpg" alt="Beachfront residential development on the Oman coast" fetchpriority="high">
+  <div class="wrap hero-in">
+    <div class="eyebrow">Oman · Autumn 2026 · 35 projects</div>
     <h1 class="display">Top residential developments in Oman</h1>
-    <p class="lede">Muscat, its coastal districts and Salalah. Prices, payment plans and handover dates in one catalog — from branded beachfront residences in Al Mouj to villas in the new Sultan Haitham City.</p>
+    <p class="lede">Muscat, its coastal districts and Salalah. Prices, payment plans and handover dates in one catalogue — from branded beachfront residences in Al Mouj to villas in the new Sultan Haitham City.</p>
     <div class="hero-cta">
-      <a class="btn btn-solid" href="#catalog">Browse projects</a>
-      <a class="btn btn-ghost" href="oman-catalog.pdf" download>Download PDF</a>
+      <a class="btn btn-light" href="#catalog">Browse projects <span class="arrow">→</span></a>
+      <a class="btn btn-line" href="oman-catalog.pdf" download>Download PDF</a>
     </div>
   </div>
-  <div class="hero-photo"><img src="img/cover.jpg" alt="Beachfront residential development on the Oman coast" width="1200" height="853"></div>
-</div>
+</section>
 
 <div class="stats">
   <div class="wrap stats-in">
@@ -205,6 +186,7 @@
       <div class="eyebrow">Astana Real Estate</div>
       <h2 class="display">Your broker for the UAE and Oman</h2>
       <p class="lede">Astana Real Estate LLC SPC is an Abu Dhabi brokerage advising private investors from Kazakhstan, the CIS and beyond. We work directly with developers, structure the purchase end to end — POA, ownership, payments, handover — and stay with you from the first call to the title deed. Advisory in Russian, Kazakh and English.</p>
+      <a class="more" href="../">About Astana Real Estate <span class="arrow">→</span></a>
     </div>
     <div class="contact-card">
       <b>Yeldar Nurmukanov</b>
@@ -213,19 +195,28 @@
       <div>Office <a href="tel:+97126812236">+971 2 681 2236</a></div>
       <div><a href="mailto:info@astanauae.com">info@astanauae.com</a></div>
       <div class="muted">Office 105, Building P-121, Al Nahyan, Abu Dhabi, UAE<br>ADREC Broker No. 20250000737880</div>
-      <a class="btn btn-solid" href="{{WA_GENERAL}}" target="_blank" rel="noopener">Discuss Oman property</a>
+      <a class="btn btn-light" href="{{WA_GENERAL}}" target="_blank" rel="noopener">Discuss Oman property <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
 
-<footer>
+<footer class="site">
   <div class="wrap">
-    <p>Prices, payment plans and handover dates are as published by the developers in autumn 2026 and may change. Astana Real Estate LLC SPC is an independent brokerage and is not the developer of any project in this catalog. Images are developer renders and photos.</p>
-    <p>© <span id="yr">2026</span> Astana Real Estate LLC SPC · <a href="../">astanauae.com</a></p>
+    <div class="foot">
+      <a class="brand" href="../"><b>ASTANA</b><span>Real Estate · Abu Dhabi</span></a>
+      <nav>
+        <a href="../">Home</a>
+        <a href="../marsasaadiyat/">Marsa Al Saadiyat</a>
+        <a href="oman-catalog.pdf" download>Catalogue PDF</a>
+        <a href="https://wa.me/971507369833" target="_blank" rel="noopener">WhatsApp</a>
+      </nav>
+    </div>
+    <p class="fine">Prices, payment plans and handover dates are as published by the developers in autumn 2026 and may change. Astana Real Estate LLC SPC is an independent brokerage and is not the developer of any project in this catalogue. Images are developer renders and photos.</p>
+    <p class="fine">© <span id="yr">2026</span> Astana Real Estate LLC SPC · ADREC Broker No. 20250000737880 · <a href="mailto:info@astanauae.com">info@astanauae.com</a></p>
   </div>
 </footer>
 
-<a class="wa-float" href="{{WA_GENERAL}}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.3.6 4.5 1.8 6.5L3 29l6.9-1.8c1.9 1 4 1.6 6.1 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.5c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.2 10 10 5.3 16 5.3S26.8 10 26.8 15.8 22 26.5 16 26.5zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.8 1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></a>
+<a class="wa" href="{{WA_GENERAL}}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.3.6 4.5 1.8 6.5L3 29l6.9-1.8c1.9 1 4 1.6 6.1 1.6 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.5c-1.9 0-3.8-.5-5.4-1.5l-.4-.2-4.1 1.1 1.1-4-.3-.4c-1.1-1.7-1.7-3.6-1.7-5.6C5.2 10 10 5.3 16 5.3S26.8 10 26.8 15.8 22 26.5 16 26.5zm5.9-8c-.3-.2-1.9-.9-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1c-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2s0-.5.1-.6l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.1-1.2 2.8 1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg></a>
 
 <script>
 // thumbnail → main photo
@@ -272,7 +263,7 @@ document.getElementById('f-district').addEventListener('click',e=>{
 });
 document.getElementById('f-kind').addEventListener('change',e=>{ state.k = e.target.value; apply(); });
 document.getElementById('f-sort').addEventListener('change',e=>{ state.s = e.target.value; apply(); });
-document.getElementById('yr').textContent = new Date().getFullYear();
 </script>
+<script src="../assets/js/site.js"></script>
 </body>
 </html>
