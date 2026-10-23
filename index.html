@@ -1,44 +1,769 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Astana Real Estate — UAE Investment Property, Abu Dhabi</title>
-<meta name="description" content="Astana Real Estate LLC SPC — Abu Dhabi brokerage. Off-plan and secondary UAE property for private investors. Advisory in Russian, Kazakh and English.">
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<!--
+  ASTANA REAL ESTATE — homepage (astanauae.com)
+  Contacts used: WhatsApp 971507369833 · info@astanauae.com
+  Texts live in the I18N object at the bottom (en / ru / kk).
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astana Real Estate — Gulf Property Advisory, Abu Dhabi</title>
+<meta name="description" content="Astana Real Estate — Abu Dhabi brokerage for private investors. Off-plan and ready property in the UAE and Oman, direct with leading developers. Advisory in English, Russian and Kazakh.">
+<meta property="og:title" content="Astana Real Estate — Gulf property, chosen like an investment">
+<meta property="og:description" content="Abu Dhabi brokerage for private investors. Off-plan and ready property in the UAE and Oman. Advisory in English, Russian and Kazakh.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://astanauae.com/">
+<meta property="og:image" content="https://astanauae.com/assets/img/og.jpg">
+<meta name="theme-color" content="#11191e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2311191e'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23c8a36a' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/hero.jpg" media="(min-width: 761px)">
+<link rel="preload" as="image" href="assets/img/hero-m.jpg" media="(max-width: 760px)">
 <style>
-  :root{--paper:#fbf9f4;--ink:#0f2c46;--soft:#51677a;--teal:#0ea8a4;--teal-deep:#0b807c;--line:rgba(15,44,70,.14)}
+  :root{
+    --ink:#11191e;          /* deep ink — dark sections, text */
+    --ink-2:#1a252c;
+    --ivory:#f6f2ea;        /* page background */
+    --stone:#ece5d8;        /* alt section */
+    --paper:#fffdf9;
+    --muted:#5e6870;
+    --muted-d:#a8b0b4;      /* muted text on dark */
+    --brass:#9a7442;        /* accent on light */
+    --brass-l:#c8a36a;      /* accent on dark */
+    --line:rgba(17,25,30,.14);
+    --line-d:rgba(246,242,234,.18);
+    --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+    --sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --maxw:1240px;
+    --gut:clamp(16px,4vw,48px);
+  }
   *{margin:0;padding:0;box-sizing:border-box}
-  body{min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(90% 80% at 80% -10%,rgba(14,168,164,.10),transparent 55%),var(--paper);color:var(--ink);font-family:'Montserrat',sans-serif;text-align:center;padding:24px}
-  b.mark{display:block;font-size:15px;letter-spacing:.3em;font-weight:700}
-  .tag{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--soft);margin-top:6px}
-  h1{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(26px,5vw,40px);margin:38px 0 10px}
-  p{color:var(--soft);max-width:52ch;margin:0 auto;font-size:15px;line-height:1.7}
-  .card{display:inline-block;margin:34px 6px 0;vertical-align:top;max-width:100%;border:1px solid var(--line);background:#fff;padding:22px 28px;text-decoration:none;color:var(--ink);transition:border-color .2s;box-shadow:0 10px 30px rgba(15,44,70,.06)}
-  .card:hover{border-color:var(--teal)}
-  .card em{display:block;font-style:normal;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--teal-deep);margin-bottom:8px}
-  .card b{font-family:'Playfair Display',serif;font-weight:500;font-size:22px}
-  .card span{display:block;margin-top:6px;font-size:12px;color:var(--soft)}
-  .mail{display:block;margin-top:40px;font-size:12.5px;color:var(--soft)}
-  .mail a{color:var(--teal-deep);text-decoration:none}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-variant-numeric:lining-nums;background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button,input,select,textarea{font:inherit;color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+  .serif{font-family:var(--serif);font-weight:500;letter-spacing:-.005em;line-height:1.08}
+  .eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--brass)}
+  .eyebrow::before{content:"";width:34px;height:1px;background:currentColor;opacity:.7}
+  .dark .eyebrow{color:var(--brass-l)}
+  section{padding:clamp(80px,11vw,150px) 0}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:54px;padding:0 30px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+  .btn-light{background:var(--ivory);color:var(--ink)}
+  .btn-light:hover{background:var(--brass-l)}
+  .btn-line{border-color:rgba(246,242,234,.55);color:var(--ivory)}
+  .btn-line:hover{border-color:var(--ivory);background:rgba(246,242,234,.08)}
+  .btn-ink{background:var(--ink);color:var(--ivory)}
+  .btn-ink:hover{background:var(--brass)}
+  .arrow{display:inline-block;transition:transform .25s}
+  a:hover .arrow,button:hover .arrow{transform:translateX(5px)}
+  .link{display:inline-flex;gap:10px;align-items:center;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid currentColor}
+
+  /* header */
+  header{position:fixed;inset:0 0 auto 0;z-index:60;color:var(--ivory);transition:background .35s,color .35s,box-shadow .35s}
+  header.solid{background:rgba(246,242,234,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:20px;transition:height .35s}
+  header.solid .nav{height:68px}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand b{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:.22em}
+  .brand span{font-size:9px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;margin-top:6px;opacity:.75}
+  .menu{display:flex;align-items:center;gap:34px;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+  .menu a{position:relative;padding:6px 0}
+  .menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right .3s}
+  .menu a:hover::after{right:0}
+  .tools{display:flex;align-items:center;gap:18px}
+  .lang{display:flex;gap:2px;font-size:11px;font-weight:600;letter-spacing:.12em}
+  .lang button{background:none;border:0;cursor:pointer;padding:6px 7px;opacity:.55;transition:opacity .2s}
+  .lang button.on{opacity:1;box-shadow:inset 0 -1px 0 currentColor}
+  .lang button:hover{opacity:1}
+  .nav-cta{height:42px;padding:0 20px;font-size:11px;border:1px solid currentColor}
+  .nav-cta:hover{background:var(--brass-l);border-color:var(--brass-l);color:var(--ink)}
+  .burger{display:none;background:none;border:0;cursor:pointer;width:42px;height:42px;position:relative}
+  .burger i{position:absolute;left:10px;right:10px;height:1.5px;background:currentColor;transition:transform .3s,top .3s}
+  .burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:25px}
+  body.open .burger i:nth-child(1){top:20px;transform:rotate(45deg)}
+  body.open .burger i:nth-child(2){top:20px;transform:rotate(-45deg)}
+
+  /* hero */
+  .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;color:var(--ivory);background:var(--ink);overflow:hidden;padding:0}
+  .hero picture,.hero picture img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero picture img{animation:drift 22s ease-out both}
+  @keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,19,.55) 0%,rgba(10,15,19,.05) 30%,rgba(10,15,19,.25) 55%,rgba(10,15,19,.88) 100%)}
+  .hero-in{position:relative;z-index:2;width:100%;padding-top:140px;padding-bottom:clamp(36px,6vw,64px)}
+  .hero .eyebrow{color:var(--brass-l)}
+  .hero h1{font-size:clamp(44px,7vw,100px);margin:24px 0 24px;max-width:13ch;font-weight:500}
+  .hero h1 em{font-style:italic;font-weight:400;color:#efe3cc}
+  .hero p{max-width:54ch;font-size:clamp(15px,1.4vw,17px);color:rgba(246,242,234,.82)}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(48px,8vw,96px);border-top:1px solid var(--line-d)}
+  .facts div{padding:22px 24px 0 0}
+  .facts div+div{padding-left:24px;border-left:1px solid var(--line-d)}
+  .facts b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.1}
+  .facts span{display:block;margin-top:6px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-d)}
+
+  /* approach */
+  .approach-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(40px,7vw,110px);align-items:end}
+  .statement{font-size:clamp(30px,3.8vw,52px);margin-top:28px}
+  .statement em{font-style:italic;color:var(--brass)}
+  .approach-side p{color:var(--muted);max-width:46ch}
+  .approach-side p+p{margin-top:18px}
+  .pillars{display:grid;grid-template-columns:repeat(5,1fr);margin-top:clamp(56px,7vw,90px);border-top:1px solid var(--line)}
+  .pillars div{padding:22px 18px 0 0;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+  .pillars div i{display:block;font-style:normal;font-family:var(--serif);font-size:15px;letter-spacing:0;text-transform:none;color:var(--brass);margin-bottom:8px}
+
+  /* projects */
+  #projects{background:var(--paper)}
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,64px)}
+  .sec-head h2{font-size:clamp(38px,5vw,68px);margin-top:20px}
+  .sec-head p{color:var(--muted);max-width:42ch}
+  .proj{display:grid;grid-template-columns:1.6fr 1fr;grid-template-rows:auto auto;gap:24px}
+  .card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;color:var(--ivory);background:var(--ink);min-height:300px}
+  .card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+  .card:hover img{transform:scale(1.045)}
+  .card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,19,.08) 0%,rgba(10,15,19,.25) 35%,rgba(10,15,19,.9) 100%)}
+  .card:not(.note) .card-in{text-shadow:0 1px 18px rgba(0,0,0,.35)}
+  .card-in{position:relative;z-index:2;padding:clamp(22px,3vw,40px)}
+  .card .tag{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:#e6c995}
+  .card h3{font-size:clamp(30px,3.4vw,48px);margin:12px 0 10px}
+  .card p{font-size:14.5px;color:rgba(246,242,234,.8);max-width:46ch}
+  .card .link{margin-top:22px}
+  .card.big{grid-row:span 2;min-height:clamp(460px,62vw,720px)}
+  .card.note{background:var(--ink);justify-content:space-between}
+  .card.note::after{display:none}
+  .card.note .card-in{height:100%;display:flex;flex-direction:column}
+  .card.note .card-in .link{margin-top:auto;align-self:flex-start}
+  .card.note h3{font-size:clamp(28px,2.8vw,38px)}
+
+  /* advisory */
+  .svc{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+  .svc article{padding:34px 28px 10px 0}
+  .svc article+article{padding-left:28px;border-left:1px solid var(--line)}
+  .svc .num{font-family:var(--serif);font-size:15px;color:var(--brass)}
+  .svc h3{font-family:var(--serif);font-weight:500;font-size:clamp(25px,2.2vw,30px);line-height:1.15;margin:16px 0 14px}
+  .svc p{color:var(--muted);font-size:14.5px}
+
+  /* process (dark) */
+  .dark{background:var(--ink);color:var(--ivory)}
+  .process-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(40px,7vw,110px)}
+  .process-grid h2{font-size:clamp(38px,5vw,68px);margin-top:20px}
+  .process-grid .intro{color:var(--muted-d);margin-top:24px;max-width:38ch}
+  .steps{list-style:none;counter-reset:s}
+  .steps li{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:28px 0;border-top:1px solid var(--line-d)}
+  .steps li:last-child{border-bottom:1px solid var(--line-d)}
+  .steps li::before{counter-increment:s;content:"0" counter(s);font-family:var(--serif);font-size:20px;color:var(--brass-l);line-height:1.4}
+  .steps h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.3vw,30px);line-height:1.2}
+  .steps p{color:var(--muted-d);font-size:14.5px;margin-top:6px;max-width:52ch}
+
+  /* founder */
+  .founder{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,7vw,110px);align-items:center}
+  .portrait{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--ink)}
+  .portrait img{width:100%;height:100%;object-fit:cover;opacity:.9}
+  .portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,19,.1),rgba(10,15,19,.7))}
+  .portrait .mono{position:absolute;left:clamp(22px,3vw,36px);bottom:clamp(22px,3vw,36px);z-index:2;color:var(--ivory)}
+  .portrait .mono b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(30px,3vw,40px);line-height:1.1}
+  .portrait .mono span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass-l)}
+  .founder h2{font-size:clamp(34px,4.2vw,56px);margin:20px 0 26px}
+  .founder h2 em{font-style:italic;color:var(--brass)}
+  .founder p{color:var(--muted);max-width:52ch}
+  .creds{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:36px;border-top:1px solid var(--line)}
+  .creds div{padding:18px 16px 18px 0;border-bottom:1px solid var(--line)}
+  .creds div:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
+  .creds b{display:block;font-family:var(--serif);font-weight:500;font-size:22px;line-height:1.2}
+  .creds span{font-size:12.5px;color:var(--muted)}
+
+  /* partners */
+  #partners{background:var(--stone);padding:clamp(60px,8vw,96px) 0}
+  .partners{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+  .partners .eyebrow{flex:0 0 auto}
+  .marks{display:flex;flex-wrap:wrap;gap:clamp(22px,4.5vw,64px);align-items:center}
+  .marks span{font-family:var(--serif);font-size:clamp(22px,2.4vw,30px);font-weight:500;letter-spacing:.04em;color:#3a4247}
+  .marks span.caps{font-family:var(--sans);font-size:clamp(14px,1.4vw,17px);font-weight:700;letter-spacing:.3em}
+
+  /* offices */
+  .offices{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:clamp(40px,5vw,60px)}
+  .office{border:1px solid var(--line);padding:clamp(26px,3vw,40px);background:var(--paper)}
+  .office .tag{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--brass)}
+  .office h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,2.8vw,38px);margin:10px 0 6px}
+  .office p{color:var(--muted);font-size:14.5px}
+
+  /* contact */
+  #contact{position:relative;overflow:hidden}
+  #contact .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22}
+  #contact::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 30%,rgba(17,25,30,.75))}
+  .contact-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px)}
+  .contact-grid h2{font-size:clamp(40px,5.4vw,74px);margin:20px 0 24px}
+  .contact-grid h2 em{font-style:italic;color:#efe3cc}
+  .contact-grid .intro{color:var(--muted-d);max-width:42ch}
+  .direct{margin-top:40px;display:grid;gap:18px}
+  .direct a{display:flex;flex-direction:column;padding-bottom:16px;border-bottom:1px solid var(--line-d);transition:border-color .2s}
+  .direct a:hover{border-color:var(--brass-l)}
+  .direct small{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-d)}
+  .direct span{font-family:var(--serif);font-size:clamp(24px,2.4vw,30px)}
+  form{background:var(--ivory);color:var(--ink);padding:clamp(26px,3.6vw,48px)}
+  form h3{font-family:var(--serif);font-weight:500;font-size:30px;margin-bottom:22px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(17,25,30,.3);padding:10px 0;font-size:15.5px;border-radius:0;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+  .field select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2311191e' fill='none'/%3E%3C/svg%3E") no-repeat right 4px center;padding-right:24px;cursor:pointer}
+  .field textarea{resize:vertical;min-height:70px}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--brass)}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  form .btn{width:100%;margin-top:10px}
+  .form-note{font-size:12px;color:var(--muted);margin-top:14px}
+  .err{color:#a23b2a;font-size:12.5px;margin-top:10px;display:none}
+
+  /* footer */
+  footer{background:#0b1114;color:var(--muted-d);padding:56px 0 40px;font-size:13px}
+  .foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  .foot .brand{color:var(--ivory)}
+  .foot nav{display:flex;gap:26px;flex-wrap:wrap;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+  .foot nav a:hover{color:var(--ivory)}
+  .fine{margin-top:40px;padding-top:24px;border-top:1px solid rgba(246,242,234,.1);font-size:12px;line-height:1.7;color:#7d878c;max-width:100ch}
+  .fine a{color:var(--muted-d)}
+
+  /* floating WhatsApp */
+  .wa{position:fixed;right:20px;bottom:20px;z-index:70;width:56px;height:56px;border-radius:50%;background:#1f8f5f;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .2s}
+  .wa:hover{transform:scale(1.06)}
+  .wa svg{width:28px;height:28px;fill:#fff}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .no-js .rv{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+    .hero picture img{animation:none}
+  }
+
+  /* responsive */
+  @media (max-width:1020px){
+    .menu{display:none}
+    .burger{display:block}
+    .nav-cta{display:none}
+    body.open header{background:var(--ink);color:var(--ivory);box-shadow:none}
+    body.open .menu{display:flex;position:fixed;top:68px;left:0;right:0;bottom:0;flex-direction:column;align-items:flex-start;gap:6px;padding:30px var(--gut);background:var(--ink);color:var(--ivory)}
+    body.open .menu a{font-family:var(--serif);font-size:34px;letter-spacing:0;text-transform:none}
+    body.open{overflow:hidden}
+    .svc{grid-template-columns:1fr 1fr}
+    .svc article:nth-child(3){padding-left:0;border-left:0}
+    .svc article:nth-child(n+3){border-top:1px solid var(--line)}
+    .pillars{grid-template-columns:repeat(3,1fr);row-gap:20px}
+  }
+  @media (max-width:860px){
+    .approach-grid,.process-grid,.founder,.contact-grid,.offices{grid-template-columns:1fr}
+    .proj{grid-template-columns:1fr}
+    .card.big{grid-row:auto;min-height:520px}
+    .card{min-height:380px}
+    .card.note{min-height:300px}
+    .portrait{aspect-ratio:4/3}
+  }
+  @media (max-width:600px){
+    .nav{height:68px}
+    .brand b{font-size:21px}
+    .facts{grid-template-columns:1fr}
+    .facts div,.facts div+div{padding:12px 0;border-left:0;border-bottom:1px solid var(--line-d)}
+    .facts b{font-size:24px}
+    .facts span{margin-top:2px;font-size:10px}
+    .hero-in{padding-bottom:84px}
+    .svc{grid-template-columns:1fr}
+    .svc article,.svc article+article{padding:28px 0 14px;border-left:0;border-top:1px solid var(--line)}
+    .svc article:first-child{border-top:0}
+    .pillars{grid-template-columns:1fr 1fr}
+    .creds{grid-template-columns:1fr}
+    .creds div:nth-child(even){padding-left:0;border-left:0}
+    .row2{grid-template-columns:1fr;gap:0}
+    .hero-ctas .btn{width:100%}
+    .steps li{grid-template-columns:48px 1fr}
+    .lang button{padding:6px 5px}
+  }
 </style>
 </head>
-<body>
-<div>
-  <b class="mark">ASTANA REAL ESTATE</b>
-  <div class="tag">Abu Dhabi · UAE Investment Property</div>
-  <h1>Full site coming soon</h1>
-  <p>Off-plan and secondary residential property in the UAE for private investors. Advisory in Russian, Kazakh and English.</p>
-  <a class="card" href="marsasaadiyat/">
-    <em>Now presenting</em>
-    <b>Marsa Al Saadiyat</b>
-    <span>The last chapter on Saadiyat Island — by Aldar</span>
-  </a>
-  <a class="card" href="oman/">
-    <em>New catalog · Autumn 2026</em>
-    <b>Top developments in Oman</b>
-    <span>35 projects in Muscat and Salalah — prices, payment plans, handover</span>
-  </a>
-  <span class="mail">Enquiries: <a href="mailto:info@astanauae.com">info@astanauae.com</a></span>
-</div>
+<body class="no-js">
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="Astana Real Estate — home">
+      <b>ASTANA</b>
+      <span>Real Estate · Abu Dhabi</span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#approach" data-i18n="nav1">Approach</a>
+      <a href="#projects" data-i18n="nav2">Projects</a>
+      <a href="#advisory" data-i18n="nav3">Advisory</a>
+      <a href="#about" data-i18n="nav4">About</a>
+      <a href="#contact" data-i18n="nav5">Contact</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en">EN</button><button data-lang="ru">RU</button><button data-lang="kk">KZ</button>
+      </div>
+      <a class="btn nav-cta" href="#contact" data-i18n="navCta">Consultation</a>
+      <button class="burger" aria-label="Menu" aria-controls="menu" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <picture>
+    <source media="(max-width:760px)" srcset="assets/img/hero-m.jpg">
+    <img src="assets/img/hero.jpg" alt="Saadiyat Island, Abu Dhabi, aerial view at dusk" fetchpriority="high">
+  </picture>
+  <div class="wrap hero-in">
+    <div class="eyebrow" data-i18n="heroEyebrow">Abu Dhabi · Gulf property advisory</div>
+    <h1 class="serif" data-i18n="heroTitle">Gulf property, <em>chosen like an investment.</em></h1>
+    <p data-i18n="heroSub">An Abu Dhabi brokerage for private investors from Kazakhstan, Central Asia and beyond. Off-plan and ready property in the UAE and Oman — sourced directly from leading developers, structured with care.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-light" href="#contact"><span data-i18n="heroCta1">Book a private consultation</span> <span class="arrow">→</span></a>
+      <a class="btn btn-line" href="#projects" data-i18n="heroCta2">Current projects</a>
+    </div>
+    <div class="facts">
+      <div><b>15+</b><span data-i18n="fact1">Years in the Gulf &amp; Central Asia</span></div>
+      <div><b data-i18n="fact2b">Direct</b><span data-i18n="fact2">Partnerships with developers</span></div>
+      <div><b>EN · RU · KZ</b><span data-i18n="fact3">Advisory languages</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="approach">
+  <div class="wrap">
+    <div class="approach-grid">
+      <div class="rv">
+        <div class="eyebrow" data-i18n="apEyebrow">Our approach</div>
+        <p class="serif statement" data-i18n="apStatement">A boutique advisory by design. Every client works directly with the founder — <em>from the first brief to the keys.</em></p>
+      </div>
+      <div class="approach-side rv">
+        <p data-i18n="apP1">We read a development the way an investor should: developer track record, payment plan, construction progress, rental yield and exit liquidity — not just the brochure.</p>
+        <p data-i18n="apP2">You get a short, reasoned shortlist with the numbers behind it, and one point of contact who answers in your language.</p>
+      </div>
+    </div>
+    <div class="pillars rv">
+      <div><i>i.</i><span data-i18n="pl1">Off-plan</span></div>
+      <div><i>ii.</i><span data-i18n="pl2">Ready &amp; resale</span></div>
+      <div><i>iii.</i><span data-i18n="pl3">Structuring</span></div>
+      <div><i>iv.</i><span data-i18n="pl4">Residency</span></div>
+      <div><i>v.</i><span data-i18n="pl5">After-sales</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="eyebrow" data-i18n="prEyebrow">Selected opportunities</div>
+        <h2 class="serif" data-i18n="prTitle">Current projects</h2>
+      </div>
+      <p data-i18n="prSub">A focused selection we know in detail. Full availability, price lists and payment plans on request.</p>
+    </div>
+    <div class="proj">
+      <a class="card big rv" href="marsasaadiyat/">
+        <img src="assets/img/promenade.jpg" alt="Marsa Al Saadiyat beach promenade, Abu Dhabi" loading="lazy">
+        <div class="card-in">
+          <div class="tag" data-i18n="p1Tag">Saadiyat Island · Abu Dhabi · by Aldar</div>
+          <h3 class="serif">Marsa Al Saadiyat</h3>
+          <p data-i18n="p1Text">The final masterplan on Saadiyat Island: 8 km of waterfront, Abu Dhabi's largest marina, villas, mansions and branded residences.</p>
+          <span class="link"><span data-i18n="p1Link">Explore the project</span> <span class="arrow">→</span></span>
+        </div>
+      </a>
+      <a class="card rv" href="oman/">
+        <img src="assets/img/oman.jpg" alt="Waterfront residences in Muscat, Oman" loading="lazy">
+        <div class="card-in">
+          <div class="tag" data-i18n="p2Tag">Oman · Catalogue · Autumn 2026</div>
+          <h3 class="serif" data-i18n="p2Title">Top developments in Oman</h3>
+          <p data-i18n="p2Text">35 projects in Muscat and Salalah — prices, payment plans, handover dates.</p>
+          <span class="link"><span data-i18n="p2Link">Open the catalogue</span> <span class="arrow">→</span></span>
+        </div>
+      </a>
+      <a class="card note rv" href="#contact">
+        <div class="card-in">
+          <div class="tag" data-i18n="p3Tag">Private access</div>
+          <h3 class="serif" data-i18n="p3Title">Pre-launch &amp; <span style="white-space:nowrap">off-market</span></h3>
+          <p data-i18n="p3Text">The best units are often allocated before public launch. Share your brief and we will send what is available now.</p>
+          <span class="link" style="margin-top:28px"><span data-i18n="p3Link">Share your brief</span> <span class="arrow">→</span></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="advisory">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="eyebrow" data-i18n="svEyebrow">Advisory</div>
+        <h2 class="serif" data-i18n="svTitle">What we do</h2>
+      </div>
+      <p data-i18n="svSub">One adviser across the full cycle — from choosing the market to managing the asset.</p>
+    </div>
+    <div class="svc">
+      <article class="rv"><div class="num">01</div><h3 data-i18n="s1h">Off-plan acquisition</h3><p data-i18n="s1p">Early access to launches from Aldar and other leading developers. Unit selection, payment plan review and reservation.</p></article>
+      <article class="rv"><div class="num">02</div><h3 data-i18n="s2h">Ready &amp; resale property</h3><p data-i18n="s2p">Villas and apartments ready to live in or let, with checks on title, service charges and rental history.</p></article>
+      <article class="rv"><div class="num">03</div><h3 data-i18n="s3h">Investment structuring</h3><p data-i18n="s3p">Market entry and allocation across the UAE and Oman, ownership structure, financing and Golden Visa guidance.</p></article>
+      <article class="rv"><div class="num">04</div><h3 data-i18n="s4h">After-sales</h3><p data-i18n="s4p">SPA review, handover and snagging, leasing and property management, and resale when the time is right.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="process">
+  <div class="wrap process-grid">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="psEyebrow">Process</div>
+      <h2 class="serif" data-i18n="psTitle">Four steps, one adviser</h2>
+      <p class="intro" data-i18n="psSub">Clear at every stage, whether you are in Abu Dhabi, Astana or anywhere else. Viewings in person or by video.</p>
+    </div>
+    <ol class="steps rv">
+      <li><div><h3 data-i18n="st1h">Brief</h3><p data-i18n="st1p">A 30-minute call on your goals, budget, timeline and residency plans.</p></div></li>
+      <li><div><h3 data-i18n="st2h">Shortlist</h3><p data-i18n="st2p">Three to five options with the numbers: price per sq ft, payment schedule, expected yield and resale outlook.</p></div></li>
+      <li><div><h3 data-i18n="st3h">Secure</h3><p data-i18n="st3p">Viewings, reservation, SPA and payments — handled step by step with the developer.</p></div></li>
+      <li><div><h3 data-i18n="st4h">Own</h3><p data-i18n="st4p">Handover, leasing and ongoing support for as long as you hold the asset.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap founder">
+    <div class="portrait rv">
+      <img src="assets/img/sunset.jpg" alt="Sunset over a park in Abu Dhabi" loading="lazy">
+      <div class="mono"><span data-i18n="fdRole">Founder &amp; Broker</span><b data-i18n="fdName">Yeldar Nurmukanov</b></div>
+    </div>
+    <div class="rv">
+      <div class="eyebrow" data-i18n="fdEyebrow">About</div>
+      <h2 class="serif" data-i18n="fdTitle">An engineer's discipline, <em>applied to property.</em></h2>
+      <p data-i18n="fdP">Astana Real Estate was founded by Yeldar Nurmukanov after more than fifteen years in real estate, energy and industrial operations across the Middle East and Central Asia. Clients get the same rigour he applied to large capital projects — and advice in English, Russian or Kazakh.</p>
+      <div class="creds">
+        <div><b>INSEAD</b><span data-i18n="cr1">Global Executive MBA, 2026</span></div>
+        <div><b>KBTU</b><span data-i18n="cr2">Petroleum Engineering</span></div>
+        <div><b>MITx</b><span data-i18n="cr3">Supply Chain Management</span></div>
+        <div><b data-i18n="cr4b">15+ years</b><span data-i18n="cr4">Middle East &amp; Central Asia</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="partners">
+  <div class="wrap partners rv">
+    <div class="eyebrow" data-i18n="ptEyebrow">Developers we work with</div>
+    <div class="marks">
+      <span class="caps">ALDAR</span>
+      <span>SAAS Properties</span>
+      <span>Advanced Properties</span>
+      <span class="caps">RDC</span>
+      <span>Radiant</span>
+    </div>
+  </div>
+</section>
+
+<section id="offices" style="padding-bottom:clamp(80px,10vw,130px)">
+  <div class="wrap">
+    <div class="sec-head rv" style="margin-bottom:0">
+      <div>
+        <div class="eyebrow" data-i18n="ofEyebrow">Offices</div>
+        <h2 class="serif" data-i18n="ofTitle">Abu Dhabi &amp; Kazakhstan</h2>
+      </div>
+      <p data-i18n="ofSub">A licensed brokerage in the UAE, with a partner company at home for clients in Kazakhstan.</p>
+    </div>
+    <div class="offices">
+      <div class="office rv"><div class="tag" data-i18n="of1Tag">United Arab Emirates</div><h3>Abu Dhabi</h3><p>Astana Real Estate LLC SPC</p></div>
+      <div class="office rv"><div class="tag" data-i18n="of2Tag">Kazakhstan</div><h3 data-i18n="of2City">Kazakhstan</h3><p data-i18n="of2Co">Platinum Real Estate LLP</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="contact">
+  <img class="bg" src="assets/img/marsa.jpg" alt="" loading="lazy">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="ctEyebrow">Contact</div>
+      <h2 class="serif" data-i18n="ctTitle">Start with <em>a conversation.</em></h2>
+      <p class="intro" data-i18n="ctSub">Tell us what you are looking for. We reply the same day — usually within the hour.</p>
+      <div class="direct">
+        <a href="https://wa.me/971507369833" target="_blank" rel="noopener"><small>WhatsApp</small><span>+971 50 736 9833</span></a>
+        <a href="mailto:info@astanauae.com"><small>Email</small><span>info@astanauae.com</span></a>
+      </div>
+    </div>
+    <form class="rv" id="lead" novalidate>
+      <h3 data-i18n="fTitle">Request a consultation</h3>
+      <div class="row2">
+        <div class="field"><label for="f-name" data-i18n="fName">Name</label><input id="f-name" autocomplete="name" required></div>
+        <div class="field"><label for="f-phone" data-i18n="fPhone">Phone / WhatsApp</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="+971 / +7" required></div>
+      </div>
+      <div class="row2">
+        <div class="field"><label for="f-int" data-i18n="fInt">Interested in</label>
+          <select id="f-int">
+            <option value="o1" data-i18n="o1">UAE · off-plan</option>
+            <option value="o2" data-i18n="o2">UAE · ready property</option>
+            <option value="o3" data-i18n="o3">Oman</option>
+            <option value="o4" data-i18n="o4">Marsa Al Saadiyat</option>
+            <option value="o5" data-i18n="o5">Investment advice</option>
+          </select></div>
+        <div class="field"><label for="f-bud" data-i18n="fBud">Budget</label>
+          <select id="f-bud">
+            <option value="b1" data-i18n="b1">Up to AED 2M</option>
+            <option value="b2">AED 2–5M</option>
+            <option value="b3">AED 5–10M</option>
+            <option value="b4" data-i18n="b4">AED 10M+</option>
+          </select></div>
+      </div>
+      <div class="field"><label for="f-msg" data-i18n="fMsg">Message (optional)</label><textarea id="f-msg" rows="2"></textarea></div>
+      <button class="btn btn-ink" type="submit"><span data-i18n="fBtn">Send via WhatsApp</span> <span class="arrow">→</span></button>
+      <div class="err" id="f-err" data-i18n="fErr">Please add your name and phone.</div>
+      <p class="form-note" data-i18n="fNote">Your details are used only to reply to your enquiry.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="#"><b>ASTANA</b><span>Real Estate · Abu Dhabi</span></a>
+      <nav>
+        <a href="#projects" data-i18n="nav2">Projects</a>
+        <a href="#advisory" data-i18n="nav3">Advisory</a>
+        <a href="#about" data-i18n="nav4">About</a>
+        <a href="marsasaadiyat/">Marsa Al Saadiyat</a>
+        <a href="oman/" data-i18n="ftOman">Oman catalogue</a>
+      </nav>
+    </div>
+    <p class="fine"><span data-i18n="fine">Astana Real Estate LLC SPC — real estate brokerage, Abu Dhabi, UAE. Platinum Real Estate LLP — Kazakhstan. Project information is provided by developers and may change; it is not an offer. Astana Real Estate is an independent brokerage and is not the developer of the projects shown.</span><br>© <span id="yr">2026</span> Astana Real Estate · <a href="mailto:info@astanauae.com">info@astanauae.com</a></p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/971507369833" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.3c1.9 1 4 1.6 6.2 1.6h.5c6.6 0 12-5.3 12-11.9C30 8.3 24.6 3 16 3zm7 16.9c-.3.8-1.7 1.6-2.4 1.7-.6.1-1.4.2-2.3-.1-.5-.2-1.2-.4-2.1-.8-3.7-1.6-6.1-5.3-6.3-5.5-.2-.2-1.5-2-1.5-3.8s1-2.7 1.3-3.1c.3-.4.7-.5 1-.5h.7c.2 0 .5-.1.8.6.3.8 1.1 2.7 1.2 2.9.1.2.2.4 0 .7-.1.3-.2.4-.4.7l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.2.8-.1.2-.2 1-1.1 1.2-1.5.3-.4.5-.3.9-.2.4.1 2.2 1 2.6 1.2.4.2.6.3.7.5.1.1.1.8-.1 1.3z"/></svg>
+</a>
+
+<script>
+const I18N = {
+  en: {
+    nav1:"Approach", nav2:"Projects", nav3:"Advisory", nav4:"About", nav5:"Contact", navCta:"Consultation",
+    heroEyebrow:"Abu Dhabi · Gulf property advisory",
+    heroTitle:"Gulf property, <em>chosen like an investment.</em>",
+    heroSub:"An Abu Dhabi brokerage for private investors from Kazakhstan, Central Asia and beyond. Off-plan and ready property in the UAE and Oman — sourced directly from leading developers, structured with care.",
+    heroCta1:"Book a private consultation", heroCta2:"Current projects",
+    fact1:"Years in the Gulf &amp; Central Asia", fact2b:"Direct", fact2:"Partnerships with developers", fact3:"Advisory languages",
+    apEyebrow:"Our approach",
+    apStatement:"A boutique advisory by design. Every client works directly with the founder — <em>from the first brief to the keys.</em>",
+    apP1:"We read a development the way an investor should: developer track record, payment plan, construction progress, rental yield and exit liquidity — not just the brochure.",
+    apP2:"You get a short, reasoned shortlist with the numbers behind it, and one point of contact who answers in your language.",
+    pl1:"Off-plan", pl2:"Ready &amp; resale", pl3:"Structuring", pl4:"Residency", pl5:"After-sales",
+    prEyebrow:"Selected opportunities", prTitle:"Current projects",
+    prSub:"A focused selection we know in detail. Full availability, price lists and payment plans on request.",
+    p1Tag:"Saadiyat Island · Abu Dhabi · by Aldar",
+    p1Text:"The final masterplan on Saadiyat Island: 8 km of waterfront, Abu Dhabi's largest marina, villas, mansions and branded residences.",
+    p1Link:"Explore the project",
+    p2Tag:"Oman · Catalogue · Autumn 2026", p2Title:"Top developments in Oman",
+    p2Text:"35 projects in Muscat and Salalah — prices, payment plans, handover dates.", p2Link:"Open the catalogue",
+    p3Tag:"Private access", p3Title:"Pre-launch &amp; <span style=\"white-space:nowrap\">off-market</span>",
+    p3Text:"The best units are often allocated before public launch. Share your brief and we will send what is available now.", p3Link:"Share your brief",
+    svEyebrow:"Advisory", svTitle:"What we do", svSub:"One adviser across the full cycle — from choosing the market to managing the asset.",
+    s1h:"Off-plan acquisition", s1p:"Early access to launches from Aldar and other leading developers. Unit selection, payment plan review and reservation.",
+    s2h:"Ready &amp; resale property", s2p:"Villas and apartments ready to live in or let, with checks on title, service charges and rental history.",
+    s3h:"Investment structuring", s3p:"Market entry and allocation across the UAE and Oman, ownership structure, financing and Golden Visa guidance.",
+    s4h:"After-sales", s4p:"SPA review, handover and snagging, leasing and property management, and resale when the time is right.",
+    psEyebrow:"Process", psTitle:"Four steps, one adviser",
+    psSub:"Clear at every stage, whether you are in Abu Dhabi, Astana or anywhere else. Viewings in person or by video.",
+    st1h:"Brief", st1p:"A 30-minute call on your goals, budget, timeline and residency plans.",
+    st2h:"Shortlist", st2p:"Three to five options with the numbers: price per sq ft, payment schedule, expected yield and resale outlook.",
+    st3h:"Secure", st3p:"Viewings, reservation, SPA and payments — handled step by step with the developer.",
+    st4h:"Own", st4p:"Handover, leasing and ongoing support for as long as you hold the asset.",
+    fdRole:"Founder &amp; Broker", fdName:"Yeldar Nurmukanov", fdEyebrow:"About",
+    fdTitle:"An engineer's discipline, <em>applied to property.</em>",
+    fdP:"Astana Real Estate was founded by Yeldar Nurmukanov after more than fifteen years in real estate, energy and industrial operations across the Middle East and Central Asia. Clients get the same rigour he applied to large capital projects — and advice in English, Russian or Kazakh.",
+    cr1:"Global Executive MBA, 2026", cr2:"Petroleum Engineering", cr3:"Supply Chain Management", cr4b:"15+ years", cr4:"Middle East &amp; Central Asia",
+    ptEyebrow:"Developers we work with",
+    ofEyebrow:"Offices", ofTitle:"Abu Dhabi &amp; Kazakhstan",
+    ofSub:"A licensed brokerage in the UAE, with a partner company at home for clients in Kazakhstan.",
+    of1Tag:"United Arab Emirates", of2Tag:"Kazakhstan", of2City:"Kazakhstan", of2Co:"Platinum Real Estate LLP",
+    ctEyebrow:"Contact", ctTitle:"Start with <em>a conversation.</em>",
+    ctSub:"Tell us what you are looking for. We reply the same day — usually within the hour.",
+    fTitle:"Request a consultation", fName:"Name", fPhone:"Phone / WhatsApp", fInt:"Interested in", fBud:"Budget", fMsg:"Message (optional)",
+    o1:"UAE · off-plan", o2:"UAE · ready property", o3:"Oman", o4:"Marsa Al Saadiyat", o5:"Investment advice",
+    b1:"Up to AED 2M", b4:"AED 10M+",
+    fBtn:"Send via WhatsApp", fErr:"Please add your name and phone.", fNote:"Your details are used only to reply to your enquiry.",
+    ftOman:"Oman catalogue",
+    fine:"Astana Real Estate LLC SPC — real estate brokerage, Abu Dhabi, UAE. Platinum Real Estate LLP — Kazakhstan. Project information is provided by developers and may change; it is not an offer. Astana Real Estate is an independent brokerage and is not the developer of the projects shown.",
+    waHello:"Hello! I'd like a consultation.", waName:"Name", waPhone:"Phone", waInt:"Interested in", waBud:"Budget", waMsg:"Message"
+  },
+  ru: {
+    nav1:"Подход", nav2:"Проекты", nav3:"Услуги", nav4:"О нас", nav5:"Контакты", navCta:"Консультация",
+    heroEyebrow:"Абу-Даби · Недвижимость Персидского залива",
+    heroTitle:"Недвижимость в Заливе — <em>как инвестиция.</em>",
+    heroSub:"Брокерская компания в Абу-Даби для частных инвесторов из Казахстана, Центральной Азии и других стран. Off-plan и готовые объекты в ОАЭ и Омане — напрямую от ведущих девелоперов, с продуманной структурой сделки.",
+    heroCta1:"Записаться на консультацию", heroCta2:"Текущие проекты",
+    fact1:"Лет в странах Залива и Центральной Азии", fact2b:"Напрямую", fact2:"Партнёрства с девелоперами", fact3:"Языки консультаций",
+    apEyebrow:"Наш подход",
+    apStatement:"Бутик-консалтинг по своей сути. Каждый клиент работает напрямую с основателем — <em>от первого брифа до ключей.</em>",
+    apP1:"Мы оцениваем проект так, как это должен делать инвестор: репутация девелопера, план платежей, ход строительства, арендная доходность и ликвидность при выходе — а не только буклет.",
+    apP2:"Вы получаете короткий обоснованный шорт-лист с цифрами и одного консультанта, который отвечает на вашем языке.",
+    pl1:"Off-plan", pl2:"Готовое жильё", pl3:"Структурирование", pl4:"Резидентство", pl5:"Сопровождение",
+    prEyebrow:"Избранные предложения", prTitle:"Текущие проекты",
+    prSub:"Небольшая подборка проектов, которые мы знаем в деталях. Наличие, прайс-листы и планы платежей — по запросу.",
+    p1Tag:"Остров Саадият · Абу-Даби · Aldar",
+    p1Text:"Последний мастер-план на острове Саадият: 8 км береговой линии, крупнейшая марина Абу-Даби, виллы, особняки и брендированные резиденции.",
+    p1Link:"Подробнее о проекте",
+    p2Tag:"Оман · Каталог · Осень 2026", p2Title:"Лучшие проекты Омана",
+    p2Text:"35 проектов в Маскате и Салале — цены, планы платежей, сроки сдачи.", p2Link:"Открыть каталог",
+    p3Tag:"Закрытый доступ", p3Title:"До старта продаж и <span style=\"white-space:nowrap\">off-market</span>",
+    p3Text:"Лучшие лоты часто распределяются ещё до публичного запуска. Расскажите о запросе — пришлём актуальные варианты.", p3Link:"Отправить запрос",
+    svEyebrow:"Услуги", svTitle:"Что мы делаем", svSub:"Один консультант на всём цикле — от выбора рынка до управления объектом.",
+    s1h:"Покупка off-plan", s1p:"Ранний доступ к запускам Aldar и других ведущих девелоперов. Подбор лота, анализ плана платежей и бронирование.",
+    s2h:"Готовая недвижимость", s2p:"Виллы и апартаменты для жизни или сдачи в аренду — с проверкой прав собственности, сервисных сборов и истории аренды.",
+    s3h:"Инвестиционное структурирование", s3p:"Выход на рынок и распределение капитала между ОАЭ и Оманом, структура владения, финансирование и Golden Visa.",
+    s4h:"Сопровождение", s4p:"Проверка SPA, приёмка объекта, сдача в аренду и управление, а также продажа в нужный момент.",
+    psEyebrow:"Процесс", psTitle:"Четыре шага, один консультант",
+    psSub:"Прозрачно на каждом этапе — где бы вы ни были: в Абу-Даби, Астане или другом городе. Просмотры лично или по видео.",
+    st1h:"Бриф", st1p:"30-минутный звонок о целях, бюджете, сроках и планах на резидентство.",
+    st2h:"Шорт-лист", st2p:"От трёх до пяти вариантов с цифрами: цена за кв. фут, график платежей, ожидаемая доходность и перспективы перепродажи.",
+    st3h:"Сделка", st3p:"Просмотры, бронирование, SPA и платежи — шаг за шагом вместе с девелопером.",
+    st4h:"Владение", st4p:"Передача ключей, аренда и поддержка всё время, пока объект у вас.",
+    fdRole:"Основатель и брокер", fdName:"Ельдар Нурмуканов", fdEyebrow:"О нас",
+    fdTitle:"Инженерная дисциплина <em>в недвижимости.</em>",
+    fdP:"Astana Real Estate основал Ельдар Нурмуканов после более чем пятнадцати лет работы в недвижимости, энергетике и промышленности на Ближнем Востоке и в Центральной Азии. Клиенты получают ту же строгость подхода, что и в крупных капитальных проектах, — и консультации на русском, казахском или английском.",
+    cr1:"Global Executive MBA, 2026", cr2:"Нефтегазовое дело", cr3:"Управление цепями поставок", cr4b:"15+ лет", cr4:"Ближний Восток и Центральная Азия",
+    ptEyebrow:"Девелоперы-партнёры",
+    ofEyebrow:"Офисы", ofTitle:"Абу-Даби и Казахстан",
+    ofSub:"Лицензированный брокер в ОАЭ и партнёрская компания в Казахстане для клиентов на родине.",
+    of1Tag:"Объединённые Арабские Эмираты", of2Tag:"Казахстан", of2City:"Казахстан", of2Co:"ТОО «Platinum Real Estate»",
+    ctEyebrow:"Контакты", ctTitle:"Начнём <em>с разговора.</em>",
+    ctSub:"Расскажите, что вы ищете. Мы отвечаем в тот же день — обычно в течение часа.",
+    fTitle:"Запросить консультацию", fName:"Имя", fPhone:"Телефон / WhatsApp", fInt:"Интересует", fBud:"Бюджет", fMsg:"Сообщение (необязательно)",
+    o1:"ОАЭ · off-plan", o2:"ОАЭ · готовое жильё", o3:"Оман", o4:"Marsa Al Saadiyat", o5:"Инвестиционный совет",
+    b1:"До 2 млн AED", b4:"От 10 млн AED",
+    fBtn:"Отправить в WhatsApp", fErr:"Укажите имя и телефон.", fNote:"Ваши данные используются только для ответа на запрос.",
+    ftOman:"Каталог Омана",
+    fine:"Astana Real Estate LLC SPC — брокерская компания, Абу-Даби, ОАЭ. ТОО «Platinum Real Estate» — Казахстан. Информация о проектах предоставлена девелоперами и может меняться; не является офертой. Astana Real Estate — независимый брокер и не является девелопером представленных проектов.",
+    waHello:"Здравствуйте! Хочу получить консультацию.", waName:"Имя", waPhone:"Телефон", waInt:"Интересует", waBud:"Бюджет", waMsg:"Сообщение"
+  },
+  kk: {
+    nav1:"Тәсіл", nav2:"Жобалар", nav3:"Қызметтер", nav4:"Біз туралы", nav5:"Байланыс", navCta:"Кеңес алу",
+    heroEyebrow:"Абу-Даби · Парсы шығанағындағы жылжымайтын мүлік",
+    heroTitle:"Шығанақтағы мүлік — <em>инвестиция ретінде.</em>",
+    heroSub:"Қазақстан, Орталық Азия және басқа елдердің жеке инвесторларына арналған Абу-Дабидегі брокерлік компания. БАӘ мен Омандағы off-plan және дайын нысандар — жетекші девелоперлерден тікелей, мұқият құрылымдалған мәмілемен.",
+    heroCta1:"Кеңеске жазылу", heroCta2:"Ағымдағы жобалар",
+    fact1:"Жыл Шығанақ пен Орталық Азияда", fact2b:"Тікелей", fact2:"Девелоперлермен серіктестік", fact3:"Кеңес беру тілдері",
+    apEyebrow:"Біздің тәсіл",
+    apStatement:"Бутиктік кеңес беру. Әр клиент негізін қалаушымен тікелей жұмыс істейді — <em>алғашқы брифтен кілтке дейін.</em>",
+    apP1:"Біз жобаны инвестор ретінде бағалаймыз: девелопердің беделі, төлем жоспары, құрылыс барысы, жалдау табыстылығы және сату өтімділігі — тек буклет емес.",
+    apP2:"Сіз сандармен негізделген қысқа тізім және сіздің тіліңізде жауап беретін бір кеңесшіні аласыз.",
+    pl1:"Off-plan", pl2:"Дайын мүлік", pl3:"Құрылымдау", pl4:"Резиденттік", pl5:"Сүйемелдеу",
+    prEyebrow:"Таңдаулы ұсыныстар", prTitle:"Ағымдағы жобалар",
+    prSub:"Біз егжей-тегжейлі білетін жобалар. Бос лоттар, баға тізімдері мен төлем жоспарлары — сұраныс бойынша.",
+    p1Tag:"Саадият аралы · Абу-Даби · Aldar",
+    p1Text:"Саадият аралындағы соңғы бас жоспар: 8 км жағалау, Абу-Дабидің ең ірі маринасы, виллалар, сарайлар және брендтік резиденциялар.",
+    p1Link:"Жоба туралы толығырақ",
+    p2Tag:"Оман · Каталог · Күз 2026", p2Title:"Оманның үздік жобалары",
+    p2Text:"Маскат пен Салаладағы 35 жоба — бағалар, төлем жоспарлары, тапсыру мерзімдері.", p2Link:"Каталогты ашу",
+    p3Tag:"Жабық қолжетімділік", p3Title:"Сатылым басталғанға дейін және off-market",
+    p3Text:"Ең жақсы лоттар көбіне ашық сатылымға дейін бөлінеді. Сұранысыңызды жіберіңіз — қазір қолжетімді нұсқаларды ұсынамыз.", p3Link:"Сұраныс жіберу",
+    svEyebrow:"Қызметтер", svTitle:"Біз не істейміз", svSub:"Толық цикл бойы бір кеңесші — нарықты таңдаудан бастап нысанды басқаруға дейін.",
+    s1h:"Off-plan сатып алу", s1p:"Aldar және басқа жетекші девелоперлердің жобаларына ерте қолжетімділік. Лот таңдау, төлем жоспарын талдау және брондау.",
+    s2h:"Дайын мүлік", s2p:"Тұруға немесе жалға беруге дайын виллалар мен пәтерлер — меншік құқығын, қызмет алымдарын және жалдау тарихын тексерумен.",
+    s3h:"Инвестициялық құрылымдау", s3p:"Нарыққа шығу және капиталды БАӘ мен Оман арасында бөлу, иелік құрылымы, қаржыландыру және Golden Visa бойынша кеңес.",
+    s4h:"Сүйемелдеу", s4p:"SPA тексеру, нысанды қабылдау, жалға беру және басқару, қажет кезде қайта сату.",
+    psEyebrow:"Процесс", psTitle:"Төрт қадам, бір кеңесші",
+    psSub:"Әр кезеңде ашық — Абу-Дабиде, Астанада немесе басқа жерде болсаңыз да. Көру — жеке немесе бейне арқылы.",
+    st1h:"Бриф", st1p:"Мақсаттарыңыз, бюджет, мерзімдер және резиденттік жоспарлар туралы 30 минуттық қоңырау.",
+    st2h:"Қысқа тізім", st2p:"Сандармен үштен беске дейін нұсқа: шаршы фут бағасы, төлем кестесі, күтілетін табыстылық және қайта сату перспективасы.",
+    st3h:"Мәміле", st3p:"Көру, брондау, SPA және төлемдер — девелопермен бірге қадам-қадаммен.",
+    st4h:"Иелік", st4p:"Кілт тапсыру, жалға беру және нысан сізде болған уақыт бойы қолдау.",
+    fdRole:"Негізін қалаушы және брокер", fdName:"Ельдар Нұрмұқанов", fdEyebrow:"Біз туралы",
+    fdTitle:"Инженерлік тәртіп — <em>жылжымайтын мүлікте.</em>",
+    fdP:"Astana Real Estate компаниясының негізін Ельдар Нұрмұқанов Таяу Шығыс пен Орталық Азияда жылжымайтын мүлік, энергетика және өнеркәсіп салаларында он бес жылдан астам жұмыс істегеннен кейін қалады. Клиенттер ірі күрделі жобалардағыдай қатаң тәсіл мен қазақ, орыс немесе ағылшын тілдеріндегі кеңес алады.",
+    cr1:"Global Executive MBA, 2026", cr2:"Мұнай-газ ісі", cr3:"Жеткізу тізбегін басқару", cr4b:"15+ жыл", cr4:"Таяу Шығыс және Орталық Азия",
+    ptEyebrow:"Серіктес девелоперлер",
+    ofEyebrow:"Кеңселер", ofTitle:"Абу-Даби және Қазақстан",
+    ofSub:"БАӘ-дегі лицензияланған брокер және Қазақстандағы клиенттерге арналған серіктес компания.",
+    of1Tag:"Біріккен Араб Әмірліктері", of2Tag:"Қазақстан", of2City:"Қазақстан", of2Co:"«Platinum Real Estate» ЖШС",
+    ctEyebrow:"Байланыс", ctTitle:"Әңгімеден <em>бастайық.</em>",
+    ctSub:"Не іздеп жүргеніңізді айтыңыз. Біз сол күні жауап береміз — әдетте бір сағат ішінде.",
+    fTitle:"Кеңес сұрау", fName:"Аты-жөні", fPhone:"Телефон / WhatsApp", fInt:"Қызықтырады", fBud:"Бюджет", fMsg:"Хабарлама (міндетті емес)",
+    o1:"БАӘ · off-plan", o2:"БАӘ · дайын мүлік", o3:"Оман", o4:"Marsa Al Saadiyat", o5:"Инвестициялық кеңес",
+    b1:"2 млн AED дейін", b4:"10 млн AED жоғары",
+    fBtn:"WhatsApp арқылы жіберу", fErr:"Аты-жөніңіз бен телефоныңызды көрсетіңіз.", fNote:"Деректеріңіз тек сұранысқа жауап беру үшін пайдаланылады.",
+    ftOman:"Оман каталогы",
+    fine:"Astana Real Estate LLC SPC — брокерлік компания, Абу-Даби, БАӘ. «Platinum Real Estate» ЖШС — Қазақстан. Жобалар туралы ақпаратты девелоперлер ұсынады және ол өзгеруі мүмкін; оферта болып табылмайды. Astana Real Estate — тәуелсіз брокер және көрсетілген жобалардың девелопері емес.",
+    waHello:"Сәлеметсіз бе! Кеңес алғым келеді.", waName:"Аты-жөні", waPhone:"Телефон", waInt:"Қызықтырады", waBud:"Бюджет", waMsg:"Хабарлама"
+  }
+};
+
+let lang = 'en';
+function setLang(l){
+  if(!I18N[l]) l = 'en';
+  lang = l;
+  document.documentElement.lang = l;
+  const t = I18N[l];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
+  try { localStorage.setItem('ar-lang', l); } catch(e) {}
+}
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+// initial language: ?lang= → saved → browser
+(function(){
+  let l = new URLSearchParams(location.search).get('lang');
+  if (!l) { try { l = localStorage.getItem('ar-lang'); } catch(e) {} }
+  if (!l) {
+    const n = (navigator.language || 'en').toLowerCase();
+    l = n.startsWith('kk') ? 'kk' : n.startsWith('ru') ? 'ru' : 'en';
+  }
+  setLang(l);
+})();
+
+document.body.classList.remove('no-js');
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// header state
+const header = document.querySelector('header');
+const onScroll = () => header.classList.toggle('solid', window.scrollY > 40);
+onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+// mobile menu
+const burger = document.querySelector('.burger');
+burger.addEventListener('click', () => {
+  const open = document.body.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => {
+  document.body.classList.remove('open'); burger.setAttribute('aria-expanded', false);
+}));
+
+// reveal on scroll
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.rv').forEach(el => el.classList.add('in'));
+}
+
+// lead form → WhatsApp
+document.getElementById('lead').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const opt = id => { const s = document.getElementById(id); return s.options[s.selectedIndex].text; };
+  const err = document.getElementById('f-err');
+  if (!v('f-name') || !v('f-phone')) { err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  const t = I18N[lang];
+  const lines = [t.waHello, '', t.waName + ': ' + v('f-name'), t.waPhone + ': ' + v('f-phone'),
+    t.waInt + ': ' + opt('f-int'), t.waBud + ': ' + opt('f-bud')];
+  if (v('f-msg')) lines.push(t.waMsg + ': ' + v('f-msg'));
+  window.open('https://wa.me/971507369833?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+});
+</script>
 </body>
 </html>
