@@ -70,11 +70,11 @@
   header.solid{background:rgba(246,242,234,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:20px;transition:height .35s}
   header.solid .nav{height:68px}
-  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand{display:flex;flex-direction:column;line-height:1;flex:0 0 auto;white-space:nowrap}
   .brand b{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:.22em}
   .brand span{font-size:9px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;margin-top:6px;opacity:.75}
   .menu{display:flex;align-items:center;gap:34px;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
-  .menu a{position:relative;padding:6px 0}
+  .menu a{position:relative;padding:6px 0;white-space:nowrap}
   .menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right .3s}
   .menu a:hover::after{right:0}
   .tools{display:flex;align-items:center;gap:18px}
@@ -193,6 +193,14 @@
   .office h3{font-family:var(--serif);font-weight:500;font-size:clamp(28px,2.8vw,38px);margin:10px 0 6px}
   .office p{color:var(--muted);font-size:14.5px}
 
+  /* partner programme band */
+  #refer{background:var(--stone);padding:clamp(64px,8vw,104px) 0}
+  .refer{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(32px,6vw,90px);align-items:end}
+  .refer h2{font-size:clamp(34px,4.4vw,58px);margin-top:20px}
+  .refer h2 em{font-style:italic;color:var(--brass)}
+  .refer p{color:var(--muted);max-width:46ch}
+  .refer .btn{margin-top:26px}
+
   /* contact */
   #contact{position:relative;overflow:hidden}
   #contact .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22}
@@ -244,6 +252,10 @@
   }
 
   /* responsive */
+  @media (min-width:1021px) and (max-width:1240px){
+    .menu{gap:20px;font-size:11px;letter-spacing:.1em}
+    .tools{gap:14px}
+  }
   @media (max-width:1020px){
     .menu{display:none}
     .burger{display:block}
@@ -258,7 +270,7 @@
     .pillars{grid-template-columns:repeat(3,1fr);row-gap:20px}
   }
   @media (max-width:860px){
-    .approach-grid,.process-grid,.founder,.contact-grid,.offices{grid-template-columns:1fr}
+    .approach-grid,.process-grid,.founder,.contact-grid,.offices,.refer{grid-template-columns:1fr}
     .proj{grid-template-columns:1fr}
     .card.big{grid-row:auto;min-height:520px}
     .card{min-height:380px}
@@ -299,6 +311,7 @@
       <a href="#projects" data-i18n="nav2">Projects</a>
       <a href="#advisory" data-i18n="nav3">Advisory</a>
       <a href="#about" data-i18n="nav4">About</a>
+      <a href="partner/" data-i18n="nav6">Partners</a>
       <a href="#contact" data-i18n="nav5">Contact</a>
     </nav>
     <div class="tools">
@@ -478,6 +491,19 @@
   </div>
 </section>
 
+<section id="refer">
+  <div class="wrap refer">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="rfEyebrow">Partner programme</div>
+      <h2 class="serif" data-i18n="rfTitle">Know a buyer or a seller? <em>Earn up to 50%.</em></h2>
+    </div>
+    <div class="rv">
+      <p data-i18n="rfText">Refer a client or bring a property for sale in the UAE or Oman. We run the deal; you receive up to 50% of our commission.</p>
+      <a class="btn btn-ink" href="partner/"><span data-i18n="rfLink">How it works</span> <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
 <section class="dark" id="contact">
   <img class="bg" src="assets/img/marsa.jpg" alt="" loading="lazy">
   <div class="wrap contact-grid">
@@ -532,6 +558,7 @@
         <a href="#about" data-i18n="nav4">About</a>
         <a href="marsasaadiyat/">Marsa Al Saadiyat</a>
         <a href="oman/" data-i18n="ftOman">Oman catalogue</a>
+        <a href="partner/" data-i18n="ftPartner">Partner programme</a>
       </nav>
     </div>
     <p class="fine"><span data-i18n="fine">Astana Real Estate LLC SPC — real estate brokerage, Abu Dhabi, UAE. Platinum Real Estate LLP — Kazakhstan. Project information is provided by developers and may change; it is not an offer. Astana Real Estate is an independent brokerage and is not the developer of the projects shown.</span><br>© <span id="yr">2026</span> Astana Real Estate · <a href="mailto:info@astanauae.com">info@astanauae.com</a></p>
@@ -545,7 +572,7 @@
 <script>
 const I18N = {
   en: {
-    nav1:"Approach", nav2:"Projects", nav3:"Advisory", nav4:"About", nav5:"Contact", navCta:"Consultation",
+    nav1:"Approach", nav2:"Projects", nav3:"Advisory", nav4:"About", nav5:"Contact", nav6:"Partners", navCta:"Consultation",
     heroEyebrow:"Abu Dhabi · Gulf property advisory",
     heroTitle:"Gulf property, <em>chosen like an investment.</em>",
     heroSub:"An Abu Dhabi brokerage for private investors from Kazakhstan, Central Asia and beyond. Off-plan and ready property in the UAE and Oman — sourced directly from leading developers, structured with care.",
@@ -590,12 +617,15 @@ const I18N = {
     o1:"UAE · off-plan", o2:"UAE · ready property", o3:"Oman", o4:"Marsa Al Saadiyat", o5:"Investment advice",
     b1:"Up to AED 2M", b4:"AED 10M+",
     fBtn:"Send via WhatsApp", fErr:"Please add your name and phone.", fNote:"Your details are used only to reply to your enquiry.",
-    ftOman:"Oman catalogue",
+    ftOman:"Oman catalogue", ftPartner:"Partner programme",
+    rfEyebrow:"Partner programme", rfTitle:"Know a buyer or a seller? <em>Earn up to 50%.</em>",
+    rfText:"Refer a client or bring a property for sale in the UAE or Oman. We run the deal; you receive up to 50% of our commission.",
+    rfLink:"How it works",
     fine:"Astana Real Estate LLC SPC — real estate brokerage, Abu Dhabi, UAE. Platinum Real Estate LLP — Kazakhstan. Project information is provided by developers and may change; it is not an offer. Astana Real Estate is an independent brokerage and is not the developer of the projects shown.",
     waHello:"Hello! I'd like a consultation.", waName:"Name", waPhone:"Phone", waInt:"Interested in", waBud:"Budget", waMsg:"Message"
   },
   ru: {
-    nav1:"Подход", nav2:"Проекты", nav3:"Услуги", nav4:"О нас", nav5:"Контакты", navCta:"Консультация",
+    nav1:"Подход", nav2:"Проекты", nav3:"Услуги", nav4:"О нас", nav5:"Контакты", nav6:"Партнёрам", navCta:"Консультация",
     heroEyebrow:"Абу-Даби · Недвижимость Персидского залива",
     heroTitle:"Недвижимость в Заливе — <em>как инвестиция.</em>",
     heroSub:"Брокерская компания в Абу-Даби для частных инвесторов из Казахстана, Центральной Азии и других стран. Off-plan и готовые объекты в ОАЭ и Омане — напрямую от ведущих девелоперов, с продуманной структурой сделки.",
@@ -640,12 +670,15 @@ const I18N = {
     o1:"ОАЭ · off-plan", o2:"ОАЭ · готовое жильё", o3:"Оман", o4:"Marsa Al Saadiyat", o5:"Инвестиционный совет",
     b1:"До 2 млн AED", b4:"От 10 млн AED",
     fBtn:"Отправить в WhatsApp", fErr:"Укажите имя и телефон.", fNote:"Ваши данные используются только для ответа на запрос.",
-    ftOman:"Каталог Омана",
+    ftOman:"Каталог Омана", ftPartner:"Партнёрская программа",
+    rfEyebrow:"Партнёрская программа", rfTitle:"Знаете покупателя или продавца? <em>Получите до&nbsp;50%.</em>",
+    rfText:"Порекомендуйте клиента или передайте объект на продажу в ОАЭ или Омане. Сделку ведём мы, вы получаете до 50% нашей комиссии.",
+    rfLink:"Подробнее",
     fine:"Astana Real Estate LLC SPC — брокерская компания, Абу-Даби, ОАЭ. ТОО «Platinum Real Estate» — Казахстан. Информация о проектах предоставлена девелоперами и может меняться; не является офертой. Astana Real Estate — независимый брокер и не является девелопером представленных проектов.",
     waHello:"Здравствуйте! Хочу получить консультацию.", waName:"Имя", waPhone:"Телефон", waInt:"Интересует", waBud:"Бюджет", waMsg:"Сообщение"
   },
   kk: {
-    nav1:"Тәсіл", nav2:"Жобалар", nav3:"Қызметтер", nav4:"Біз туралы", nav5:"Байланыс", navCta:"Кеңес алу",
+    nav1:"Тәсіл", nav2:"Жобалар", nav3:"Қызметтер", nav4:"Біз туралы", nav5:"Байланыс", nav6:"Серіктестерге", navCta:"Кеңес алу",
     heroEyebrow:"Абу-Даби · Парсы шығанағындағы жылжымайтын мүлік",
     heroTitle:"Шығанақтағы мүлік — <em>инвестиция ретінде.</em>",
     heroSub:"Қазақстан, Орталық Азия және басқа елдердің жеке инвесторларына арналған Абу-Дабидегі брокерлік компания. БАӘ мен Омандағы off-plan және дайын нысандар — жетекші девелоперлерден тікелей, мұқият құрылымдалған мәмілемен.",
@@ -690,7 +723,10 @@ const I18N = {
     o1:"БАӘ · off-plan", o2:"БАӘ · дайын мүлік", o3:"Оман", o4:"Marsa Al Saadiyat", o5:"Инвестициялық кеңес",
     b1:"2 млн AED дейін", b4:"10 млн AED жоғары",
     fBtn:"WhatsApp арқылы жіберу", fErr:"Аты-жөніңіз бен телефоныңызды көрсетіңіз.", fNote:"Деректеріңіз тек сұранысқа жауап беру үшін пайдаланылады.",
-    ftOman:"Оман каталогы",
+    ftOman:"Оман каталогы", ftPartner:"Серіктестік бағдарлама",
+    rfEyebrow:"Серіктестік бағдарлама", rfTitle:"Сатып алушыны не сатушыны білесіз бе? <em>50%-ға дейін алыңыз.</em>",
+    rfText:"БАӘ немесе Омандағы клиентті ұсыныңыз не сатуға нысан беріңіз. Мәмілені біз жүргіземіз, сіз комиссиямыздың 50%-ына дейін аласыз.",
+    rfLink:"Толығырақ",
     fine:"Astana Real Estate LLC SPC — брокерлік компания, Абу-Даби, БАӘ. «Platinum Real Estate» ЖШС — Қазақстан. Жобалар туралы ақпаратты девелоперлер ұсынады және ол өзгеруі мүмкін; оферта болып табылмайды. Astana Real Estate — тәуелсіз брокер және көрсетілген жобалардың девелопері емес.",
     waHello:"Сәлеметсіз бе! Кеңес алғым келеді.", waName:"Аты-жөні", waPhone:"Телефон", waInt:"Қызықтырады", waBud:"Бюджет", waMsg:"Хабарлама"
   }
