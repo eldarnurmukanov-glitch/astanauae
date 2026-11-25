@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+  ASTANA REAL ESTATE — Partner programme (astanauae.com/partner/)
+  Contacts used: WhatsApp 971507369833 · info@astanauae.com
+  Texts live in the I18N object at the bottom (en / ru / kk).
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partner Programme — up to 50% of our commission | Astana Real Estate</title>
+<meta name="description" content="Refer a buyer or bring a property for sale in the UAE or Oman and receive up to 50% of our commission. Astana Real Estate, Abu Dhabi. Партнёрская программа: до 50% нашей комиссии за клиента или объект.">
+<meta property="og:title" content="Astana Real Estate — Partner programme: up to 50% of our commission">
+<meta property="og:description" content="Refer a buyer or bring a property for sale in the UAE or Oman. We run the deal, you receive up to 50% of our commission.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://astanauae.com/partner/">
+<meta property="og:image" content="https://astanauae.com/assets/img/og.jpg">
+<meta name="theme-color" content="#11191e">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2311191e'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' fill='%23c8a36a' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../assets/img/sunset.jpg">
+<style>
+  :root{
+    --ink:#11191e;
+    --ink-2:#1a252c;
+    --ivory:#f6f2ea;
+    --stone:#ece5d8;
+    --paper:#fffdf9;
+    --muted:#5e6870;
+    --muted-d:#a8b0b4;
+    --brass:#9a7442;
+    --brass-l:#c8a36a;
+    --line:rgba(17,25,30,.14);
+    --line-d:rgba(246,242,234,.18);
+    --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+    --sans:'Manrope',system-ui,-apple-system,'Segoe UI',sans-serif;
+    --maxw:1240px;
+    --gut:clamp(16px,4vw,48px);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-variant-numeric:lining-nums;background:var(--ivory);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button,input,select,textarea{font:inherit;color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+  .serif{font-family:var(--serif);font-weight:500;letter-spacing:-.005em;line-height:1.08}
+  .eyebrow{display:flex;align-items:center;gap:14px;font-size:11px;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--brass)}
+  .eyebrow::before{content:"";width:34px;height:1px;background:currentColor;opacity:.7}
+  .dark .eyebrow{color:var(--brass-l)}
+  section{padding:clamp(72px,10vw,136px) 0;scroll-margin-top:60px}
+  .nowrap{white-space:nowrap}
+
+  /* buttons */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;height:54px;padding:0 30px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;border:1px solid transparent;cursor:pointer;transition:background .25s,color .25s,border-color .25s}
+  .btn-light{background:var(--ivory);color:var(--ink)}
+  .btn-light:hover{background:var(--brass-l)}
+  .btn-line{border-color:rgba(246,242,234,.55);color:var(--ivory)}
+  .btn-line:hover{border-color:var(--ivory);background:rgba(246,242,234,.08)}
+  .btn-ink{background:var(--ink);color:var(--ivory)}
+  .btn-ink:hover{background:var(--brass)}
+  .arrow{display:inline-block;transition:transform .25s}
+  a:hover .arrow,button:hover .arrow{transform:translateX(5px)}
+  .link{display:inline-flex;gap:10px;align-items:center;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;padding-bottom:6px;border-bottom:1px solid currentColor}
+
+  /* header */
+  header{position:fixed;inset:0 0 auto 0;z-index:60;color:var(--ivory);transition:background .35s,color .35s,box-shadow .35s}
+  header.solid{background:rgba(246,242,234,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:20px;transition:height .35s}
+  header.solid .nav{height:68px}
+  .brand{display:flex;flex-direction:column;line-height:1;flex:0 0 auto;white-space:nowrap}
+  .brand b{font-family:var(--serif);font-weight:600;font-size:25px;letter-spacing:.22em}
+  .brand span{font-size:9px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;margin-top:6px;opacity:.75}
+  .menu{display:flex;align-items:center;gap:34px;font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase}
+  .menu a{position:relative;padding:6px 0;white-space:nowrap}
+  .menu a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:currentColor;transition:right .3s}
+  .menu a:hover::after{right:0}
+  .tools{display:flex;align-items:center;gap:18px}
+  .lang{display:flex;gap:2px;font-size:11px;font-weight:600;letter-spacing:.12em}
+  .lang button{background:none;border:0;cursor:pointer;padding:6px 7px;opacity:.55;transition:opacity .2s}
+  .lang button.on{opacity:1;box-shadow:inset 0 -1px 0 currentColor}
+  .lang button:hover{opacity:1}
+  .nav-cta{height:42px;padding:0 20px;font-size:11px;border:1px solid currentColor}
+  .nav-cta:hover{background:var(--brass-l);border-color:var(--brass-l);color:var(--ink)}
+  .burger{display:none;background:none;border:0;cursor:pointer;width:42px;height:42px;position:relative}
+  .burger i{position:absolute;left:10px;right:10px;height:1.5px;background:currentColor;transition:transform .3s,top .3s}
+  .burger i:nth-child(1){top:16px}.burger i:nth-child(2){top:25px}
+  body.open .burger i:nth-child(1){top:20px;transform:rotate(45deg)}
+  body.open .burger i:nth-child(2){top:20px;transform:rotate(-45deg)}
+
+  /* hero */
+  .hero{position:relative;min-height:92vh;min-height:92svh;display:flex;flex-direction:column;justify-content:flex-end;color:var(--ivory);background:var(--ink);overflow:hidden;padding:0}
+  .hero .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:drift 22s ease-out both}
+  @keyframes drift{from{transform:scale(1.08)}to{transform:scale(1)}}
+  .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,15,19,.6) 0%,rgba(10,15,19,.2) 30%,rgba(10,15,19,.45) 55%,rgba(10,15,19,.92) 100%)}
+  .hero-in{position:relative;z-index:2;width:100%;padding-top:140px;padding-bottom:clamp(36px,6vw,64px)}
+  .hero .eyebrow{color:var(--brass-l)}
+  .hero h1{font-size:clamp(42px,6.6vw,94px);margin:24px 0 24px;max-width:14ch;font-weight:500}
+  .hero h1 em{font-style:italic;font-weight:400;color:#efe3cc}
+  .hero p{max-width:56ch;font-size:clamp(15px,1.4vw,17px);color:rgba(246,242,234,.85)}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:38px}
+  .facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(48px,7vw,88px);border-top:1px solid var(--line-d)}
+  .facts div{padding:22px 24px 0 0}
+  .facts div+div{padding-left:24px;border-left:1px solid var(--line-d)}
+  .facts b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.1}
+  .facts span{display:block;margin-top:6px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted-d)}
+
+  /* section heads */
+  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,64px)}
+  .sec-head h2{font-size:clamp(38px,5vw,68px);margin-top:20px}
+  .sec-head p{color:var(--muted);max-width:44ch}
+
+  /* two ways */
+  .ways{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .way{background:var(--paper);border:1px solid var(--line);padding:clamp(28px,3.6vw,52px);display:flex;flex-direction:column}
+  .way .num{font-family:var(--serif);font-size:15px;color:var(--brass)}
+  .way h3{font-family:var(--serif);font-weight:500;font-size:clamp(30px,3vw,42px);line-height:1.1;margin:14px 0 18px}
+  .way p{color:var(--muted)}
+  .way .need{margin-top:24px;padding-top:20px;border-top:1px solid var(--line);font-size:14.5px}
+  .way .need b{display:block;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--brass);margin-bottom:6px}
+  .way .link{margin-top:auto;align-self:flex-start}
+  .way .need{margin-bottom:30px}
+
+  /* how it works (dark) */
+  .dark{background:var(--ink);color:var(--ivory)}
+  .process-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(40px,7vw,110px)}
+  .process-grid h2{font-size:clamp(38px,5vw,68px);margin-top:20px}
+  .process-grid .intro{color:var(--muted-d);margin-top:24px;max-width:38ch}
+  .steps{list-style:none;counter-reset:s}
+  .steps li{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:28px 0;border-top:1px solid var(--line-d)}
+  .steps li:last-child{border-bottom:1px solid var(--line-d)}
+  .steps li::before{counter-increment:s;content:"0" counter(s);font-family:var(--serif);font-size:20px;color:var(--brass-l);line-height:1.4}
+  .steps h3{font-family:var(--serif);font-weight:500;font-size:clamp(24px,2.3vw,30px);line-height:1.2}
+  .steps p{color:var(--muted-d);font-size:14.5px;margin-top:6px;max-width:52ch}
+
+  /* example */
+  #example{background:var(--paper)}
+  .calc{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .calc .c{padding:34px 0}
+  .calc .op{display:flex;align-items:center;justify-content:center;padding:0 clamp(16px,3vw,44px);font-family:var(--serif);font-size:30px;color:var(--brass)}
+  .calc small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .calc b{display:block;font-family:var(--serif);font-weight:500;font-size:clamp(32px,3.8vw,54px);line-height:1.1;margin-top:12px;white-space:nowrap}
+  .calc .hl b{color:var(--brass)}
+  .calc-note{margin-top:20px;font-size:13px;color:var(--muted);max-width:76ch}
+
+  /* who */
+  .svc{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+  .svc article{padding:34px 28px 10px 0}
+  .svc article+article{padding-left:28px;border-left:1px solid var(--line)}
+  .svc .num{font-family:var(--serif);font-size:15px;color:var(--brass)}
+  .svc h3{font-family:var(--serif);font-weight:500;font-size:clamp(25px,2.2vw,30px);line-height:1.15;margin:16px 0 14px}
+  .svc p{color:var(--muted);font-size:14.5px}
+
+  /* terms */
+  #terms{background:var(--stone)}
+  .terms-grid{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(40px,7vw,110px)}
+  .terms-grid h2{font-size:clamp(38px,5vw,68px);margin-top:20px}
+  .terms-grid .intro{color:var(--muted);margin-top:24px;max-width:38ch}
+  .rules{list-style:none;counter-reset:r}
+  .rules li{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:24px 0;border-top:1px solid var(--line)}
+  .rules li:last-child{border-bottom:1px solid var(--line)}
+  .rules li::before{counter-increment:r;content:"0" counter(r);font-family:var(--serif);font-size:20px;color:var(--brass);line-height:1.4}
+  .rules h3{font-family:var(--serif);font-weight:500;font-size:clamp(22px,2.1vw,27px);line-height:1.25}
+  .rules p{color:var(--muted);font-size:14.5px;margin-top:4px;max-width:56ch}
+
+  /* faq */
+  .faq{max-width:900px}
+  .faq details{border-top:1px solid var(--line)}
+  .faq details:last-child{border-bottom:1px solid var(--line)}
+  .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:24px 0;font-family:var(--serif);font-size:clamp(22px,2.2vw,28px);font-weight:500;line-height:1.25}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-family:var(--sans);font-weight:400;font-size:26px;line-height:1;color:var(--brass);transition:transform .25s;flex:0 0 auto}
+  .faq details[open] summary::after{transform:rotate(45deg)}
+  .faq summary:hover{color:var(--brass)}
+  .faq details p{color:var(--muted);padding:0 40px 26px 0;max-width:72ch}
+
+  /* submit */
+  #submit{position:relative;overflow:hidden}
+  #submit .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.22}
+  #submit::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--ink) 30%,rgba(17,25,30,.75))}
+  .contact-grid{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px)}
+  .contact-grid h2{font-size:clamp(40px,5.4vw,74px);margin:20px 0 24px}
+  .contact-grid h2 em{font-style:italic;color:#efe3cc}
+  .contact-grid .intro{color:var(--muted-d);max-width:42ch}
+  .direct{margin-top:40px;display:grid;gap:18px}
+  .direct a{display:flex;flex-direction:column;padding-bottom:16px;border-bottom:1px solid var(--line-d);transition:border-color .2s}
+  .direct a:hover{border-color:var(--brass-l)}
+  .direct small{font-size:10.5px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--muted-d)}
+  .direct span{font-family:var(--serif);font-size:clamp(24px,2.4vw,30px)}
+  form{background:var(--ivory);color:var(--ink);padding:clamp(26px,3.6vw,48px);align-self:start}
+  form h3{font-family:var(--serif);font-weight:500;font-size:30px;margin-bottom:22px}
+  .field{margin-bottom:18px}
+  .field label{display:block;font-size:10.5px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(17,25,30,.3);padding:10px 0;font-size:15.5px;border-radius:0;outline:none;transition:border-color .2s;-webkit-appearance:none;appearance:none}
+  .field select{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2311191e' fill='none'/%3E%3C/svg%3E") no-repeat right 4px center;padding-right:24px;cursor:pointer}
+  .field textarea{resize:vertical;min-height:84px}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--brass)}
+  .field ::placeholder{color:#8b9398}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  form .btn{width:100%;margin-top:10px}
+  .form-note{font-size:12px;color:var(--muted);margin-top:14px}
+  .err{color:#a23b2a;font-size:12.5px;margin-top:10px;display:none}
+
+  /* footer */
+  footer{background:#0b1114;color:var(--muted-d);padding:56px 0 40px;font-size:13px}
+  .foot{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;align-items:flex-start}
+  .foot .brand{color:var(--ivory)}
+  .foot nav{display:flex;gap:26px;flex-wrap:wrap;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+  .foot nav a:hover{color:var(--ivory)}
+  .fine{margin-top:40px;padding-top:24px;border-top:1px solid rgba(246,242,234,.1);font-size:12px;line-height:1.7;color:#7d878c;max-width:100ch}
+  .fine a{color:var(--muted-d)}
+
+  /* floating WhatsApp */
+  .wa{position:fixed;right:20px;bottom:20px;z-index:70;width:56px;height:56px;border-radius:50%;background:#1f8f5f;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .2s}
+  .wa:hover{transform:scale(1.06)}
+  .wa svg{width:28px;height:28px;fill:#fff}
+
+  /* reveal */
+  .rv{opacity:0;transform:translateY(26px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+  .rv.in{opacity:1;transform:none}
+  .no-js .rv{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .rv{opacity:1;transform:none;transition:none}
+    .hero .bgimg{animation:none}
+  }
+
+  /* responsive */
+  @media (min-width:1081px) and (max-width:1240px){
+    .menu{gap:20px;font-size:11px;letter-spacing:.1em}
+    .tools{gap:14px}
+  }
+  @media (max-width:1080px){
+    .menu{display:none}
+    .burger{display:block}
+    .nav-cta{display:none}
+    body.open header{background:var(--ink);color:var(--ivory);box-shadow:none}
+    body.open .menu{display:flex;position:fixed;top:68px;left:0;right:0;bottom:0;flex-direction:column;align-items:flex-start;gap:6px;padding:30px var(--gut);background:var(--ink);color:var(--ivory)}
+    body.open .menu a{font-family:var(--serif);font-size:34px;letter-spacing:0;text-transform:none}
+    body.open{overflow:hidden}
+    .svc{grid-template-columns:1fr 1fr}
+    .svc article:nth-child(3){padding-left:0;border-left:0}
+    .svc article:nth-child(n+3){border-top:1px solid var(--line)}
+    .calc{grid-template-columns:1fr}
+    .calc .c{padding:24px 0}
+    .calc .c+.op{padding:0;justify-content:flex-start}
+    .calc .op{transform:rotate(90deg);width:30px;height:30px}
+  }
+  @media (max-width:860px){
+    .ways,.process-grid,.terms-grid,.contact-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:600px){
+    .nav{height:68px}
+    .brand b{font-size:21px}
+    .facts{grid-template-columns:1fr}
+    .facts div,.facts div+div{padding:12px 0;border-left:0;border-bottom:1px solid var(--line-d)}
+    .facts b{font-size:24px}
+    .facts span{margin-top:2px;font-size:10px}
+    .hero-in{padding-bottom:84px}
+    .hero-ctas .btn{width:100%}
+    .svc{grid-template-columns:1fr}
+    .svc article,.svc article+article{padding:28px 0 14px;border-left:0;border-top:1px solid var(--line)}
+    .svc article:first-child{border-top:0}
+    .row2{grid-template-columns:1fr;gap:0}
+    .steps li,.rules li{grid-template-columns:48px 1fr}
+    .faq details p{padding-right:0}
+    .lang button{padding:6px 5px}
+  }
+</style>
+</head>
+<body class="no-js">
+
+<header id="top">
+  <div class="wrap nav">
+    <a class="brand" href="../" aria-label="Astana Real Estate — home">
+      <b>ASTANA</b>
+      <span>Real Estate · Abu Dhabi</span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#ways" data-i18n="nav1">Two ways</a>
+      <a href="#how" data-i18n="nav2">How it works</a>
+      <a href="#terms" data-i18n="nav3">Terms</a>
+      <a href="#faq" data-i18n="nav4">FAQ</a>
+      <a href="../" data-i18n="nav5">Main site</a>
+    </nav>
+    <div class="tools">
+      <div class="lang" role="group" aria-label="Language">
+        <button data-lang="en">EN</button><button data-lang="ru">RU</button><button data-lang="kk">KZ</button>
+      </div>
+      <a class="btn nav-cta" href="#submit" data-i18n="navCta">Send a referral</a>
+      <button class="burger" aria-label="Menu" aria-controls="menu" aria-expanded="false"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <img class="bgimg" src="../assets/img/sunset.jpg" alt="Abu Dhabi skyline at dusk seen from a landscaped residential park" fetchpriority="high">
+  <div class="wrap hero-in">
+    <div class="eyebrow" data-i18n="heroEyebrow">Partner programme</div>
+    <h1 class="serif" data-i18n="heroTitle">Refer a client. <em>Earn up to 50%.</em></h1>
+    <p data-i18n="heroSub">Introduce a buyer or bring a property for sale in the UAE or Oman. We handle the deal from the first call to the keys. You receive up to 50% of our commission.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-light" href="#submit" data-type="t1"><span data-i18n="heroCta1">Refer a client</span> <span class="arrow">→</span></a>
+      <a class="btn btn-line" href="#submit" data-type="t2" data-i18n="heroCta2">Submit a property</a>
+    </div>
+    <div class="facts">
+      <div><b data-i18n="f1b">Up to 50%</b><span data-i18n="f1">Of our commission</span></div>
+      <div><b data-i18n="f2b">2 ways</b><span data-i18n="f2">A buyer or a property</span></div>
+      <div><b data-i18n="f3b">In writing</b><span data-i18n="f3">Terms fixed before the deal</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="ways">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="eyebrow" data-i18n="wyEyebrow">How you earn</div>
+        <h2 class="serif" data-i18n="wyTitle">Two ways to earn</h2>
+      </div>
+      <p data-i18n="wySub">You make the introduction. Everything after that — shortlist, viewings, negotiation, paperwork — is on us.</p>
+    </div>
+    <div class="ways">
+      <article class="way rv">
+        <div class="num">01</div>
+        <h3 data-i18n="w1h">Refer a buyer</h3>
+        <p data-i18n="w1p">Someone you know wants to buy property in the UAE or Oman — to live in, to rent out, or for a Golden Visa. Introduce them to us. We prepare a shortlist, arrange viewings and handle the reservation and paperwork with the developer.</p>
+        <div class="need"><b data-i18n="needH">What to send us</b><span data-i18n="w1n">Name, budget and what the client is looking for. Contact details only with their consent.</span></div>
+        <a class="link" href="#submit" data-type="t1"><span data-i18n="w1l">Refer a client</span> <span class="arrow">→</span></a>
+      </article>
+      <article class="way rv">
+        <div class="num">02</div>
+        <h3 data-i18n="w2h">Bring a property for sale</h3>
+        <p data-i18n="w2p">You know an owner who wants to sell a villa, apartment, plot or commercial unit in the UAE or Oman. Pass us the contact. We value the property, show it to our buyers in the UAE, Kazakhstan and Central Asia, and close the sale.</p>
+        <div class="need"><b data-i18n="needH">What to send us</b><span data-i18n="w2n">Location, type, size and asking price. The owner's contact only with their consent.</span></div>
+        <a class="link" href="#submit" data-type="t2"><span data-i18n="w2l">Submit a property</span> <span class="arrow">→</span></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="how">
+  <div class="wrap process-grid">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="hwEyebrow">Process</div>
+      <h2 class="serif" data-i18n="hwTitle">How it works</h2>
+      <p class="intro" data-i18n="hwSub">Four steps. You always know where the deal stands.</p>
+    </div>
+    <ol class="steps rv">
+      <li><div><h3 data-i18n="h1h">Send us the contact</h3><p data-i18n="h1p">Message us on WhatsApp or use the form below. A short description is enough to start.</p></div></li>
+      <li><div><h3 data-i18n="h2h">We register it to you</h3><p data-i18n="h2p">We check our database and confirm in writing that the client or the property is registered to you.</p></div></li>
+      <li><div><h3 data-i18n="h3h">We run the deal</h3><p data-i18n="h3p">Consultation, shortlist, viewings, negotiation, SPA. We update you at each key stage.</p></div></li>
+      <li><div><h3 data-i18n="h4h">You get paid</h3><p data-i18n="h4p">Your share is paid by bank transfer once we receive our commission from the developer or the seller.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="example">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="eyebrow" data-i18n="exEyebrow">Example</div>
+        <h2 class="serif" data-i18n="exTitle">What it looks like in numbers</h2>
+      </div>
+    </div>
+    <div class="calc rv">
+      <div class="c"><small data-i18n="ex1">Your client buys an apartment</small><b data-i18n="ex1b">AED 2,000,000</b></div>
+      <div class="op" aria-hidden="true">→</div>
+      <div class="c"><small data-i18n="ex2">Our commission on the deal</small><b data-i18n="ex2b">AED 80,000</b></div>
+      <div class="op" aria-hidden="true">→</div>
+      <div class="c hl"><small data-i18n="ex3">Your share, up to 50%</small><b data-i18n="ex3b">AED 40,000</b></div>
+    </div>
+    <p class="calc-note rv" data-i18n="exNote">Illustrative example. Our commission depends on the developer and the type of deal. Your share is agreed in writing before the deal starts.</p>
+  </div>
+</section>
+
+<section id="who">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="eyebrow" data-i18n="whEyebrow">Who it is for</div>
+        <h2 class="serif" data-i18n="whTitle">Who can be a partner</h2>
+      </div>
+      <p data-i18n="whSub">Anyone who knows a buyer or a seller. No licence or sales experience needed.</p>
+    </div>
+    <div class="svc">
+      <article class="rv"><div class="num">01</div><h3 data-i18n="wh1h">Friends and clients</h3><p data-i18n="wh1p">People who know someone planning to buy or sell property in the Gulf.</p></article>
+      <article class="rv"><div class="num">02</div><h3 data-i18n="wh2h">Brokers and agencies</h3><p data-i18n="wh2p">Agencies in Kazakhstan, Central Asia and the CIS whose clients look at the UAE and Oman. Licensed brokers work with us on a co-broking agreement.</p></article>
+      <article class="rv"><div class="num">03</div><h3 data-i18n="wh3h">Advisers</h3><p data-i18n="wh3p">Wealth managers, private bankers, lawyers, accountants, relocation and visa consultants.</p></article>
+      <article class="rv"><div class="num">04</div><h3 data-i18n="wh4h">Communities</h3><p data-i18n="wh4p">Business clubs, associations, bloggers and community leaders whose audience is interested in Gulf property.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="terms">
+  <div class="wrap terms-grid">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="tmEyebrow">Terms</div>
+      <h2 class="serif" data-i18n="tmTitle">Programme rules</h2>
+      <p class="intro" data-i18n="tmSub">Simple rules, agreed in writing with every partner.</p>
+    </div>
+    <ol class="rules rv">
+      <li><div><h3 data-i18n="r1h">Up to 50% of our commission</h3><p data-i18n="r1p">The exact share depends on the deal type and your role. We agree it in writing before we start.</p></div></li>
+      <li><div><h3 data-i18n="r2h">Registered to you from the first introduction</h3><p data-i18n="r2p">We confirm in writing that the client or the property is registered to you.</p></div></li>
+      <li><div><h3 data-i18n="r3h">Honest check against our database</h3><p data-i18n="r3p">If the client or the property is already working with us, we tell you straight away.</p></div></li>
+      <li><div><h3 data-i18n="r4h">Paid when we are paid</h3><p data-i18n="r4p">You receive your share once our commission arrives. If the deal does not close, nobody owes anything.</p></div></li>
+      <li><div><h3 data-i18n="r5h">Confidentiality</h3><p data-i18n="r5p">We contact your client only with your agreement. All details stay between us.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <div class="eyebrow" data-i18n="fqEyebrow">Questions</div>
+        <h2 class="serif" data-i18n="fqTitle">Frequently asked</h2>
+      </div>
+    </div>
+    <div class="faq rv">
+      <details><summary data-i18n="q1">Do I need a real estate licence?</summary><p data-i18n="a1">No. You do not need a licence to refer a client or a property. We sign a short referral agreement with every partner. Licensed brokers and agencies work with us on a co-broking agreement.</p></details>
+      <details><summary data-i18n="q2">How is my share decided?</summary><p data-i18n="a2">It is up to 50% of our commission and depends on the type of deal and how involved you are. A simple introduction earns less than active help through the deal. We agree the percentage in writing before we start.</p></details>
+      <details><summary data-i18n="q3">When do I get paid?</summary><p data-i18n="a3">After we receive our commission from the developer or the seller. On off-plan deals the developer usually pays the agency after the buyer's down payment and the signed SPA. We tell you the expected timing at the start.</p></details>
+      <details><summary data-i18n="q4">What if the client buys a different property?</summary><p data-i18n="a4">The referral is tied to the client, not to one unit. A purchase through us within the term of the agreement counts.</p></details>
+      <details><summary data-i18n="q5">Which properties qualify?</summary><p data-i18n="a5">Off-plan and ready property in the UAE and Oman: apartments, villas, townhouses, plots and commercial units.</p></details>
+      <details><summary data-i18n="q6">Can I take part from Kazakhstan or another country?</summary><p data-i18n="a6">Yes, from anywhere. We work remotely, and in Kazakhstan we have a partner company, Platinum Real Estate LLP.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="submit">
+  <img class="bg" src="../assets/img/marsa.jpg" alt="" loading="lazy">
+  <div class="wrap contact-grid">
+    <div class="rv">
+      <div class="eyebrow" data-i18n="sbEyebrow">Submit</div>
+      <h2 class="serif" data-i18n="sbTitle">Send a client <em>or a property.</em></h2>
+      <p class="intro" data-i18n="sbSub">Fill in the form and WhatsApp opens with your message ready. Or contact us directly. We reply the same day.</p>
+      <div class="direct">
+        <a href="https://wa.me/971507369833" target="_blank" rel="noopener"><small>WhatsApp</small><span>+971 50 736 9833</span></a>
+        <a href="mailto:info@astanauae.com"><small>Email</small><span>info@astanauae.com</span></a>
+      </div>
+    </div>
+    <form class="rv" id="lead" novalidate>
+      <h3 data-i18n="fTitle">Partner request</h3>
+      <div class="row2">
+        <div class="field"><label for="f-name" data-i18n="fName">Your name</label><input id="f-name" autocomplete="name" required></div>
+        <div class="field"><label for="f-phone" data-i18n="fPhone">Your phone / WhatsApp</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="+971 / +7" required></div>
+      </div>
+      <div class="field"><label for="f-type" data-i18n="fType">I want to</label>
+        <select id="f-type">
+          <option value="t1" data-i18n="t1">Refer a buyer</option>
+          <option value="t2" data-i18n="t2">Submit a property for sale</option>
+          <option value="t3" data-i18n="t3">Partner as an agency</option>
+        </select></div>
+      <div class="field"><label for="f-det" data-i18n="fDet">Details</label><textarea id="f-det" rows="3"></textarea></div>
+      <button class="btn btn-ink" type="submit"><span data-i18n="fBtn">Send via WhatsApp</span> <span class="arrow">→</span></button>
+      <div class="err" id="f-err" data-i18n="fErr">Please add your name and phone.</div>
+      <p class="form-note" data-i18n="fNote">Share a client's or owner's contact details only with their consent. The referral is registered to you once we confirm it in writing.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="../"><b>ASTANA</b><span>Real Estate · Abu Dhabi</span></a>
+      <nav>
+        <a href="../" data-i18n="ftHome">Home</a>
+        <a href="../marsasaadiyat/">Marsa Al Saadiyat</a>
+        <a href="../oman/" data-i18n="ftOman">Oman catalogue</a>
+        <a href="../#contact" data-i18n="ftContact">Contact</a>
+      </nav>
+    </div>
+    <p class="fine"><span data-i18n="fine">The partner programme terms on this page are a summary. The share, payment and registration terms are set in a written agreement with each partner. A fee is paid only on completed deals. Astana Real Estate LLC SPC — real estate brokerage, Abu Dhabi, UAE. Platinum Real Estate LLP — Kazakhstan.</span><br>© <span id="yr">2026</span> Astana Real Estate · <a href="mailto:info@astanauae.com">info@astanauae.com</a></p>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/971507369833" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.3 4 14.9c0 2.6.8 5 2.3 7L4 29l7.3-2.3c1.9 1 4 1.6 6.2 1.6h.5c6.6 0 12-5.3 12-11.9C30 8.3 24.6 3 16 3zm7 16.9c-.3.8-1.7 1.6-2.4 1.7-.6.1-1.4.2-2.3-.1-.5-.2-1.2-.4-2.1-.8-3.7-1.6-6.1-5.3-6.3-5.5-.2-.2-1.5-2-1.5-3.8s1-2.7 1.3-3.1c.3-.4.7-.5 1-.5h.7c.2 0 .5-.1.8.6.3.8 1.1 2.7 1.2 2.9.1.2.2.4 0 .7-.1.3-.2.4-.4.7l-.6.7c-.2.2-.4.4-.2.8.2.4 1 1.6 2.1 2.6 1.5 1.3 2.7 1.7 3.1 1.9.4.2.6.2.8-.1.2-.2 1-1.1 1.2-1.5.3-.4.5-.3.9-.2.4.1 2.2 1 2.6 1.2.4.2.6.3.7.5.1.1.1.8-.1 1.3z"/></svg>
+</a>
+
+<script>
+const I18N = {
+  en: {
+    nav1:"Two ways", nav2:"How it works", nav3:"Terms", nav4:"FAQ", nav5:"Main site", navCta:"Send a referral",
+    heroEyebrow:"Partner programme",
+    heroTitle:"Refer a client. <em>Earn up to 50%.</em>",
+    heroSub:"Introduce a buyer or bring a property for sale in the UAE or Oman. We handle the deal from the first call to the keys. You receive up to 50% of our commission.",
+    heroCta1:"Refer a client", heroCta2:"Submit a property",
+    f1b:"Up to 50%", f1:"Of our commission", f2b:"2 ways", f2:"A buyer or a property", f3b:"In writing", f3:"Terms fixed before the deal",
+    wyEyebrow:"How you earn", wyTitle:"Two ways to earn",
+    wySub:"You make the introduction. Everything after that — shortlist, viewings, negotiation, paperwork — is on us.",
+    w1h:"Refer a buyer",
+    w1p:"Someone you know wants to buy property in the UAE or Oman — to live in, to rent out, or for a Golden Visa. Introduce them to us. We prepare a shortlist, arrange viewings and handle the reservation and paperwork with the developer.",
+    needH:"What to send us",
+    w1n:"Name, budget and what the client is looking for. Contact details only with their consent.",
+    w1l:"Refer a client",
+    w2h:"Bring a property for sale",
+    w2p:"You know an owner who wants to sell a villa, apartment, plot or commercial unit in the UAE or Oman. Pass us the contact. We value the property, show it to our buyers in the UAE, Kazakhstan and Central Asia, and close the sale.",
+    w2n:"Location, type, size and asking price. The owner's contact only with their consent.",
+    w2l:"Submit a property",
+    hwEyebrow:"Process", hwTitle:"How it works", hwSub:"Four steps. You always know where the deal stands.",
+    h1h:"Send us the contact", h1p:"Message us on WhatsApp or use the form below. A short description is enough to start.",
+    h2h:"We register it to you", h2p:"We check our database and confirm in writing that the client or the property is registered to you.",
+    h3h:"We run the deal", h3p:"Consultation, shortlist, viewings, negotiation, SPA. We update you at each key stage.",
+    h4h:"You get paid", h4p:"Your share is paid by bank transfer once we receive our commission from the developer or the seller.",
+    exEyebrow:"Example", exTitle:"What it looks like in numbers",
+    ex1:"Your client buys an apartment", ex1b:"AED 2,000,000",
+    ex2:"Our commission on the deal", ex2b:"AED 80,000",
+    ex3:"Your share, up to 50%", ex3b:"AED 40,000",
+    exNote:"Illustrative example. Our commission depends on the developer and the type of deal. Your share is agreed in writing before the deal starts.",
+    whEyebrow:"Who it is for", whTitle:"Who can be a partner",
+    whSub:"Anyone who knows a buyer or a seller. No licence or sales experience needed.",
+    wh1h:"Friends and clients", wh1p:"People who know someone planning to buy or sell property in the Gulf.",
+    wh2h:"Brokers and agencies", wh2p:"Agencies in Kazakhstan, Central Asia and the CIS whose clients look at the UAE and Oman. Licensed brokers work with us on a co-broking agreement.",
+    wh3h:"Advisers", wh3p:"Wealth managers, private bankers, lawyers, accountants, relocation and visa consultants.",
+    wh4h:"Communities", wh4p:"Business clubs, associations, bloggers and community leaders whose audience is interested in Gulf property.",
+    tmEyebrow:"Terms", tmTitle:"Programme rules", tmSub:"Simple rules, agreed in writing with every partner.",
+    r1h:"Up to 50% of our commission", r1p:"The exact share depends on the deal type and your role. We agree it in writing before we start.",
+    r2h:"Registered to you from the first introduction", r2p:"We confirm in writing that the client or the property is registered to you.",
+    r3h:"Honest check against our database", r3p:"If the client or the property is already working with us, we tell you straight away.",
+    r4h:"Paid when we are paid", r4p:"You receive your share once our commission arrives. If the deal does not close, nobody owes anything.",
+    r5h:"Confidentiality", r5p:"We contact your client only with your agreement. All details stay between us.",
+    fqEyebrow:"Questions", fqTitle:"Frequently asked",
+    q1:"Do I need a real estate licence?", a1:"No. You do not need a licence to refer a client or a property. We sign a short referral agreement with every partner. Licensed brokers and agencies work with us on a co-broking agreement.",
+    q2:"How is my share decided?", a2:"It is up to 50% of our commission and depends on the type of deal and how involved you are. A simple introduction earns less than active help through the deal. We agree the percentage in writing before we start.",
+    q3:"When do I get paid?", a3:"After we receive our commission from the developer or the seller. On off-plan deals the developer usually pays the agency after the buyer's down payment and the signed SPA. We tell you the expected timing at the start.",
+    q4:"What if the client buys a different property?", a4:"The referral is tied to the client, not to one unit. A purchase through us within the term of the agreement counts.",
+    q5:"Which properties qualify?", a5:"Off-plan and ready property in the UAE and Oman: apartments, villas, townhouses, plots and commercial units.",
+    q6:"Can I take part from Kazakhstan or another country?", a6:"Yes, from anywhere. We work remotely, and in Kazakhstan we have a partner company, Platinum Real Estate LLP.",
+    sbEyebrow:"Submit", sbTitle:"Send a client <em>or a property.</em>",
+    sbSub:"Fill in the form and WhatsApp opens with your message ready. Or contact us directly. We reply the same day.",
+    fTitle:"Partner request", fName:"Your name", fPhone:"Your phone / WhatsApp", fType:"I want to",
+    t1:"Refer a buyer", t2:"Submit a property for sale", t3:"Partner as an agency", fDet:"Details",
+    ph_t1:"What the client is looking for: budget, location, purpose",
+    ph_t2:"Property: location, type, size, asking price",
+    ph_t3:"Agency name, country, typical clients",
+    fBtn:"Send via WhatsApp", fErr:"Please add your name and phone.",
+    fNote:"Share a client's or owner's contact details only with their consent. The referral is registered to you once we confirm it in writing.",
+    ftHome:"Home", ftOman:"Oman catalogue", ftContact:"Contact",
+    fine:"The partner programme terms on this page are a summary. The share, payment and registration terms are set in a written agreement with each partner. A fee is paid only on completed deals. Astana Real Estate LLC SPC — real estate brokerage, Abu Dhabi, UAE. Platinum Real Estate LLP — Kazakhstan.",
+    waHello:"Hello! A request under your partner programme.", waName:"Name", waPhone:"Phone", waType:"Request", waDet:"Details"
+  },
+  ru: {
+    nav1:"Два способа", nav2:"Как это работает", nav3:"Условия", nav4:"Вопросы", nav5:"Основной сайт", navCta:"Передать клиента",
+    heroEyebrow:"Партнёрская программа",
+    heroTitle:"Приведите клиента. <em>Получите до&nbsp;50%.</em>",
+    heroSub:"Порекомендуйте покупателя или передайте объект на продажу в ОАЭ или Омане. Сделку ведём мы — от первого звонка до ключей. Вы получаете до 50% нашей комиссии.",
+    heroCta1:"Передать клиента", heroCta2:"Передать объект",
+    f1b:"До 50%", f1:"Нашей комиссии", f2b:"2 способа", f2:"Покупатель или объект", f3b:"Письменно", f3:"Условия — до начала сделки",
+    wyEyebrow:"Как заработать", wyTitle:"Два способа заработать",
+    wySub:"От вас — знакомство. Всё остальное — подбор, просмотры, переговоры, документы — делаем мы.",
+    w1h:"Передать покупателя",
+    w1p:"Ваш знакомый хочет купить недвижимость в ОАЭ или Омане — для жизни, сдачи в аренду или ради Golden Visa. Познакомьте его с нами. Мы подготовим подборку, организуем просмотры, бронирование и оформление с девелопером.",
+    needH:"Что нам прислать",
+    w1n:"Имя, бюджет и что ищет клиент. Контакты — только с его согласия.",
+    w1l:"Передать клиента",
+    w2h:"Передать объект на продажу",
+    w2p:"Вы знаете собственника, который хочет продать виллу, апартаменты, участок или коммерческое помещение в ОАЭ или Омане. Передайте нам контакт. Мы оценим объект, покажем его нашим покупателям в ОАЭ, Казахстане и Центральной Азии и закроем сделку.",
+    w2n:"Локация, тип, площадь и цена. Контакт собственника — только с его согласия.",
+    w2l:"Передать объект",
+    hwEyebrow:"Процесс", hwTitle:"Как это работает", hwSub:"Четыре шага. Вы всегда знаете, на каком этапе сделка.",
+    h1h:"Отправьте контакт", h1p:"Напишите в WhatsApp или заполните форму ниже. Для начала достаточно короткого описания.",
+    h2h:"Закрепляем за вами", h2p:"Проверяем по нашей базе и письменно подтверждаем, что клиент или объект закреплён за вами.",
+    h3h:"Ведём сделку", h3p:"Консультация, подбор, просмотры, переговоры, SPA. Сообщаем вам о каждом ключевом этапе.",
+    h4h:"Вы получаете выплату", h4p:"Вашу долю переводим на банковский счёт, как только получаем нашу комиссию от девелопера или продавца.",
+    exEyebrow:"Пример", exTitle:"Как это выглядит в цифрах",
+    ex1:"Ваш клиент покупает апартаменты", ex1b:"2&nbsp;000&nbsp;000 AED",
+    ex2:"Наша комиссия по сделке", ex2b:"80&nbsp;000 AED",
+    ex3:"Ваша доля, до 50%", ex3b:"40&nbsp;000 AED",
+    exNote:"Пример условный. Размер нашей комиссии зависит от девелопера и типа сделки. Вашу долю фиксируем письменно до начала сделки.",
+    whEyebrow:"Для кого", whTitle:"Кто может стать партнёром",
+    whSub:"Любой, кто знает покупателя или продавца. Лицензия и опыт продаж не нужны.",
+    wh1h:"Друзья и клиенты", wh1p:"Те, у кого есть знакомые, которые планируют купить или продать недвижимость в Заливе.",
+    wh2h:"Брокеры и агентства", wh2p:"Агентства в Казахстане, Центральной Азии и СНГ, чьи клиенты смотрят на ОАЭ и Оман. С лицензированными брокерами работаем по договору co-broking.",
+    wh3h:"Консультанты", wh3p:"Управляющие капиталом, частные банкиры, юристы, бухгалтеры, консультанты по релокации и визам.",
+    wh4h:"Сообщества", wh4p:"Бизнес-клубы, ассоциации, блогеры и лидеры сообществ, чья аудитория интересуется недвижимостью в Заливе.",
+    tmEyebrow:"Условия", tmTitle:"Правила программы", tmSub:"Простые правила, которые мы фиксируем письменно с каждым партнёром.",
+    r1h:"До 50% нашей комиссии", r1p:"Точная доля зависит от типа сделки и вашего участия. Согласуем её письменно до начала работы.",
+    r2h:"Закрепление с первого знакомства", r2p:"Письменно подтверждаем, что клиент или объект закреплён за вами.",
+    r3h:"Честная проверка по базе", r3p:"Если клиент или объект уже работает с нами, сразу говорим вам об этом.",
+    r4h:"Выплата — когда платят нам", r4p:"Вы получаете свою долю, как только приходит наша комиссия. Если сделка не состоялась, никто никому ничего не должен.",
+    r5h:"Конфиденциальность", r5p:"Связываемся с вашим клиентом только с вашего согласия. Все данные остаются между нами.",
+    fqEyebrow:"Вопросы", fqTitle:"Частые вопросы",
+    q1:"Нужна ли лицензия брокера?", a1:"Нет. Чтобы передать клиента или объект, лицензия не нужна. С каждым партнёром подписываем короткое соглашение. Лицензированные брокеры и агентства работают с нами по договору co-broking.",
+    q2:"Как определяется моя доля?", a2:"До 50% нашей комиссии — в зависимости от типа сделки и вашего участия. Просто знакомство — меньше, активная помощь в сделке — больше. Процент согласуем письменно до начала работы.",
+    q3:"Когда я получу деньги?", a3:"После того как мы получим комиссию от девелопера или продавца. По off-plan девелопер обычно платит агентству после первого взноса покупателя и подписания SPA. Ориентир по срокам называем в самом начале.",
+    q4:"Что если клиент купит другой объект?", a4:"Рекомендация привязана к клиенту, а не к конкретному лоту. Покупка через нас в течение срока соглашения засчитывается.",
+    q5:"Какие объекты подходят?", a5:"Off-plan и готовая недвижимость в ОАЭ и Омане: апартаменты, виллы, таунхаусы, участки, коммерческие помещения.",
+    q6:"Можно участвовать из Казахстана или другой страны?", a6:"Да, откуда угодно. Мы работаем удалённо, а в Казахстане у нас есть партнёрская компания — ТОО «Platinum Real Estate».",
+    sbEyebrow:"Заявка", sbTitle:"Передайте клиента <em>или объект.</em>",
+    sbSub:"Заполните форму — откроется WhatsApp с готовым сообщением. Или напишите нам напрямую. Отвечаем в тот же день.",
+    fTitle:"Заявка партнёра", fName:"Ваше имя", fPhone:"Ваш телефон / WhatsApp", fType:"Что хотите передать",
+    t1:"Клиента-покупателя", t2:"Объект на продажу", t3:"Партнёрство для агентства", fDet:"Подробности",
+    ph_t1:"Что ищет клиент: бюджет, локация, цель покупки",
+    ph_t2:"Объект: локация, тип, площадь, цена",
+    ph_t3:"Название агентства, страна, какие клиенты",
+    fBtn:"Отправить в WhatsApp", fErr:"Укажите имя и телефон.",
+    fNote:"Контакты клиента или собственника передавайте только с их согласия. Клиент или объект закрепляется за вами после нашего письменного подтверждения.",
+    ftHome:"Главная", ftOman:"Каталог Омана", ftContact:"Контакты",
+    fine:"Условия партнёрской программы на этой странице — краткое описание. Доля, порядок выплаты и закрепления фиксируются в письменном соглашении с каждым партнёром. Вознаграждение выплачивается только по закрытым сделкам. Astana Real Estate LLC SPC — брокерская компания, Абу-Даби, ОАЭ. ТОО «Platinum Real Estate» — Казахстан.",
+    waHello:"Здравствуйте! Заявка по партнёрской программе.", waName:"Имя", waPhone:"Телефон", waType:"Запрос", waDet:"Подробности"
+  },
+  kk: {
+    nav1:"Екі тәсіл", nav2:"Қалай жұмыс істейді", nav3:"Шарттар", nav4:"Сұрақтар", nav5:"Негізгі сайт", navCta:"Клиент ұсыну",
+    heroEyebrow:"Серіктестік бағдарлама",
+    heroTitle:"Клиент әкеліңіз. <em>50%-ға&nbsp;дейін алыңыз.</em>",
+    heroSub:"Сатып алушыны ұсыныңыз немесе БАӘ не Омандағы нысанды сатуға тапсырыңыз. Мәмілені біз жүргіземіз — алғашқы қоңыраудан кілтке дейін. Сіз біздің комиссиямыздың 50%-ына дейін аласыз.",
+    heroCta1:"Клиент ұсыну", heroCta2:"Нысан тапсыру",
+    f1b:"50%-ға дейін", f1:"Біздің комиссиямыздан", f2b:"2 тәсіл", f2:"Сатып алушы немесе нысан", f3b:"Жазбаша", f3:"Шарттар — мәмілеге дейін",
+    wyEyebrow:"Қалай табыс табуға болады", wyTitle:"Табыс табудың екі тәсілі",
+    wySub:"Сізден — таныстыру. Қалғанының бәрін — іріктеу, нысандарды көру, келіссөздер, құжаттар — біз жасаймыз.",
+    w1h:"Сатып алушыны ұсыну",
+    w1p:"Танысыңыз БАӘ немесе Оманнан жылжымайтын мүлік сатып алғысы келеді — тұру, жалға беру немесе Golden Visa үшін. Оны бізбен таныстырыңыз. Біз нұсқаларды іріктеп, нысандарды көрсетуді, брондауды және девелопермен құжат рәсімдеуді ұйымдастырамыз.",
+    needH:"Бізге не жіберу керек",
+    w1n:"Клиенттің аты-жөні, бюджеті және не іздейтіні. Байланыс деректері — тек оның келісімімен.",
+    w1l:"Клиент ұсыну",
+    w2h:"Нысанды сатуға тапсыру",
+    w2p:"Сіз БАӘ немесе Оманда вилласын, пәтерін, жер учаскесін немесе коммерциялық үй-жайын сатқысы келетін меншік иесін білесіз. Оның байланысын бізге беріңіз. Біз нысанды бағалаймыз, оны БАӘ, Қазақстан және Орталық Азиядағы сатып алушыларымызға көрсетеміз және мәмілені аяқтаймыз.",
+    w2n:"Орналасқан жері, түрі, ауданы және бағасы. Меншік иесінің байланысы — тек оның келісімімен.",
+    w2l:"Нысан тапсыру",
+    hwEyebrow:"Процесс", hwTitle:"Қалай жұмыс істейді", hwSub:"Төрт қадам. Мәміленің қай кезеңде екенін әрқашан білесіз.",
+    h1h:"Байланысты жіберіңіз", h1p:"WhatsApp-қа жазыңыз немесе төмендегі форманы толтырыңыз. Бастау үшін қысқа сипаттама жеткілікті.",
+    h2h:"Сізге бекітеміз", h2p:"Базамыз бойынша тексеріп, клиенттің немесе нысанның сізге бекітілгенін жазбаша растаймыз.",
+    h3h:"Мәмілені жүргіземіз", h3p:"Кеңес, іріктеу, нысандарды көру, келіссөздер, SPA. Әр негізгі кезең туралы сізге хабарлаймыз.",
+    h4h:"Сіз төлем аласыз", h4p:"Девелоперден немесе сатушыдан комиссиямызды алған бойда үлесіңізді банк шотыңызға аударамыз.",
+    exEyebrow:"Мысал", exTitle:"Сандармен қалай көрінеді",
+    ex1:"Клиентіңіз пәтер сатып алады", ex1b:"2&nbsp;000&nbsp;000 AED",
+    ex2:"Мәміле бойынша біздің комиссиямыз", ex2b:"80&nbsp;000 AED",
+    ex3:"Сіздің үлесіңіз, 50%-ға дейін", ex3b:"40&nbsp;000 AED",
+    exNote:"Мысал шартты. Комиссиямыздың мөлшері девелоперге және мәміле түріне байланысты. Үлесіңізді мәміле басталғанға дейін жазбаша бекітеміз.",
+    whEyebrow:"Кімге арналған", whTitle:"Кім серіктес бола алады",
+    whSub:"Сатып алушыны немесе сатушыны білетін кез келген адам. Лицензия мен сату тәжірибесі қажет емес.",
+    wh1h:"Достар мен клиенттер", wh1p:"Таныстары Шығанақта жылжымайтын мүлік сатып алуды немесе сатуды жоспарлап жүрген адамдар.",
+    wh2h:"Брокерлер мен агенттіктер", wh2p:"Клиенттері БАӘ мен Оманға қызығатын Қазақстан, Орталық Азия және ТМД агенттіктері. Лицензияланған брокерлермен co-broking шарты бойынша жұмыс істейміз.",
+    wh3h:"Кеңесшілер", wh3p:"Капитал басқарушылар, жеке банкирлер, заңгерлер, бухгалтерлер, релокация және виза бойынша кеңесшілер.",
+    wh4h:"Қоғамдастықтар", wh4p:"Аудиториясы Шығанақтағы жылжымайтын мүлікке қызығатын бизнес-клубтар, қауымдастықтар, блогерлер мен қоғамдастық жетекшілері.",
+    tmEyebrow:"Шарттар", tmTitle:"Бағдарлама ережелері", tmSub:"Әр серіктеспен жазбаша бекітілетін қарапайым ережелер.",
+    r1h:"Комиссиямыздың 50%-ына дейін", r1p:"Нақты үлес мәміле түріне және сіздің қатысуыңызға байланысты. Оны жұмыс басталғанға дейін жазбаша келісеміз.",
+    r2h:"Алғашқы таныстырудан бастап бекітіледі", r2p:"Клиенттің немесе нысанның сізге бекітілгенін жазбаша растаймыз.",
+    r3h:"Базамыз бойынша адал тексеру", r3p:"Егер клиент немесе нысан бізбен бұрыннан жұмыс істесе, бұл туралы бірден айтамыз.",
+    r4h:"Төлем — бізге төлегенде", r4p:"Комиссиямыз түскен бойда үлесіңізді аласыз. Мәміле жасалмаса, ешкім ешкімге қарыз емес.",
+    r5h:"Құпиялылық", r5p:"Клиентіңізбен тек сіздің келісіміңізбен байланысамыз. Барлық деректер арамызда қалады.",
+    fqEyebrow:"Сұрақтар", fqTitle:"Жиі қойылатын сұрақтар",
+    q1:"Брокер лицензиясы керек пе?", a1:"Жоқ. Клиентті немесе нысанды ұсыну үшін лицензия қажет емес. Әр серіктеспен қысқа келісім жасаймыз. Лицензияланған брокерлер мен агенттіктер бізбен co-broking шарты бойынша жұмыс істейді.",
+    q2:"Менің үлесім қалай анықталады?", a2:"Комиссиямыздың 50%-ына дейін — мәміле түріне және сіздің қатысуыңызға қарай. Жай таныстыру — азырақ, мәмілеге белсенді көмек — көбірек. Пайызды жұмыс басталғанға дейін жазбаша келісеміз.",
+    q3:"Ақшаны қашан аламын?", a3:"Девелоперден немесе сатушыдан комиссиямызды алғаннан кейін. Off-plan мәмілелерде девелопер әдетте агенттікке сатып алушының алғашқы жарнасынан және SPA-ға қол қойылғаннан кейін төлейді. Болжамды мерзімді басында айтамыз.",
+    q4:"Клиент басқа нысан сатып алса ше?", a4:"Ұсыныс нақты лотқа емес, клиентке байланған. Келісім мерзімі ішінде біз арқылы жасалған сатып алу есептеледі.",
+    q5:"Қандай нысандар сәйкес келеді?", a5:"БАӘ мен Омандағы off-plan және дайын мүлік: пәтерлер, виллалар, таунхаустар, жер учаскелері, коммерциялық үй-жайлар.",
+    q6:"Қазақстаннан немесе басқа елден қатысуға бола ма?", a6:"Иә, қай жерде болсаңыз да. Біз қашықтан жұмыс істейміз, ал Қазақстанда серіктес компаниямыз бар — «Platinum Real Estate» ЖШС.",
+    sbEyebrow:"Өтінім", sbTitle:"Клиентті <em>немесе нысанды ұсыныңыз.</em>",
+    sbSub:"Форманы толтырыңыз — дайын хабарламасы бар WhatsApp ашылады. Немесе бізге тікелей жазыңыз. Сол күні жауап береміз.",
+    fTitle:"Серіктес өтінімі", fName:"Атыңыз", fPhone:"Телефоныңыз / WhatsApp", fType:"Не ұсынғыңыз келеді",
+    t1:"Сатып алушы клиент", t2:"Сатылатын нысан", t3:"Агенттік ретінде серіктестік", fDet:"Толығырақ",
+    ph_t1:"Клиент не іздейді: бюджет, орналасуы, сатып алу мақсаты",
+    ph_t2:"Нысан: орналасуы, түрі, ауданы, бағасы",
+    ph_t3:"Агенттік атауы, ел, қандай клиенттер",
+    fBtn:"WhatsApp арқылы жіберу", fErr:"Аты-жөніңіз бен телефоныңызды көрсетіңіз.",
+    fNote:"Клиенттің немесе меншік иесінің байланыс деректерін тек олардың келісімімен беріңіз. Клиент немесе нысан біз жазбаша растағаннан кейін сізге бекітіледі.",
+    ftHome:"Басты бет", ftOman:"Оман каталогы", ftContact:"Байланыс",
+    fine:"Осы беттегі серіктестік бағдарлама шарттары — қысқаша сипаттама. Үлес, төлеу және бекіту тәртібі әр серіктеспен жазбаша келісімде белгіленеді. Сыйақы тек аяқталған мәмілелер бойынша төленеді. Astana Real Estate LLC SPC — брокерлік компания, Абу-Даби, БАӘ. «Platinum Real Estate» ЖШС — Қазақстан.",
+    waHello:"Сәлеметсіз бе! Серіктестік бағдарлама бойынша өтінім.", waName:"Аты-жөні", waPhone:"Телефон", waType:"Сұраныс", waDet:"Толығырақ"
+  }
+};
+
+let lang = 'en';
+function setPlaceholder(){
+  const det = document.getElementById('f-det');
+  det.placeholder = I18N[lang]['ph_' + document.getElementById('f-type').value] || '';
+}
+function setLang(l, save){
+  if (!I18N[l]) l = 'en';
+  lang = l;
+  document.documentElement.lang = l;
+  const t = I18N[l];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (t[k] !== undefined) el.innerHTML = t[k];
+  });
+  document.querySelectorAll('.lang button').forEach(b => b.classList.toggle('on', b.dataset.lang === l));
+  setPlaceholder();
+  if (save) { try { localStorage.setItem('ar-lang', l); } catch(e) {} }
+}
+document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang, true)));
+
+// initial language: ?lang= → saved (shared with the homepage) → browser
+(function(){
+  let l = new URLSearchParams(location.search).get('lang');
+  if (!l) { try { l = localStorage.getItem('ar-lang'); } catch(e) {} }
+  if (!l) {
+    const n = (navigator.language || 'en').toLowerCase();
+    l = n.startsWith('kk') ? 'kk' : n.startsWith('ru') ? 'ru' : 'en';
+  }
+  setLang(l, false);
+})();
+
+document.body.classList.remove('no-js');
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// header state
+const header = document.querySelector('header');
+const onScroll = () => header.classList.toggle('solid', window.scrollY > 40);
+onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+// mobile menu
+const burger = document.querySelector('.burger');
+burger.addEventListener('click', () => {
+  const open = document.body.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open);
+});
+document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => {
+  document.body.classList.remove('open'); burger.setAttribute('aria-expanded', false);
+}));
+
+// reveal on scroll
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+  }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.rv').forEach(el => el.classList.add('in'));
+}
+
+// buttons that preselect the request type
+const typeSel = document.getElementById('f-type');
+typeSel.addEventListener('change', setPlaceholder);
+document.querySelectorAll('[data-type]').forEach(a => a.addEventListener('click', () => {
+  typeSel.value = a.dataset.type; setPlaceholder();
+}));
+(function(){
+  const t = new URLSearchParams(location.search).get('type');
+  if (t && I18N.en[t]) { typeSel.value = t; setPlaceholder(); }
+})();
+
+// partner form → WhatsApp
+document.getElementById('lead').addEventListener('submit', e => {
+  e.preventDefault();
+  const v = id => document.getElementById(id).value.trim();
+  const err = document.getElementById('f-err');
+  if (!v('f-name') || !v('f-phone')) { err.style.display = 'block'; return; }
+  err.style.display = 'none';
+  const t = I18N[lang];
+  const lines = [t.waHello, '', t.waName + ': ' + v('f-name'), t.waPhone + ': ' + v('f-phone'),
+    t.waType + ': ' + typeSel.options[typeSel.selectedIndex].text];
+  if (v('f-det')) lines.push(t.waDet + ': ' + v('f-det'));
+  window.open('https://wa.me/971507369833?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener');
+});
+</script>
+</body>
+</html>
